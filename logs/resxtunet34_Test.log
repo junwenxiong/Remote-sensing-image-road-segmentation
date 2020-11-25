@@ -1,0 +1,19 @@
+model_name: resxtunet3435.pth     time: 85
+val_miou 0.8298614355220023 val_acc 0.962601172095314 val_loss: 0.9802395993853635
+********
+model_name: resxtunet3436.pth     time: 170
+val_miou 0.8280417975697053 val_acc 0.9618777463780367 val_loss: 0.981054115502592
+********
+model_name: resxtunet3437.pth     time: 255
+val_miou 0.8296974577374765 val_acc 0.9625446528674447 val_loss: 0.9809667307106569
+********
+model_name: resxtunet3438.pth     time: 342
+val_miou 0.8303121506414753 val_acc 0.9621516345019009 val_loss: 0.9814962503266207
+********
+model_name: resxtunet3439.pth     time: 430
+val_miou 0.8283183430413106 val_acc 0.9614434701236174 val_loss: 0.9826836457705115
+********
+model_name: resxtunet3440.pth     time: 519
+val_miou 0.8315914471434876 val_acc 0.9629297103473847 val_loss: 0.9811367729609025
+********
+Finish!

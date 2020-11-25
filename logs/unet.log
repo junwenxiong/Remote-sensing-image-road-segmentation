@@ -1,0 +1,1 @@
+Namespace(backbone='unet', batch_size=16, combine=False, dataset='./huawei/new_data/384', dyrelu='True', epochs=100, learn_rate=0.0001, loss='dice_bce', model1=None, model1_checkpoint=None, model2=None, model2_checkpoint=None, optim='adam', resume=None, test=False, train=True, workers=8)

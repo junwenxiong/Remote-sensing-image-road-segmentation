@@ -1,0 +1,10 @@
+model_name: res34unetv512.pth     time: 58
+val_miou 0.8054140265822506 val_acc 0.9553522022071481 val_loss: 0.9796558978084572
+********
+model_name: res34unetv514.pth     time: 115
+val_miou 0.8321842307884185 val_acc 0.9627646125788359 val_loss: 0.9816099267923283
+********
+model_name: res34unetv515.pth     time: 171
+val_miou 0.8306378190341659 val_acc 0.9623267250850981 val_loss: 0.9826448177526852
+********
+Finish!

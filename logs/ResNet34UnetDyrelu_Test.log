@@ -1,0 +1,61 @@
+model_name: ResNet34UnetDyrelu55.pth     time: 39
+val_miou 0.8196156515080334 val_acc 0.959915928662142 val_loss: 0.9806240749231634
+********
+model_name: ResNet34UnetDyrelu56.pth     time: 78
+val_miou 0.8176387713329502 val_acc 0.959371388277268 val_loss: 0.980862617094249
+********
+model_name: ResNet34UnetDyrelu57.pth     time: 118
+val_miou 0.8204166379992165 val_acc 0.9604727418664942 val_loss: 0.9804875991720566
+********
+model_name: ResNet34UnetDyrelu58.pth     time: 159
+val_miou 0.820231365205743 val_acc 0.9598966052825438 val_loss: 0.9806419642851314
+********
+model_name: ResNet34UnetDyrelu59.pth     time: 201
+val_miou 0.8185008803666517 val_acc 0.960368215081526 val_loss: 0.9800077224957114
+********
+model_name: ResNet34UnetDyrelu60.pth     time: 244
+val_miou 0.8205711311701523 val_acc 0.960106615076728 val_loss: 0.9809851440038273
+********
+model_name: ResNet34UnetDyrelu61.pth     time: 287
+val_miou 0.8199750251870115 val_acc 0.960324078320182 val_loss: 0.9802607468423996
+********
+model_name: ResNet34UnetDyrelu62.pth     time: 332
+val_miou 0.8207284828663728 val_acc 0.9604699420418968 val_loss: 0.980906358297496
+********
+model_name: ResNet34UnetDyrelu64.pth     time: 378
+val_miou 0.8226784062187643 val_acc 0.9602825297391351 val_loss: 0.9813072359498172
+********
+model_name: ResNet34UnetDyrelu65.pth     time: 426
+val_miou 0.8196584493089246 val_acc 0.9600133589882264 val_loss: 0.981177439664137
+********
+model_name: ResNet34UnetDyrelu66.pth     time: 478
+val_miou 0.822375485157024 val_acc 0.9610397165471857 val_loss: 0.9802594256592306
+********
+model_name: ResNet34UnetDyrelu67.pth     time: 531
+val_miou 0.8238085293781364 val_acc 0.9612953522626091 val_loss: 0.9806803543778027
+********
+model_name: ResNet34UnetDyrelu68.pth     time: 582
+val_miou 0.8204475683305785 val_acc 0.9599377152754024 val_loss: 0.9816802824563521
+********
+model_name: ResNet34UnetDyrelu69.pth     time: 634
+val_miou 0.821796525804985 val_acc 0.9606916560208734 val_loss: 0.9813440607033949
+********
+model_name: ResNet34UnetDyrelu70.pth     time: 688
+val_miou 0.8215501923374486 val_acc 0.9607529793193633 val_loss: 0.9807201909190193
+********
+model_name: ResNet34UnetDyrelu71.pth     time: 742
+val_miou 0.8234629363357301 val_acc 0.9611816508247253 val_loss: 0.9805449398762403
+********
+model_name: ResNet34UnetDyrelu72.pth     time: 804
+val_miou 0.8231270554954117 val_acc 0.9613284580210314 val_loss: 0.9803111329276294
+********
+model_name: ResNet34UnetDyrelu73.pth     time: 867
+val_miou 0.8236735050261274 val_acc 0.9614476724104448 val_loss: 0.9802819591633138
+********
+model_name: ResNet34UnetDyrelu74.pth     time: 926
+val_miou 0.8232424644400033 val_acc 0.9610867857295562 val_loss: 0.9813689126528521
+********
+model_name: ResNet34UnetDyrelu75.pth     time: 992
+val_miou 0.8261327103607865 val_acc 0.9612725303772299 val_loss: 0.9818492242518593
+********
+Finish!

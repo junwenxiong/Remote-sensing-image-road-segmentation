@@ -1,0 +1,2 @@
+CUDA_VISIBLE_DEVICES=0 python train_res18.py --backbone unet --dyrelu True --dataset ./huawei/new_data/384 --workers 8 \
+--epochs 100 --batch-size 16 --learn-rate 1e-4 --loss dice_bce  --optim adam --iter-num 1000

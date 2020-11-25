@@ -1,0 +1,11 @@
+Namespace(batch_size=64, dataset='./huawei', gpus='1', lr=0.0001, network='se_resnet_50', num_class=2, num_epochs=100, print_freq=10, resume='', save_epoch_freq=1, save_path='output', start_epoch=0, workers=8)
+[Eopoch 0/99]-[batch:0/1561] val Loss: 0.006489 Acc: 0.8281
+epoch: 0 Loss: 0.4663, Acc:51.9681
+[Eopoch 1/99]-[batch:0/1561] val Loss: 0.006739 Acc: 0.8281
+epoch: 1 Loss: 0.4650, Acc:52.0319
+[Eopoch 2/99]-[batch:0/1561] val Loss: 0.004389 Acc: 0.9219
+epoch: 2 Loss: 0.4312, Acc:52.2234
+[Eopoch 3/99]-[batch:0/1561] val Loss: 0.005804 Acc: 0.8281
+epoch: 3 Loss: 0.4330, Acc:52.0957
+[Eopoch 4/99]-[batch:0/1561] val Loss: 0.010198 Acc: 0.7031
+epoch: 4 Loss: 0.4514, Acc:52.0957

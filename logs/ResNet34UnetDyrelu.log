@@ -1,0 +1,2539 @@
+val_epoch: 0 it_train_num: 500     time: 260
+val_miou 0.6717820455645056 val_acc 0.921314399719239 val_loss: 0.24730468487739563
+********
+val_epoch: 0 it_train_num: 1000     time: 522
+val_miou 0.705355860602836 val_acc 0.9290723724365235 val_loss: 0.19240524366497994
+********
+val_epoch: 0 it_train_num: 1500     time: 781
+val_miou 0.7252140464827432 val_acc 0.9340477422078447 val_loss: 0.17566551208496095
+********
+val_epoch: 0 it_train_num: 2000     time: 1045
+val_miou 0.7229692606193444 val_acc 0.935727007548014 val_loss: 0.17234343391656876
+********
+val_epoch: 0 it_train_num: 2500     time: 1313
+val_miou 0.7284952884260136 val_acc 0.9371341298421227 val_loss: 0.1694547351896763
+********
+val_epoch: 0 it_train_num: 3000     time: 1576
+val_miou 0.7361993338134737 val_acc 0.9359066797892256 val_loss: 0.16541680252552032
+********
+val_epoch: 0 it_train_num: 3500     time: 1838
+val_miou 0.7376766354062145 val_acc 0.932365735371907 val_loss: 0.1641015856564045
+********
+val_epoch: 0 it_train_num: 4000     time: 2095
+val_miou 0.744223396216604 val_acc 0.939118324279785 val_loss: 0.16350146275758742
+********
+val_epoch: 0 it_train_num: 4167     time: 2212
+val_miou 0.7438493626980287 val_acc 0.9363008702596025 val_loss: 0.1625290585756302
+********
+*********
+epoch: 0     time: 2212
+train_loss: 0.19410271244581753
+SHAPE: (256, 256)
+********************************************
+val_epoch: 1 it_train_num: 4500     time: 2400
+val_miou 0.7374777550328645 val_acc 0.9380874964396154 val_loss: 0.16560682126879692
+********
+val_epoch: 1 it_train_num: 5000     time: 2658
+val_miou 0.7499929255244374 val_acc 0.9383302968343101 val_loss: 0.16121299281716348
+********
+val_epoch: 1 it_train_num: 5500     time: 2924
+val_miou 0.7481201435896673 val_acc 0.9377073059082026 val_loss: 0.16127635970711707
+********
+val_epoch: 1 it_train_num: 6000     time: 3187
+val_miou 0.755722314362702 val_acc 0.9416477025349936 val_loss: 0.15873482736945152
+********
+val_epoch: 1 it_train_num: 6500     time: 3437
+val_miou 0.7538575877651672 val_acc 0.94011634572347 val_loss: 0.16020452988147735
+********
+val_epoch: 1 it_train_num: 7000     time: 3658
+val_miou 0.7603365728594766 val_acc 0.942759653727213 val_loss: 0.15825123277306558
+********
+val_epoch: 1 it_train_num: 7500     time: 3879
+val_miou 0.7642702627608501 val_acc 0.9434554951985682 val_loss: 0.15654681605100632
+********
+val_epoch: 1 it_train_num: 8000     time: 4099
+val_miou 0.755277731079944 val_acc 0.9424426549275718 val_loss: 0.15919081914424896
+********
+val_epoch: 1 it_train_num: 8334     time: 4259
+val_miou 0.7635971369280122 val_acc 0.943220016479492 val_loss: 0.15678578886389732
+********
+*********
+epoch: 1     time: 4259
+train_loss: 0.15967981660354616
+SHAPE: (256, 256)
+********************************************
+val_epoch: 2 it_train_num: 8500     time: 4358
+val_miou 0.7647659174467484 val_acc 0.942326278686523 val_loss: 0.15686901038885118
+********
+val_epoch: 2 it_train_num: 9000     time: 4579
+val_miou 0.7649906644937434 val_acc 0.9455716629028323 val_loss: 0.15715230536460875
+********
+val_epoch: 2 it_train_num: 9500     time: 4799
+val_miou 0.7680264707100457 val_acc 0.9451602300008134 val_loss: 0.15573293852806092
+********
+val_epoch: 2 it_train_num: 10000     time: 5020
+val_miou 0.7675280581956753 val_acc 0.9449608993530274 val_loss: 0.15589082819223404
+********
+val_epoch: 2 it_train_num: 10500     time: 5241
+val_miou 0.7694449573172137 val_acc 0.9450534311930334 val_loss: 0.1566280083656311
+********
+val_epoch: 2 it_train_num: 11000     time: 5461
+val_miou 0.76747893108508 val_acc 0.9448737843831378 val_loss: 0.1572267652451992
+********
+val_epoch: 2 it_train_num: 11500     time: 5682
+val_miou 0.7693775345261638 val_acc 0.9443197987874353 val_loss: 0.1547248259782791
+********
+val_epoch: 2 it_train_num: 12000     time: 5902
+val_miou 0.7741786185786209 val_acc 0.9460280151367184 val_loss: 0.15382275480031968
+********
+val_epoch: 2 it_train_num: 12500     time: 6123
+val_miou 0.7695333475226901 val_acc 0.9437124379475909 val_loss: 0.1542070052921772
+********
+val_epoch: 2 it_train_num: 12501     time: 6161
+val_miou 0.7701040792497433 val_acc 0.944144421895345 val_loss: 0.15405419474840165
+********
+*********
+epoch: 2     time: 6161
+train_loss: 0.15572971325856705
+SHAPE: (256, 256)
+********************************************
+val_epoch: 3 it_train_num: 13000     time: 6384
+val_miou 0.7737019654819589 val_acc 0.9441442693074543 val_loss: 0.15339597964286805
+********
+val_epoch: 3 it_train_num: 13500     time: 6607
+val_miou 0.7739042935576115 val_acc 0.9467651468912761 val_loss: 0.1535765225291252
+********
+val_epoch: 3 it_train_num: 14000     time: 6830
+val_miou 0.7758348556744562 val_acc 0.9465970891316727 val_loss: 0.1534979627430439
+********
+val_epoch: 3 it_train_num: 14500     time: 7053
+val_miou 0.7797281750497078 val_acc 0.9479145355224609 val_loss: 0.15264471280574798
+********
+val_epoch: 3 it_train_num: 15000     time: 7276
+val_miou 0.7807797984195204 val_acc 0.9489124221801751 val_loss: 0.15266463923454285
+********
+val_epoch: 3 it_train_num: 15500     time: 7500
+val_miou 0.7779191922691124 val_acc 0.9465534210205073 val_loss: 0.15316412195563317
+********
+val_epoch: 3 it_train_num: 16000     time: 7723
+val_miou 0.7830195179892455 val_acc 0.9502156346638999 val_loss: 0.15188824677467347
+********
+val_epoch: 3 it_train_num: 16500     time: 7946
+val_miou 0.7785866195360929 val_acc 0.947791313171386 val_loss: 0.15256152668595313
+********
+val_epoch: 3 it_train_num: 16668     time: 8046
+val_miou 0.7829195412696878 val_acc 0.9488832295735676 val_loss: 0.151641557097435
+********
+*********
+epoch: 3     time: 8046
+train_loss: 0.15323691462366193
+SHAPE: (256, 256)
+********************************************
+val_epoch: 4 it_train_num: 17000     time: 8207
+val_miou 0.7834978650171223 val_acc 0.9502495702107744 val_loss: 0.15182133710384368
+********
+val_epoch: 4 it_train_num: 17500     time: 8430
+val_miou 0.7862373921125345 val_acc 0.9500802332560215 val_loss: 0.1512797505557537
+********
+val_epoch: 4 it_train_num: 18000     time: 8653
+val_miou 0.7813659697717822 val_acc 0.9480809097290037 val_loss: 0.15173897793889046
+********
+val_epoch: 4 it_train_num: 18500     time: 8875
+val_miou 0.7886413407717977 val_acc 0.9512595570882167 val_loss: 0.1513088618516922
+********
+val_epoch: 4 it_train_num: 19000     time: 9098
+val_miou 0.7815189379203483 val_acc 0.9484341837565102 val_loss: 0.15192895209789276
+********
+val_epoch: 4 it_train_num: 19500     time: 9321
+val_miou 0.7840781703253772 val_acc 0.9496668828328454 val_loss: 0.15144615021347999
+********
+val_epoch: 4 it_train_num: 20000     time: 9545
+val_miou 0.7865212426406533 val_acc 0.9497346598307291 val_loss: 0.15147494420409202
+********
+val_epoch: 4 it_train_num: 20500     time: 9768
+val_miou 0.788523072489164 val_acc 0.9513303502400716 val_loss: 0.1506895372569561
+********
+val_epoch: 4 it_train_num: 20835     time: 9929
+val_miou 0.788530666159681 val_acc 0.9524369913736982 val_loss: 0.1514947653412819
+********
+*********
+epoch: 4     time: 9929
+train_loss: 0.15164852360290734
+SHAPE: (256, 256)
+********************************************
+val_epoch: 5 it_train_num: 21000     time: 10028
+val_miou 0.7878216514473896 val_acc 0.9506807683308921 val_loss: 0.1507569462954998
+********
+val_epoch: 5 it_train_num: 21500     time: 10251
+val_miou 0.789383959105591 val_acc 0.9508570988972981 val_loss: 0.15097024670243264
+********
+val_epoch: 5 it_train_num: 22000     time: 10474
+val_miou 0.78682226645321 val_acc 0.9502155329386396 val_loss: 0.15040913298726083
+********
+val_epoch: 5 it_train_num: 22500     time: 10697
+val_miou 0.7891023647310716 val_acc 0.951166656494141 val_loss: 0.15040885066986084
+********
+val_epoch: 5 it_train_num: 23000     time: 10920
+val_miou 0.7849354592460279 val_acc 0.9502165857950848 val_loss: 0.1515990169942379
+********
+val_epoch: 5 it_train_num: 23500     time: 11143
+val_miou 0.7906162583918754 val_acc 0.9514730936686202 val_loss: 0.1495969700217247
+********
+val_epoch: 5 it_train_num: 24000     time: 11365
+val_miou 0.7889206416177944 val_acc 0.9506861317952472 val_loss: 0.14985503542423248
+********
+val_epoch: 5 it_train_num: 24500     time: 11588
+val_miou 0.7923119539586913 val_acc 0.952680346171061 val_loss: 0.15023464658856392
+********
+val_epoch: 5 it_train_num: 25000     time: 11811
+val_miou 0.7895151320520961 val_acc 0.9507070032755532 val_loss: 0.14996770188212394
+********
+val_epoch: 5 it_train_num: 25002     time: 11850
+val_miou 0.7917315769979185 val_acc 0.95116967010498 val_loss: 0.1501728323698044
+********
+*********
+epoch: 5     time: 11850
+train_loss: 0.15050384929018795
+SHAPE: (256, 256)
+********************************************
+val_epoch: 6 it_train_num: 25500     time: 12072
+val_miou 0.7904217099057064 val_acc 0.9502578735351564 val_loss: 0.14942882657051088
+********
+val_epoch: 6 it_train_num: 26000     time: 12295
+val_miou 0.7937834393219381 val_acc 0.9523387145996096 val_loss: 0.14948526594042777
+********
+val_epoch: 6 it_train_num: 26500     time: 12518
+val_miou 0.7913204673056701 val_acc 0.9510476710001623 val_loss: 0.14900466239452362
+********
+val_epoch: 6 it_train_num: 27000     time: 12740
+val_miou 0.7921285987366011 val_acc 0.9514126739501956 val_loss: 0.1490448709130287
+********
+val_epoch: 6 it_train_num: 27500     time: 12963
+val_miou 0.7930954685018469 val_acc 0.9513740234375001 val_loss: 0.14872880855202675
+********
+val_epoch: 6 it_train_num: 28000     time: 13186
+val_miou 0.7866583353280059 val_acc 0.9487766418457032 val_loss: 0.15064861783385278
+********
+val_epoch: 6 it_train_num: 28500     time: 13409
+val_miou 0.794837787597041 val_acc 0.953393013000488 val_loss: 0.1491308991611004
+********
+val_epoch: 6 it_train_num: 29000     time: 13632
+val_miou 0.7889468545662406 val_acc 0.9504570236206054 val_loss: 0.15116081887483596
+********
+val_epoch: 6 it_train_num: 29169     time: 13732
+val_miou 0.7920944625478717 val_acc 0.9518327433268224 val_loss: 0.1494060963988304
+********
+*********
+epoch: 6     time: 13732
+train_loss: 0.14961314451316865
+SHAPE: (256, 256)
+********************************************
+val_epoch: 7 it_train_num: 29500     time: 13893
+val_miou 0.7949173816062498 val_acc 0.9533305130004887 val_loss: 0.14951542723178862
+********
+val_epoch: 7 it_train_num: 30000     time: 14116
+val_miou 0.791267096169904 val_acc 0.9505994847615565 val_loss: 0.14898194816708565
+********
+val_epoch: 7 it_train_num: 30500     time: 14339
+val_miou 0.7938741572829949 val_acc 0.9520393269856767 val_loss: 0.14878686222434043
+********
+val_epoch: 7 it_train_num: 31000     time: 14562
+val_miou 0.7927039665572504 val_acc 0.9511277465820308 val_loss: 0.14943111684918403
+********
+val_epoch: 7 it_train_num: 31500     time: 14784
+val_miou 0.7915759378796314 val_acc 0.9504854329427082 val_loss: 0.14943727189302444
+********
+val_epoch: 7 it_train_num: 32000     time: 15007
+val_miou 0.7959843780505985 val_acc 0.9525420837402343 val_loss: 0.14913849848508834
+********
+val_epoch: 7 it_train_num: 32500     time: 15230
+val_miou 0.7988122926871437 val_acc 0.9538619689941403 val_loss: 0.14839663365483283
+********
+val_epoch: 7 it_train_num: 33000     time: 15452
+val_miou 0.7980219058546645 val_acc 0.9528167419433596 val_loss: 0.14778244903683663
+********
+val_epoch: 7 it_train_num: 33336     time: 15614
+val_miou 0.7956059887447858 val_acc 0.9522800242106116 val_loss: 0.14864289847016335
+********
+*********
+epoch: 7     time: 15614
+train_loss: 0.14867293002016402
+SHAPE: (256, 256)
+********************************************
+val_epoch: 8 it_train_num: 33500     time: 15713
+val_miou 0.7969038829320116 val_acc 0.9529078165690108 val_loss: 0.14888879409432412
+********
+val_epoch: 8 it_train_num: 34000     time: 15935
+val_miou 0.7958805259600739 val_acc 0.9527853037516273 val_loss: 0.14827694204449654
+********
+val_epoch: 8 it_train_num: 34500     time: 16158
+val_miou 0.7970145223080926 val_acc 0.9531357472737627 val_loss: 0.14889598470926285
+********
+val_epoch: 8 it_train_num: 35000     time: 16381
+val_miou 0.7976994664607855 val_acc 0.9534665044148765 val_loss: 0.14835750144720078
+********
+val_epoch: 8 it_train_num: 35500     time: 16604
+val_miou 0.7979665384115247 val_acc 0.9534090067545568 val_loss: 0.14789230972528458
+********
+val_epoch: 8 it_train_num: 36000     time: 16827
+val_miou 0.801196956132052 val_acc 0.9538322753906248 val_loss: 0.14756292712688446
+********
+val_epoch: 8 it_train_num: 36500     time: 17049
+val_miou 0.7984375876876846 val_acc 0.9526985778808592 val_loss: 0.1472932244539261
+********
+val_epoch: 8 it_train_num: 37000     time: 17272
+val_miou 0.7982405057555313 val_acc 0.9531943918863933 val_loss: 0.1476304179430008
+********
+val_epoch: 8 it_train_num: 37500     time: 17495
+val_miou 0.7938950004225304 val_acc 0.951735638936361 val_loss: 0.14879596531391143
+********
+val_epoch: 8 it_train_num: 37503     time: 17534
+val_miou 0.7936100587948085 val_acc 0.9507636947631831 val_loss: 0.14926895850896835
+********
+*********
+epoch: 8     time: 17534
+train_loss: 0.1482389442889073
+SHAPE: (256, 256)
+********************************************
+val_epoch: 9 it_train_num: 38000     time: 17756
+val_miou 0.799660855068203 val_acc 0.95342450205485 val_loss: 0.14739094734191893
+********
+val_epoch: 9 it_train_num: 38500     time: 17979
+val_miou 0.7965811698606644 val_acc 0.9528454538981124 val_loss: 0.14829582911729813
+********
+val_epoch: 9 it_train_num: 39000     time: 18203
+val_miou 0.7995089209574697 val_acc 0.9530854136149093 val_loss: 0.14705416133999824
+********
+val_epoch: 9 it_train_num: 39500     time: 18425
+val_miou 0.7996837510508146 val_acc 0.9528713226318363 val_loss: 0.14698156008124352
+********
+val_epoch: 9 it_train_num: 40000     time: 18648
+val_miou 0.7989524497364213 val_acc 0.9532366943359377 val_loss: 0.1473748055100441
+********
+val_epoch: 9 it_train_num: 40500     time: 18871
+val_miou 0.798376058375824 val_acc 0.9532438049316402 val_loss: 0.14811108216643334
+********
+val_epoch: 9 it_train_num: 41000     time: 19094
+val_miou 0.8008248628241394 val_acc 0.9543858286539713 val_loss: 0.14738645285367966
+********
+val_epoch: 9 it_train_num: 41500     time: 19317
+val_miou 0.8013837335979055 val_acc 0.952908800760904 val_loss: 0.1474043027460575
+********
+val_epoch: 9 it_train_num: 41670     time: 19418
+val_miou 0.7993590012650853 val_acc 0.9533854090372722 val_loss: 0.1472845126390457
+********
+*********
+epoch: 9     time: 19418
+train_loss: 0.14747727899413215
+SHAPE: (256, 256)
+********************************************
+val_epoch: 10 it_train_num: 42000     time: 19578
+val_miou 0.8031986005252268 val_acc 0.9547580032348629 val_loss: 0.14690581461787225
+********
+val_epoch: 10 it_train_num: 42500     time: 19801
+val_miou 0.8007494793751431 val_acc 0.9532911732991537 val_loss: 0.14736978843808174
+********
+val_epoch: 10 it_train_num: 43000     time: 20024
+val_miou 0.7980034947703657 val_acc 0.9523557815551763 val_loss: 0.14729509335756302
+********
+val_epoch: 10 it_train_num: 43500     time: 20247
+val_miou 0.8013519329073456 val_acc 0.9540437647501635 val_loss: 0.14697497156262398
+********
+val_epoch: 10 it_train_num: 44000     time: 20470
+val_miou 0.8007616339960674 val_acc 0.9526391092936194 val_loss: 0.14718846574425698
+********
+val_epoch: 10 it_train_num: 44500     time: 20693
+val_miou 0.7989921880789773 val_acc 0.953948928833008 val_loss: 0.14783486610651017
+********
+val_epoch: 10 it_train_num: 45000     time: 20916
+val_miou 0.8033939539630512 val_acc 0.9547318115234379 val_loss: 0.1470337891280651
+********
+val_epoch: 10 it_train_num: 45500     time: 21139
+val_miou 0.8037417913657154 val_acc 0.9545220616658532 val_loss: 0.14652421852946282
+********
+val_epoch: 10 it_train_num: 45837     time: 21302
+val_miou 0.804170303386219 val_acc 0.9548549245198565 val_loss: 0.14652331459522247
+********
+*********
+epoch: 10     time: 21302
+train_loss: 0.1468761507336802
+SHAPE: (256, 256)
+********************************************
+val_epoch: 11 it_train_num: 46000     time: 21401
+val_miou 0.7976923055374245 val_acc 0.9521989618937177 val_loss: 0.14798019590973854
+********
+val_epoch: 11 it_train_num: 46500     time: 21624
+val_miou 0.8037557919628817 val_acc 0.9539917170206708 val_loss: 0.14634928596019744
+********
+val_epoch: 11 it_train_num: 47000     time: 21847
+val_miou 0.8049903465782139 val_acc 0.9545355733235678 val_loss: 0.14658024764060973
+********
+val_epoch: 11 it_train_num: 47500     time: 22071
+val_miou 0.8017496314531563 val_acc 0.9549028701782231 val_loss: 0.14792808577418326
+********
+val_epoch: 11 it_train_num: 48000     time: 22295
+val_miou 0.8036765092101276 val_acc 0.9543590672810872 val_loss: 0.14668692430853844
+********
+val_epoch: 11 it_train_num: 48500     time: 22520
+val_miou 0.806037147966716 val_acc 0.9555878601074222 val_loss: 0.14669737282395362
+********
+val_epoch: 11 it_train_num: 49000     time: 22744
+val_miou 0.8051531893418276 val_acc 0.9555133666992187 val_loss: 0.14588966128230094
+********
+val_epoch: 11 it_train_num: 49500     time: 22968
+val_miou 0.8040162685430768 val_acc 0.9546511586507156 val_loss: 0.1465920765399933
+********
+val_epoch: 11 it_train_num: 50000     time: 23192
+val_miou 0.7997370099366328 val_acc 0.9523830134073888 val_loss: 0.1462313057780266
+********
+val_epoch: 11 it_train_num: 50004     time: 23231
+val_miou 0.8015227831161416 val_acc 0.9528962020874027 val_loss: 0.1465518332719803
+********
+*********
+epoch: 11     time: 23231
+train_loss: 0.14626789311510727
+SHAPE: (256, 256)
+********************************************
+val_epoch: 12 it_train_num: 50500     time: 23455
+val_miou 0.8051196255838675 val_acc 0.9555396372477217 val_loss: 0.14626124292612075
+********
+val_epoch: 12 it_train_num: 51000     time: 23679
+val_miou 0.8034169945166476 val_acc 0.9544535598754884 val_loss: 0.14635001093149186
+********
+val_epoch: 12 it_train_num: 51500     time: 23903
+val_miou 0.7988662552131214 val_acc 0.9522644297281907 val_loss: 0.14651093703508378
+********
+val_epoch: 12 it_train_num: 52000     time: 24127
+val_miou 0.7960222627696665 val_acc 0.9516026509602864 val_loss: 0.1475213794708252
+********
+val_epoch: 12 it_train_num: 52500     time: 24351
+val_miou 0.8035587461639899 val_acc 0.9538240865071612 val_loss: 0.14619377326965333
+********
+val_epoch: 12 it_train_num: 53000     time: 24575
+val_miou 0.8022903577238019 val_acc 0.9532103856404617 val_loss: 0.14653576174378394
+********
+val_epoch: 12 it_train_num: 53500     time: 24799
+val_miou 0.8030893641146121 val_acc 0.9535164159138994 val_loss: 0.1470543696284294
+********
+val_epoch: 12 it_train_num: 54000     time: 25024
+val_miou 0.8071244879106768 val_acc 0.955077926635742 val_loss: 0.14567977893352507
+********
+val_epoch: 12 it_train_num: 54171     time: 25125
+val_miou 0.8049954738756635 val_acc 0.9543456446329753 val_loss: 0.14594020730257035
+********
+*********
+epoch: 12     time: 25125
+train_loss: 0.14596488517209555
+SHAPE: (256, 256)
+********************************************
+val_epoch: 13 it_train_num: 54500     time: 25287
+val_miou 0.8072216505200347 val_acc 0.955352279663086 val_loss: 0.14548700591921807
+********
+val_epoch: 13 it_train_num: 55000     time: 25510
+val_miou 0.8049589949847952 val_acc 0.9545941238403323 val_loss: 0.146461656242609
+********
+val_epoch: 13 it_train_num: 55500     time: 25733
+val_miou 0.8073792538453154 val_acc 0.9554747212727867 val_loss: 0.14539803978800775
+********
+val_epoch: 13 it_train_num: 56000     time: 25956
+val_miou 0.8032897351953748 val_acc 0.9538486836751303 val_loss: 0.1458392223715782
+********
+val_epoch: 13 it_train_num: 56500     time: 26179
+val_miou 0.8066708051849888 val_acc 0.9558663965860997 val_loss: 0.14567955607175828
+********
+val_epoch: 13 it_train_num: 57000     time: 26402
+val_miou 0.8081925479145557 val_acc 0.9558627827962244 val_loss: 0.14556589913368226
+********
+val_epoch: 13 it_train_num: 57500     time: 26625
+val_miou 0.8105269550626737 val_acc 0.9563919626871743 val_loss: 0.14542366895079611
+********
+val_epoch: 13 it_train_num: 58000     time: 26848
+val_miou 0.8042587711863282 val_acc 0.9546527811686196 val_loss: 0.14556801465153693
+********
+val_epoch: 13 it_train_num: 58338     time: 27011
+val_miou 0.8024053373066412 val_acc 0.9529060058593747 val_loss: 0.14574838688969613
+********
+*********
+epoch: 13     time: 27011
+train_loss: 0.1455064928997241
+SHAPE: (256, 256)
+********************************************
+val_epoch: 14 it_train_num: 58500     time: 27109
+val_miou 0.803926652269401 val_acc 0.9537553812662768 val_loss: 0.1457590433359146
+********
+val_epoch: 14 it_train_num: 59000     time: 27332
+val_miou 0.8036995176121666 val_acc 0.9538906555175782 val_loss: 0.14510339346528053
+********
+val_epoch: 14 it_train_num: 59500     time: 27555
+val_miou 0.8115719142097234 val_acc 0.9565371093750002 val_loss: 0.1441837522685528
+********
+val_epoch: 14 it_train_num: 60000     time: 27777
+val_miou 0.8109685743919202 val_acc 0.9579644622802734 val_loss: 0.1458716014623642
+********
+val_epoch: 14 it_train_num: 60500     time: 28000
+val_miou 0.80938294754974 val_acc 0.9560818557739256 val_loss: 0.1449500749707222
+********
+val_epoch: 14 it_train_num: 61000     time: 28223
+val_miou 0.8065120194536346 val_acc 0.9554816996256515 val_loss: 0.14544381001591683
+********
+val_epoch: 14 it_train_num: 61500     time: 28446
+val_miou 0.8070278822612899 val_acc 0.9542644348144528 val_loss: 0.14575393134355544
+********
+val_epoch: 14 it_train_num: 62000     time: 28669
+val_miou 0.8098997868317334 val_acc 0.9569039154052735 val_loss: 0.14487314361333847
+********
+val_epoch: 14 it_train_num: 62500     time: 28891
+val_miou 0.8081485546483028 val_acc 0.9558765284220373 val_loss: 0.14544825530052186
+********
+val_epoch: 14 it_train_num: 62505     time: 28931
+val_miou 0.8088240040822213 val_acc 0.9558229242960613 val_loss: 0.1450526803433895
+********
+*********
+epoch: 14     time: 28931
+train_loss: 0.1449927733328264
+SHAPE: (256, 256)
+********************************************
+val_epoch: 15 it_train_num: 63000     time: 29152
+val_miou 0.8083339631546557 val_acc 0.955538859049479 val_loss: 0.1454663918018341
+********
+val_epoch: 15 it_train_num: 63500     time: 29375
+val_miou 0.8095250336632553 val_acc 0.9555252024332679 val_loss: 0.14511288622021676
+********
+val_epoch: 15 it_train_num: 64000     time: 29598
+val_miou 0.8103151100123837 val_acc 0.9560267028808588 val_loss: 0.14449065381288528
+********
+val_epoch: 15 it_train_num: 64500     time: 29820
+val_miou 0.812597830574493 val_acc 0.9571297810872399 val_loss: 0.14480442562699317
+********
+val_epoch: 15 it_train_num: 65000     time: 30043
+val_miou 0.8134586231669644 val_acc 0.957503326416016 val_loss: 0.14470971006155015
+********
+val_epoch: 15 it_train_num: 65500     time: 30266
+val_miou 0.8095308409909555 val_acc 0.9560237986246743 val_loss: 0.14457008144259453
+********
+val_epoch: 15 it_train_num: 66000     time: 30489
+val_miou 0.8116515568710776 val_acc 0.9566266479492187 val_loss: 0.14440832522511482
+********
+val_epoch: 15 it_train_num: 66500     time: 30711
+val_miou 0.8098499592777514 val_acc 0.9571754430135091 val_loss: 0.14584235990047456
+********
+val_epoch: 15 it_train_num: 66672     time: 30813
+val_miou 0.8091096890792151 val_acc 0.9555122248331707 val_loss: 0.14556988006830215
+********
+*********
+epoch: 15     time: 30813
+train_loss: 0.14465728615445717
+SHAPE: (256, 256)
+********************************************
+val_epoch: 16 it_train_num: 67000     time: 30973
+val_miou 0.8061506627962017 val_acc 0.9542697016398108 val_loss: 0.14443038448691367
+********
+val_epoch: 16 it_train_num: 67500     time: 31196
+val_miou 0.809122639471763 val_acc 0.9562740529378254 val_loss: 0.14652666306495665
+********
+val_epoch: 16 it_train_num: 68000     time: 31418
+val_miou 0.8107125942338937 val_acc 0.9567021560668941 val_loss: 0.14495911657810212
+********
+val_epoch: 16 it_train_num: 68500     time: 31641
+val_miou 0.8108096018818222 val_acc 0.9559293848673505 val_loss: 0.144199350386858
+********
+val_epoch: 16 it_train_num: 69000     time: 31864
+val_miou 0.807543264569347 val_acc 0.9546788558959961 val_loss: 0.14457423201203345
+********
+val_epoch: 16 it_train_num: 69500     time: 32087
+val_miou 0.8115560408164868 val_acc 0.9570218607584631 val_loss: 0.14434176969528198
+********
+val_epoch: 16 it_train_num: 70000     time: 32310
+val_miou 0.8028227692037848 val_acc 0.9542884852091468 val_loss: 0.14642949202656746
+********
+val_epoch: 16 it_train_num: 70500     time: 32533
+val_miou 0.8109396687427257 val_acc 0.9556189880371094 val_loss: 0.14465966856479645
+********
+val_epoch: 16 it_train_num: 70839     time: 32696
+val_miou 0.8104817219701419 val_acc 0.9560305480957032 val_loss: 0.14495155051350594
+********
+*********
+epoch: 16     time: 32696
+train_loss: 0.14425815346860646
+SHAPE: (256, 256)
+********************************************
+val_epoch: 17 it_train_num: 71000     time: 32794
+val_miou 0.8098721653661008 val_acc 0.9552277654012045 val_loss: 0.14455614098906516
+********
+val_epoch: 17 it_train_num: 71500     time: 33017
+val_miou 0.8101903693646422 val_acc 0.9559457448323568 val_loss: 0.14444929125905037
+********
+val_epoch: 17 it_train_num: 72000     time: 33239
+val_miou 0.8105423529590486 val_acc 0.9559764963785808 val_loss: 0.14451830792427062
+********
+val_epoch: 17 it_train_num: 72500     time: 33462
+val_miou 0.8089322692742599 val_acc 0.9555486653645834 val_loss: 0.14419486692547798
+********
+val_epoch: 17 it_train_num: 73000     time: 33685
+val_miou 0.8119756235165412 val_acc 0.9561084823608402 val_loss: 0.14449432608485221
+********
+val_epoch: 17 it_train_num: 73500     time: 33908
+val_miou 0.8064110928724773 val_acc 0.9541407394409179 val_loss: 0.14428332960605622
+********
+val_epoch: 17 it_train_num: 74000     time: 34131
+val_miou 0.8141082855152393 val_acc 0.957646461486816 val_loss: 0.1442614817917347
+********
+val_epoch: 17 it_train_num: 74500     time: 34354
+val_miou 0.8099376381027618 val_acc 0.9552724507649738 val_loss: 0.14574162286520004
+********
+val_epoch: 17 it_train_num: 75000     time: 34576
+val_miou 0.8137319128546103 val_acc 0.9567608108520504 val_loss: 0.1438969673216343
+********
+val_epoch: 17 it_train_num: 75006     time: 34616
+val_miou 0.8145505909599472 val_acc 0.957456158955892 val_loss: 0.1438094492852688
+********
+*********
+epoch: 17     time: 34616
+train_loss: 0.14385842271944818
+SHAPE: (256, 256)
+********************************************
+val_epoch: 18 it_train_num: 75500     time: 34837
+val_miou 0.8139004157479028 val_acc 0.9572457580566406 val_loss: 0.14337961727380752
+********
+val_epoch: 18 it_train_num: 76000     time: 35060
+val_miou 0.8136412235653993 val_acc 0.9574249140421554 val_loss: 0.14446648481488228
+********
+val_epoch: 18 it_train_num: 76500     time: 35283
+val_miou 0.8077241154764635 val_acc 0.9553780670166014 val_loss: 0.14494505655765533
+********
+val_epoch: 18 it_train_num: 77000     time: 35505
+val_miou 0.8140523682441456 val_acc 0.9569243164062495 val_loss: 0.14345664608478545
+********
+val_epoch: 18 it_train_num: 77500     time: 35728
+val_miou 0.8153465387953206 val_acc 0.9575828247070313 val_loss: 0.1436665257513523
+********
+val_epoch: 18 it_train_num: 78000     time: 35951
+val_miou 0.8133946887394192 val_acc 0.9569908370971683 val_loss: 0.14391530910134315
+********
+val_epoch: 18 it_train_num: 78500     time: 36174
+val_miou 0.8119770073895084 val_acc 0.9567762552897132 val_loss: 0.14410395628213882
+********
+val_epoch: 18 it_train_num: 79000     time: 36397
+val_miou 0.8121469913308278 val_acc 0.9563368886311859 val_loss: 0.14415675693750382
+********
+val_epoch: 18 it_train_num: 79173     time: 36498
+val_miou 0.8093431706449976 val_acc 0.9558926569620768 val_loss: 0.14441606283187866
+********
+*********
+epoch: 18     time: 36498
+train_loss: 0.14343967808503055
+SHAPE: (256, 256)
+********************************************
+val_epoch: 19 it_train_num: 79500     time: 36658
+val_miou 0.8102804966514078 val_acc 0.9552467498779299 val_loss: 0.14464792773127555
+********
+val_epoch: 19 it_train_num: 80000     time: 36880
+val_miou 0.8123185009407742 val_acc 0.9563898239135746 val_loss: 0.1439021572470665
+********
+val_epoch: 19 it_train_num: 80500     time: 37103
+val_miou 0.8112947437698568 val_acc 0.9555626551310228 val_loss: 0.1444965418279171
+********
+val_epoch: 19 it_train_num: 81000     time: 37326
+val_miou 0.8114891129178706 val_acc 0.9561221288045246 val_loss: 0.1443825006186962
+********
+val_epoch: 19 it_train_num: 81500     time: 37549
+val_miou 0.8155581741257181 val_acc 0.9579679285685228 val_loss: 0.14347917819023132
+********
+val_epoch: 19 it_train_num: 82000     time: 37772
+val_miou 0.8107981343801508 val_acc 0.9555577570597329 val_loss: 0.14391536918282508
+********
+val_epoch: 19 it_train_num: 82500     time: 37995
+val_miou 0.8137490715797087 val_acc 0.9575496063232426 val_loss: 0.14398374500870706
+********
+val_epoch: 19 it_train_num: 83000     time: 38217
+val_miou 0.8119974928453325 val_acc 0.9569491271972652 val_loss: 0.14391355976462364
+********
+val_epoch: 19 it_train_num: 83340     time: 38381
+val_miou 0.8148818042422176 val_acc 0.9572358118693034 val_loss: 0.14327041670680046
+********
+*********
+epoch: 19     time: 38381
+train_loss: 0.1431833051479432
+SHAPE: (256, 256)
+********************************************
+val_epoch: 20 it_train_num: 83500     time: 38478
+val_miou 0.8109298081458378 val_acc 0.9556684824625652 val_loss: 0.14401900073885918
+********
+val_epoch: 20 it_train_num: 84000     time: 38701
+val_miou 0.8116572933075183 val_acc 0.9563254674275722 val_loss: 0.1437703595459461
+********
+val_epoch: 20 it_train_num: 84500     time: 38924
+val_miou 0.8149014663582982 val_acc 0.9578166758219397 val_loss: 0.14387789222598077
+********
+val_epoch: 20 it_train_num: 85000     time: 39146
+val_miou 0.813847725548773 val_acc 0.9576201070149746 val_loss: 0.14373567405343055
+********
+val_epoch: 20 it_train_num: 85500     time: 39369
+val_miou 0.8151875246836455 val_acc 0.957541399637858 val_loss: 0.14340781393647195
+********
+val_epoch: 20 it_train_num: 86000     time: 39592
+val_miou 0.8100162455749241 val_acc 0.955962951660156 val_loss: 0.14474540948867798
+********
+val_epoch: 20 it_train_num: 86500     time: 39815
+val_miou 0.8144772088978801 val_acc 0.9571168848673498 val_loss: 0.14388172528147697
+********
+val_epoch: 20 it_train_num: 87000     time: 40038
+val_miou 0.8126779807974189 val_acc 0.9557426681518562 val_loss: 0.14416594645380973
+********
+val_epoch: 20 it_train_num: 87500     time: 40260
+val_miou 0.8165356184561235 val_acc 0.9578905207316072 val_loss: 0.14393864902853964
+********
+val_epoch: 20 it_train_num: 87507     time: 40301
+val_miou 0.8159882620564992 val_acc 0.9577656402587895 val_loss: 0.1436567018032074
+********
+*********
+epoch: 20     time: 40301
+train_loss: 0.1431067219978046
+SHAPE: (256, 256)
+********************************************
+val_epoch: 21 it_train_num: 88000     time: 40521
+val_miou 0.8116339443392796 val_acc 0.9558086039225254 val_loss: 0.14397381520271302
+********
+val_epoch: 21 it_train_num: 88500     time: 40744
+val_miou 0.8164887652274894 val_acc 0.9581326700846353 val_loss: 0.14320178630948066
+********
+val_epoch: 21 it_train_num: 89000     time: 40967
+val_miou 0.8119793583325128 val_acc 0.9561313756306968 val_loss: 0.14380204927921295
+********
+val_epoch: 21 it_train_num: 89500     time: 41190
+val_miou 0.8155272547969662 val_acc 0.9570703048706052 val_loss: 0.14333878436684608
+********
+val_epoch: 21 it_train_num: 90000     time: 41413
+val_miou 0.8144104042493622 val_acc 0.9574398396809896 val_loss: 0.14368275466561317
+********
+val_epoch: 21 it_train_num: 90500     time: 41635
+val_miou 0.8167434761127232 val_acc 0.9577709045410157 val_loss: 0.14402386835217476
+********
+val_epoch: 21 it_train_num: 91000     time: 41858
+val_miou 0.8161518079195267 val_acc 0.9575542119344078 val_loss: 0.14308174806833268
+********
+val_epoch: 21 it_train_num: 91500     time: 42081
+val_miou 0.8162995917241497 val_acc 0.9575803985595706 val_loss: 0.14299628537893294
+********
+val_epoch: 21 it_train_num: 91674     time: 42183
+val_miou 0.8148808290630009 val_acc 0.9573925577799481 val_loss: 0.14355133163928985
+********
+*********
+epoch: 21     time: 42183
+train_loss: 0.14273222963716134
+SHAPE: (256, 256)
+********************************************
+val_epoch: 22 it_train_num: 92000     time: 42342
+val_miou 0.81587759588585 val_acc 0.95816438293457 val_loss: 0.1433445412814617
+********
+val_epoch: 22 it_train_num: 92500     time: 42564
+val_miou 0.8180538532189947 val_acc 0.9580404891967779 val_loss: 0.14291021603345871
+********
+val_epoch: 22 it_train_num: 93000     time: 42787
+val_miou 0.8171641569169831 val_acc 0.9581159566243488 val_loss: 0.14272445791959762
+********
+val_epoch: 22 it_train_num: 93500     time: 43010
+val_miou 0.8181900552625323 val_acc 0.9587142410278321 val_loss: 0.14285054489970206
+********
+val_epoch: 22 it_train_num: 94000     time: 43233
+val_miou 0.814910887873153 val_acc 0.9574043502807624 val_loss: 0.14369963502883912
+********
+val_epoch: 22 it_train_num: 94500     time: 43456
+val_miou 0.8165890604744823 val_acc 0.9579107742309576 val_loss: 0.14367032340168953
+********
+val_epoch: 22 it_train_num: 95000     time: 43679
+val_miou 0.8192656872015324 val_acc 0.95855392964681 val_loss: 0.1427273431122303
+********
+val_epoch: 22 it_train_num: 95500     time: 43901
+val_miou 0.8101705057051091 val_acc 0.9557253061930341 val_loss: 0.1440423246920109
+********
+val_epoch: 22 it_train_num: 95841     time: 44065
+val_miou 0.8155650818400393 val_acc 0.9577437973022465 val_loss: 0.1439209100008011
+********
+*********
+epoch: 22     time: 44065
+train_loss: 0.14239298893960797
+SHAPE: (256, 256)
+********************************************
+val_epoch: 23 it_train_num: 96000     time: 44163
+val_miou 0.8108553079120364 val_acc 0.9554640121459964 val_loss: 0.14371284461021425
+********
+val_epoch: 23 it_train_num: 96500     time: 44385
+val_miou 0.813269140044239 val_acc 0.9557930577596035 val_loss: 0.14330592387914656
+********
+val_epoch: 23 it_train_num: 97000     time: 44608
+val_miou 0.8191601499379415 val_acc 0.9585607782999668 val_loss: 0.14288600730895995
+********
+val_epoch: 23 it_train_num: 97500     time: 44831
+val_miou 0.8177595269286929 val_acc 0.9579822209676105 val_loss: 0.14259578731656075
+********
+val_epoch: 23 it_train_num: 98000     time: 45054
+val_miou 0.8162945775714642 val_acc 0.9576197636922201 val_loss: 0.14372647655010223
+********
+val_epoch: 23 it_train_num: 98500     time: 45277
+val_miou 0.8180136482583583 val_acc 0.9580756988525387 val_loss: 0.1428376032114029
+********
+val_epoch: 23 it_train_num: 99000     time: 45500
+val_miou 0.8170907256130914 val_acc 0.9576488113403318 val_loss: 0.14283480912446975
+********
+val_epoch: 23 it_train_num: 99500     time: 45722
+val_miou 0.8180958597089629 val_acc 0.9585527089436849 val_loss: 0.14277861887216567
+********
+val_epoch: 23 it_train_num: 100000     time: 45945
+val_miou 0.8168393085738633 val_acc 0.9580956166585283 val_loss: 0.14326092964410783
+********
+val_epoch: 23 it_train_num: 100008     time: 45986
+val_miou 0.8183333858129498 val_acc 0.9580781300862626 val_loss: 0.14293315622210503
+********
+*********
+epoch: 23     time: 45986
+train_loss: 0.14211708070177925
+SHAPE: (256, 256)
+********************************************
+val_epoch: 24 it_train_num: 100500     time: 46206
+val_miou 0.816273488212618 val_acc 0.9582330195109054 val_loss: 0.143064995855093
+********
+val_epoch: 24 it_train_num: 101000     time: 46428
+val_miou 0.8165300947736633 val_acc 0.9577276484171547 val_loss: 0.14265391218662263
+********
+val_epoch: 24 it_train_num: 101500     time: 46651
+val_miou 0.817680678028079 val_acc 0.9582777938842773 val_loss: 0.1431480973958969
+********
+val_epoch: 24 it_train_num: 102000     time: 46874
+val_miou 0.8193078521592425 val_acc 0.9588790486653648 val_loss: 0.1429187779724598
+********
+val_epoch: 24 it_train_num: 102500     time: 47097
+val_miou 0.8156329593326995 val_acc 0.9567585627237964 val_loss: 0.14290748393535613
+********
+val_epoch: 24 it_train_num: 103000     time: 47319
+val_miou 0.817144914182174 val_acc 0.9579370117187498 val_loss: 0.14296921074390412
+********
+val_epoch: 24 it_train_num: 103500     time: 47542
+val_miou 0.815328781587929 val_acc 0.9571360905965173 val_loss: 0.1426512085199356
+********
+val_epoch: 24 it_train_num: 104000     time: 47765
+val_miou 0.8159476223887718 val_acc 0.9574504216512041 val_loss: 0.14264608532190323
+********
+val_epoch: 24 it_train_num: 104175     time: 47867
+val_miou 0.8171541741261885 val_acc 0.9576605911254885 val_loss: 0.14390360710024833
+********
+*********
+epoch: 24     time: 47867
+train_loss: 0.14180536515597733
+SHAPE: (256, 256)
+********************************************
+val_epoch: 25 it_train_num: 104500     time: 48026
+val_miou 0.8175101412250139 val_acc 0.9578581390380858 val_loss: 0.14321477189660073
+********
+val_epoch: 25 it_train_num: 105000     time: 48248
+val_miou 0.8173685820669986 val_acc 0.9580077412923174 val_loss: 0.1430771907866001
+********
+val_epoch: 25 it_train_num: 105500     time: 48471
+val_miou 0.8201593865254873 val_acc 0.9584085871378574 val_loss: 0.14249720269441604
+********
+val_epoch: 25 it_train_num: 106000     time: 48693
+val_miou 0.8183809311609272 val_acc 0.9578399251302074 val_loss: 0.14310485607385634
+********
+val_epoch: 25 it_train_num: 106500     time: 48916
+val_miou 0.8188976748820637 val_acc 0.9581136016845708 val_loss: 0.14225679469108582
+********
+val_epoch: 25 it_train_num: 107000     time: 49139
+val_miou 0.8189806262736518 val_acc 0.958553830464681 val_loss: 0.1423621792793274
+********
+val_epoch: 25 it_train_num: 107500     time: 49362
+val_miou 0.8180770015020876 val_acc 0.9582534230550134 val_loss: 0.14302576833963393
+********
+val_epoch: 25 it_train_num: 108000     time: 49584
+val_miou 0.8175675717726117 val_acc 0.9579838155110677 val_loss: 0.14251377362012863
+********
+val_epoch: 25 it_train_num: 108342     time: 49749
+val_miou 0.816792695611824 val_acc 0.9573918151855465 val_loss: 0.14211211693286896
+********
+*********
+epoch: 25     time: 49749
+train_loss: 0.1415407189472219
+SHAPE: (256, 256)
+********************************************
+val_epoch: 26 it_train_num: 108500     time: 49845
+val_miou 0.8212480816304484 val_acc 0.9592545115152992 val_loss: 0.14192104786634446
+********
+val_epoch: 26 it_train_num: 109000     time: 50068
+val_miou 0.8211996396603125 val_acc 0.9596993586222329 val_loss: 0.14217956098914147
+********
+val_epoch: 26 it_train_num: 109500     time: 50290
+val_miou 0.8188433629767234 val_acc 0.9583144454956053 val_loss: 0.1425939357280731
+********
+val_epoch: 26 it_train_num: 110000     time: 50513
+val_miou 0.8188435004449944 val_acc 0.9583561528523764 val_loss: 0.1422446897625923
+********
+val_epoch: 26 it_train_num: 110500     time: 50736
+val_miou 0.8208842821740948 val_acc 0.9588612823486332 val_loss: 0.1430546093285084
+********
+val_epoch: 26 it_train_num: 111000     time: 50958
+val_miou 0.8203536014657686 val_acc 0.9586015294392902 val_loss: 0.1421149122416973
+********
+val_epoch: 26 it_train_num: 111500     time: 51181
+val_miou 0.8188589746197705 val_acc 0.9584479497273758 val_loss: 0.14350507685542108
+********
+val_epoch: 26 it_train_num: 112000     time: 51404
+val_miou 0.8214558915622006 val_acc 0.9593746592203772 val_loss: 0.14238949432969095
+********
+val_epoch: 26 it_train_num: 112500     time: 51627
+val_miou 0.8183119439299434 val_acc 0.9575598653157549 val_loss: 0.14255606204271318
+********
+val_epoch: 26 it_train_num: 112509     time: 51668
+val_miou 0.8156503938900754 val_acc 0.9571920750935868 val_loss: 0.1427093026638031
+********
+*********
+epoch: 26     time: 51668
+train_loss: 0.1413012834255547
+SHAPE: (256, 256)
+********************************************
+val_epoch: 27 it_train_num: 113000     time: 51887
+val_miou 0.8161187326108779 val_acc 0.9572707010904948 val_loss: 0.14344718912243842
+********
+val_epoch: 27 it_train_num: 113500     time: 52110
+val_miou 0.8176583255503307 val_acc 0.9577912317911779 val_loss: 0.14226193332672118
+********
+val_epoch: 27 it_train_num: 114000     time: 52332
+val_miou 0.8206629260905348 val_acc 0.9590011367797855 val_loss: 0.14294604143500328
+********
+val_epoch: 27 it_train_num: 114500     time: 52555
+val_miou 0.8202914469193977 val_acc 0.9584334920247398 val_loss: 0.14202021211385726
+********
+val_epoch: 27 it_train_num: 115000     time: 52778
+val_miou 0.8195216123182325 val_acc 0.9584673385620107 val_loss: 0.1420438766181469
+********
+val_epoch: 27 it_train_num: 115500     time: 53001
+val_miou 0.8170895354537283 val_acc 0.9572773488362626 val_loss: 0.14215209382772445
+********
+val_epoch: 27 it_train_num: 116000     time: 53224
+val_miou 0.8184705507981903 val_acc 0.957916755676269 val_loss: 0.14307318124175072
+********
+val_epoch: 27 it_train_num: 116500     time: 53446
+val_miou 0.8182402651713521 val_acc 0.95799216969808 val_loss: 0.14280206248164176
+********
+val_epoch: 27 it_train_num: 116676     time: 53549
+val_miou 0.8171335240078282 val_acc 0.9577622985839852 val_loss: 0.14265684667229653
+********
+*********
+epoch: 27     time: 53549
+train_loss: 0.1411189146935296
+SHAPE: (256, 256)
+********************************************
+val_epoch: 28 it_train_num: 117000     time: 53707
+val_miou 0.8197535986895962 val_acc 0.9588732376098632 val_loss: 0.1424375355541706
+********
+val_epoch: 28 it_train_num: 117500     time: 53930
+val_miou 0.8206634408676643 val_acc 0.9591020914713542 val_loss: 0.14207414412498473
+********
+val_epoch: 28 it_train_num: 118000     time: 54153
+val_miou 0.8205706434583806 val_acc 0.959368031819662 val_loss: 0.1422646227777004
+********
+val_epoch: 28 it_train_num: 118500     time: 54376
+val_miou 0.8214740724372158 val_acc 0.9590555241902667 val_loss: 0.14216089081764222
+********
+val_epoch: 28 it_train_num: 119000     time: 54599
+val_miou 0.8202984083756052 val_acc 0.9580016377766932 val_loss: 0.14379091361165047
+********
+val_epoch: 28 it_train_num: 119500     time: 54822
+val_miou 0.8175404173710855 val_acc 0.957415908813476 val_loss: 0.14280228319764138
+********
+val_epoch: 28 it_train_num: 120000     time: 55045
+val_miou 0.8213547653758139 val_acc 0.9591462656656902 val_loss: 0.1419662859737873
+********
+val_epoch: 28 it_train_num: 120500     time: 55268
+val_miou 0.8213035949891976 val_acc 0.9586655858357745 val_loss: 0.14187131029367447
+********
+val_epoch: 28 it_train_num: 120843     time: 55432
+val_miou 0.8204604748751925 val_acc 0.9587128397623699 val_loss: 0.1417319288253784
+********
+*********
+epoch: 28     time: 55432
+train_loss: 0.14083960766961942
+SHAPE: (256, 256)
+********************************************
+val_epoch: 29 it_train_num: 121000     time: 55529
+val_miou 0.8201416925005006 val_acc 0.9586802546183272 val_loss: 0.1420769889652729
+********
+val_epoch: 29 it_train_num: 121500     time: 55751
+val_miou 0.820439223469103 val_acc 0.958700475056966 val_loss: 0.14235439151525497
+********
+val_epoch: 29 it_train_num: 122000     time: 55974
+val_miou 0.8218524358795962 val_acc 0.9588902180989582 val_loss: 0.14243876799941063
+********
+val_epoch: 29 it_train_num: 122500     time: 56196
+val_miou 0.8189120888843717 val_acc 0.9588398030598957 val_loss: 0.1422498599588871
+********
+val_epoch: 29 it_train_num: 123000     time: 56419
+val_miou 0.8169797336840046 val_acc 0.9574549992879234 val_loss: 0.14336228781938554
+********
+val_epoch: 29 it_train_num: 123500     time: 56642
+val_miou 0.8222880765637137 val_acc 0.9593017883300777 val_loss: 0.14271977066993713
+********
+val_epoch: 29 it_train_num: 124000     time: 56864
+val_miou 0.8181414303536269 val_acc 0.9575330963134769 val_loss: 0.14205582919716836
+********
+val_epoch: 29 it_train_num: 124500     time: 57087
+val_miou 0.8146249761722721 val_acc 0.95611336517334 val_loss: 0.14262906929850577
+********
+val_epoch: 29 it_train_num: 125000     time: 57310
+val_miou 0.8225428309065206 val_acc 0.9596875915527344 val_loss: 0.1417603372335434
+********
+val_epoch: 29 it_train_num: 125010     time: 57351
+val_miou 0.8237183255070009 val_acc 0.9603939793904618 val_loss: 0.14208560651540755
+********
+*********
+epoch: 29     time: 57351
+train_loss: 0.14062856805211554
+SHAPE: (256, 256)
+********************************************
+val_epoch: 30 it_train_num: 125500     time: 57571
+val_miou 0.8228417453326239 val_acc 0.9594394505818692 val_loss: 0.14129125347733498
+********
+val_epoch: 30 it_train_num: 126000     time: 57794
+val_miou 0.8205744219393742 val_acc 0.9587697830200196 val_loss: 0.1413050845861435
+********
+val_epoch: 30 it_train_num: 126500     time: 58016
+val_miou 0.8234226216574212 val_acc 0.9595365626017249 val_loss: 0.1418770694434643
+********
+val_epoch: 30 it_train_num: 127000     time: 58239
+val_miou 0.8225261419948284 val_acc 0.9597645441691078 val_loss: 0.14219923225045203
+********
+val_epoch: 30 it_train_num: 127500     time: 58462
+val_miou 0.8189256113572333 val_acc 0.958576873779297 val_loss: 0.1421046905517578
+********
+val_epoch: 30 it_train_num: 128000     time: 58685
+val_miou 0.8215090489313487 val_acc 0.9592542012532552 val_loss: 0.14205025482177736
+********
+val_epoch: 30 it_train_num: 128500     time: 58907
+val_miou 0.822275527400729 val_acc 0.9592359466552739 val_loss: 0.1413509915471077
+********
+val_epoch: 30 it_train_num: 129000     time: 59130
+val_miou 0.8219487154734637 val_acc 0.9593445841471359 val_loss: 0.1417561129629612
+********
+val_epoch: 30 it_train_num: 129177     time: 59234
+val_miou 0.8207006457214931 val_acc 0.9586256357828772 val_loss: 0.14161878141760825
+********
+*********
+epoch: 30     time: 59234
+train_loss: 0.14031032065900934
+SHAPE: (256, 256)
+********************************************
+val_epoch: 31 it_train_num: 129500     time: 59392
+val_miou 0.8220803513825296 val_acc 0.959117909749349 val_loss: 0.14248463901877403
+********
+val_epoch: 31 it_train_num: 130000     time: 59614
+val_miou 0.8229908150882238 val_acc 0.9589284515380865 val_loss: 0.14168094044923782
+********
+val_epoch: 31 it_train_num: 130500     time: 59837
+val_miou 0.8183625071055038 val_acc 0.9575892155965172 val_loss: 0.14199446508288383
+********
+val_epoch: 31 it_train_num: 131000     time: 60060
+val_miou 0.8211907982677801 val_acc 0.9586132202148439 val_loss: 0.14168149125576018
+********
+val_epoch: 31 it_train_num: 131500     time: 60282
+val_miou 0.8212373409224806 val_acc 0.9586028391520186 val_loss: 0.1419517195224762
+********
+val_epoch: 31 it_train_num: 132000     time: 60505
+val_miou 0.8209948005434841 val_acc 0.9585848871866861 val_loss: 0.14109139001369475
+********
+val_epoch: 31 it_train_num: 132500     time: 60728
+val_miou 0.8206683246112212 val_acc 0.9585323435465498 val_loss: 0.14170740404725074
+********
+val_epoch: 31 it_train_num: 133000     time: 60951
+val_miou 0.8233425910986015 val_acc 0.9592702738444011 val_loss: 0.1409307958483696
+********
+val_epoch: 31 it_train_num: 133344     time: 61116
+val_miou 0.8213858037057493 val_acc 0.9585974273681639 val_loss: 0.14162537848949433
+********
+*********
+epoch: 31     time: 61116
+train_loss: 0.1402036214163757
+SHAPE: (256, 256)
+********************************************
+val_epoch: 32 it_train_num: 133500     time: 61211
+val_miou 0.823415776852165 val_acc 0.9591144943237309 val_loss: 0.14147612780332566
+********
+val_epoch: 32 it_train_num: 134000     time: 61434
+val_miou 0.8189504419588032 val_acc 0.9577005793253577 val_loss: 0.14147875252366066
+********
+val_epoch: 32 it_train_num: 134500     time: 61657
+val_miou 0.8250740298111091 val_acc 0.9598029047648112 val_loss: 0.1416174695491791
+********
+val_epoch: 32 it_train_num: 135000     time: 61879
+val_miou 0.8233357781031937 val_acc 0.959444653828939 val_loss: 0.14098027512431144
+********
+val_epoch: 32 it_train_num: 135500     time: 62102
+val_miou 0.8214321916940622 val_acc 0.9585667800903321 val_loss: 0.14205850213766097
+********
+val_epoch: 32 it_train_num: 136000     time: 62325
+val_miou 0.8188053719371899 val_acc 0.957867657979329 val_loss: 0.14184275475144387
+********
+val_epoch: 32 it_train_num: 136500     time: 62547
+val_miou 0.8241171325422506 val_acc 0.9596484451293942 val_loss: 0.14153913503885268
+********
+val_epoch: 32 it_train_num: 137000     time: 62770
+val_miou 0.8247964445436189 val_acc 0.9603868840535488 val_loss: 0.14139129996299743
+********
+val_epoch: 32 it_train_num: 137500     time: 62993
+val_miou 0.8214050814293031 val_acc 0.9584915847778311 val_loss: 0.14131936603784562
+********
+val_epoch: 32 it_train_num: 137511     time: 63034
+val_miou 0.8231756022911839 val_acc 0.9593614222208662 val_loss: 0.14125348624587059
+********
+*********
+epoch: 32     time: 63034
+train_loss: 0.14002505630497913
+SHAPE: (256, 256)
+********************************************
+val_epoch: 33 it_train_num: 138000     time: 63253
+val_miou 0.8233636679425911 val_acc 0.9595723622639977 val_loss: 0.14147741249203682
+********
+val_epoch: 33 it_train_num: 138500     time: 63476
+val_miou 0.8220995190337218 val_acc 0.9593609695434567 val_loss: 0.1414124139547348
+********
+val_epoch: 33 it_train_num: 139000     time: 63699
+val_miou 0.8247457825681099 val_acc 0.9600012003580731 val_loss: 0.14118054568767546
+********
+val_epoch: 33 it_train_num: 139500     time: 63921
+val_miou 0.8250739202975044 val_acc 0.9601124013264967 val_loss: 0.14098230376839638
+********
+val_epoch: 33 it_train_num: 140000     time: 64144
+val_miou 0.8255561729308816 val_acc 0.9599809850056964 val_loss: 0.14167029669880868
+********
+val_epoch: 33 it_train_num: 140500     time: 64367
+val_miou 0.824036893854221 val_acc 0.9601951802571624 val_loss: 0.14128081917762755
+********
+val_epoch: 33 it_train_num: 141000     time: 64590
+val_miou 0.8231450101158455 val_acc 0.9594518763224288 val_loss: 0.14150867557525634
+********
+val_epoch: 33 it_train_num: 141500     time: 64813
+val_miou 0.8228834649456844 val_acc 0.9593175328572595 val_loss: 0.14118506583571433
+********
+val_epoch: 33 it_train_num: 141678     time: 64916
+val_miou 0.8211531655342837 val_acc 0.9591888605753576 val_loss: 0.14142976507544516
+********
+*********
+epoch: 33     time: 64916
+train_loss: 0.13971080723814694
+SHAPE: (256, 256)
+********************************************
+val_epoch: 34 it_train_num: 142000     time: 65074
+val_miou 0.8233827652510968 val_acc 0.9597778065999351 val_loss: 0.14117357593774796
+********
+val_epoch: 34 it_train_num: 142500     time: 65296
+val_miou 0.8284242482955521 val_acc 0.9611137949625647 val_loss: 0.14084000417590142
+********
+val_epoch: 34 it_train_num: 143000     time: 65519
+val_miou 0.8253515239127703 val_acc 0.9607522786458333 val_loss: 0.14084481409192084
+********
+val_epoch: 34 it_train_num: 143500     time: 65742
+val_miou 0.8238306372676004 val_acc 0.9596427027384437 val_loss: 0.14102437564730644
+********
+val_epoch: 34 it_train_num: 144000     time: 65964
+val_miou 0.8214548146553295 val_acc 0.9587716751098637 val_loss: 0.1415894077718258
+********
+val_epoch: 34 it_train_num: 144500     time: 66187
+val_miou 0.8246764470826851 val_acc 0.959830810546875 val_loss: 0.14134862253069877
+********
+val_epoch: 34 it_train_num: 145000     time: 66488
+val_miou 0.8233525996185683 val_acc 0.9595949630737308 val_loss: 0.1416247345805168
+********
+val_epoch: 34 it_train_num: 145500     time: 66858
+val_miou 0.8238699116224659 val_acc 0.9596221211751306 val_loss: 0.14145942187309266
+********
+val_epoch: 34 it_train_num: 145845     time: 67105
+val_miou 0.823012519440856 val_acc 0.9592396036783851 val_loss: 0.1417035117149353
+********
+*********
+epoch: 34     time: 67105
+train_loss: 0.1396188361090609
+SHAPE: (256, 256)
+********************************************
+val_epoch: 35 it_train_num: 146000     time: 67238
+val_miou 0.8228093997383105 val_acc 0.9595060857137039 val_loss: 0.14139219772815703
+********
+val_epoch: 35 it_train_num: 146500     time: 67503
+val_miou 0.823670019464203 val_acc 0.9596067886352542 val_loss: 0.1414100874364376
+********
+val_epoch: 35 it_train_num: 147000     time: 67726
+val_miou 0.8244582912454944 val_acc 0.959904663085937 val_loss: 0.14161849936842918
+********
+val_epoch: 35 it_train_num: 147500     time: 67949
+val_miou 0.8214978191227673 val_acc 0.9584190266927081 val_loss: 0.14216901776194574
+********
+val_epoch: 35 it_train_num: 148000     time: 68178
+val_miou 0.8247165333198616 val_acc 0.9596828257242837 val_loss: 0.14124180459976196
+********
+val_epoch: 35 it_train_num: 148500     time: 68452
+val_miou 0.8237438785078656 val_acc 0.9600551020304362 val_loss: 0.14111020585894585
+********
+val_epoch: 35 it_train_num: 149000     time: 68760
+val_miou 0.8221667081746382 val_acc 0.9587353591918946 val_loss: 0.14176880058646202
+********
+val_epoch: 35 it_train_num: 149500     time: 69061
+val_miou 0.8217690897924212 val_acc 0.9589113489786786 val_loss: 0.14179078757762908
+********
+val_epoch: 35 it_train_num: 150000     time: 69417
+val_miou 0.8209672822530625 val_acc 0.9583652445475265 val_loss: 0.14202303323149681
+********
+val_epoch: 35 it_train_num: 150012     time: 69500
+val_miou 0.8235573095329144 val_acc 0.959182985941569 val_loss: 0.14097104403376579
+********
+*********
+epoch: 35     time: 69500
+train_loss: 0.13943992708193934
+SHAPE: (256, 256)
+********************************************
+val_epoch: 36 it_train_num: 150500     time: 69860
+val_miou 0.8240751173750178 val_acc 0.9599853108723956 val_loss: 0.1419517898261547
+********
+val_epoch: 36 it_train_num: 151000     time: 70083
+val_miou 0.8225164139295099 val_acc 0.9593280588785809 val_loss: 0.14107897746562958
+********
+val_epoch: 36 it_train_num: 151500     time: 70306
+val_miou 0.8254682666013348 val_acc 0.9601020050048824 val_loss: 0.14166611909866333
+********
+val_epoch: 36 it_train_num: 152000     time: 70529
+val_miou 0.8247057255212309 val_acc 0.960167449951172 val_loss: 0.14196394646167756
+********
+val_epoch: 36 it_train_num: 152500     time: 70752
+val_miou 0.8252384908681738 val_acc 0.9598899968465171 val_loss: 0.14096996706724166
+********
+val_epoch: 36 it_train_num: 153000     time: 70975
+val_miou 0.8250534867604048 val_acc 0.9600067799886063 val_loss: 0.14209304520487787
+********
+val_epoch: 36 it_train_num: 153500     time: 71198
+val_miou 0.8245083172886529 val_acc 0.9595300928751626 val_loss: 0.14110277259349824
+********
+val_epoch: 36 it_train_num: 154000     time: 71421
+val_miou 0.8247093523634327 val_acc 0.9595508626302086 val_loss: 0.1409070827960968
+********
+val_epoch: 36 it_train_num: 154179     time: 71525
+val_miou 0.8262711850403696 val_acc 0.9608581975301109 val_loss: 0.14138364490866662
+********
+*********
+epoch: 36     time: 71525
+train_loss: 0.13909820710758755
+SHAPE: (256, 256)
+********************************************
+val_epoch: 37 it_train_num: 154500     time: 71682
+val_miou 0.8252786982762224 val_acc 0.9601331685384118 val_loss: 0.14068791002035141
+********
+val_epoch: 37 it_train_num: 155000     time: 71905
+val_miou 0.8227083883075967 val_acc 0.9591798400878911 val_loss: 0.14102191507816314
+********
+val_epoch: 37 it_train_num: 155500     time: 72129
+val_miou 0.8250852001717399 val_acc 0.9596695938110349 val_loss: 0.14218802201747893
+********
+val_epoch: 37 it_train_num: 156000     time: 72352
+val_miou 0.8271363488393612 val_acc 0.9604114405314129 val_loss: 0.14091220498085022
+********
+val_epoch: 37 it_train_num: 156500     time: 72575
+val_miou 0.8233584401952119 val_acc 0.9591777369181321 val_loss: 0.14130299332737922
+********
+val_epoch: 37 it_train_num: 157000     time: 72799
+val_miou 0.8268191071353689 val_acc 0.9605216140747068 val_loss: 0.14074465620517732
+********
+val_epoch: 37 it_train_num: 157500     time: 73022
+val_miou 0.8246890450346939 val_acc 0.9600199788411456 val_loss: 0.14057258400321007
+********
+val_epoch: 37 it_train_num: 158000     time: 73244
+val_miou 0.8247794473150196 val_acc 0.9601756490071618 val_loss: 0.14109746035933496
+********
+val_epoch: 37 it_train_num: 158346     time: 73410
+val_miou 0.8248430400689617 val_acc 0.9600394541422527 val_loss: 0.14085366663336754
+********
+*********
+epoch: 37     time: 73410
+train_loss: 0.13899709949082598
+SHAPE: (256, 256)
+********************************************
+val_epoch: 38 it_train_num: 158500     time: 73506
+val_miou 0.825103389557624 val_acc 0.960413645426433 val_loss: 0.14045262545347215
+********
+val_epoch: 38 it_train_num: 159000     time: 73729
+val_miou 0.8253243374366166 val_acc 0.9599433492024745 val_loss: 0.1413485191166401
+********
+val_epoch: 38 it_train_num: 159500     time: 73951
+val_miou 0.8248688039170734 val_acc 0.9599110794067384 val_loss: 0.14078136521577836
+********
+val_epoch: 38 it_train_num: 160000     time: 74174
+val_miou 0.8290601236987608 val_acc 0.9613413060506182 val_loss: 0.14059784784913062
+********
+val_epoch: 38 it_train_num: 160500     time: 74397
+val_miou 0.8253690162206442 val_acc 0.9599737319946284 val_loss: 0.14048361083865166
+********
+val_epoch: 38 it_train_num: 161000     time: 74621
+val_miou 0.8273792256590774 val_acc 0.9605822881062832 val_loss: 0.1403554401099682
+********
+val_epoch: 38 it_train_num: 161500     time: 74844
+val_miou 0.8267640087097861 val_acc 0.9602921803792318 val_loss: 0.14076056787371635
+********
+val_epoch: 38 it_train_num: 162000     time: 75067
+val_miou 0.8257787612145155 val_acc 0.9593557840983068 val_loss: 0.14053923827409745
+********
+val_epoch: 38 it_train_num: 162500     time: 75289
+val_miou 0.8271213455934199 val_acc 0.9602870915730793 val_loss: 0.14077645277976988
+********
+val_epoch: 38 it_train_num: 162513     time: 75332
+val_miou 0.8277498078814 val_acc 0.9609567311604812 val_loss: 0.1405566175878048
+********
+*********
+epoch: 38     time: 75332
+train_loss: 0.13884600786345166
+SHAPE: (256, 256)
+********************************************
+val_epoch: 39 it_train_num: 163000     time: 75551
+val_miou 0.823032556646052 val_acc 0.9594704132080075 val_loss: 0.14086825999617578
+********
+val_epoch: 39 it_train_num: 163500     time: 75774
+val_miou 0.8254359863166225 val_acc 0.96008110555013 val_loss: 0.1411429923772812
+********
+val_epoch: 39 it_train_num: 164000     time: 75997
+val_miou 0.8260531492198151 val_acc 0.9599465154012043 val_loss: 0.14088512122631072
+********
+val_epoch: 39 it_train_num: 164500     time: 76220
+val_miou 0.8266202860125212 val_acc 0.960404574076335 val_loss: 0.140203834682703
+********
+val_epoch: 39 it_train_num: 165000     time: 76442
+val_miou 0.8255076946779654 val_acc 0.9601913808186849 val_loss: 0.14061254754662514
+********
+val_epoch: 39 it_train_num: 165500     time: 76666
+val_miou 0.8266834018015575 val_acc 0.9602731882731123 val_loss: 0.14053614923357963
+********
+val_epoch: 39 it_train_num: 166000     time: 76889
+val_miou 0.8265172491202056 val_acc 0.9609184621175129 val_loss: 0.1410485783815384
+********
+val_epoch: 39 it_train_num: 166500     time: 77111
+val_miou 0.8249450648166583 val_acc 0.9600652542114259 val_loss: 0.14049151825904846
+********
+val_epoch: 39 it_train_num: 166680     time: 77216
+val_miou 0.8282498241104488 val_acc 0.9606816991170243 val_loss: 0.14030513873696326
+********
+*********
+epoch: 39     time: 77216
+train_loss: 0.1384823140188719
+SHAPE: (256, 256)
+********************************************
+val_epoch: 40 it_train_num: 167000     time: 77373
+val_miou 0.8239603903894197 val_acc 0.9597994232177735 val_loss: 0.14082526224851608
+********
+val_epoch: 40 it_train_num: 167500     time: 77596
+val_miou 0.8266643388801355 val_acc 0.9596441955566409 val_loss: 0.14047145789861679
+********
+val_epoch: 40 it_train_num: 168000     time: 77819
+val_miou 0.8234930340972982 val_acc 0.9590987345377606 val_loss: 0.14076343458890914
+********
+val_epoch: 40 it_train_num: 168500     time: 78041
+val_miou 0.8244023539083533 val_acc 0.9594471638997397 val_loss: 0.14057088732719422
+********
+val_epoch: 40 it_train_num: 169000     time: 78264
+val_miou 0.8256892584726888 val_acc 0.9599061686197912 val_loss: 0.1401027143895626
+********
+val_epoch: 40 it_train_num: 169500     time: 78487
+val_miou 0.8262148642427292 val_acc 0.9603676884969071 val_loss: 0.14049804770946503
+********
+val_epoch: 40 it_train_num: 170000     time: 78710
+val_miou 0.8257877088366478 val_acc 0.9599317169189459 val_loss: 0.14087306529283525
+********
+val_epoch: 40 it_train_num: 170500     time: 78933
+val_miou 0.8271516845482639 val_acc 0.9606036936442055 val_loss: 0.14020775535702706
+********
+val_epoch: 40 it_train_num: 170847     time: 79099
+val_miou 0.8271551417244554 val_acc 0.9603224538167312 val_loss: 0.14036973005533218
+********
+*********
+epoch: 40     time: 79099
+train_loss: 0.13834679107071543
+SHAPE: (256, 256)
+********************************************
+val_epoch: 41 it_train_num: 171000     time: 79194
+val_miou 0.8283411402137244 val_acc 0.9615829671223955 val_loss: 0.14051696322858334
+********
+val_epoch: 41 it_train_num: 171500     time: 79417
+val_miou 0.8263466725343335 val_acc 0.960602928161622 val_loss: 0.1410058979988098
+********
+val_epoch: 41 it_train_num: 172000     time: 79640
+val_miou 0.8290167376547003 val_acc 0.9614107259114582 val_loss: 0.14059261631965636
+********
+val_epoch: 41 it_train_num: 172500     time: 79863
+val_miou 0.8292370718890001 val_acc 0.9616795171101882 val_loss: 0.1403630898296833
+********
+val_epoch: 41 it_train_num: 173000     time: 80086
+val_miou 0.8273048596165458 val_acc 0.9610301742553709 val_loss: 0.14091940203309058
+********
+val_epoch: 41 it_train_num: 173500     time: 80308
+val_miou 0.8219168877349139 val_acc 0.9590212376912431 val_loss: 0.14157396131753922
+********
+val_epoch: 41 it_train_num: 174000     time: 80531
+val_miou 0.8285705353679641 val_acc 0.9605981928507483 val_loss: 0.14037789687514304
+********
+val_epoch: 41 it_train_num: 174500     time: 80754
+val_miou 0.8276611547683471 val_acc 0.9605305404663089 val_loss: 0.13986017498373984
+********
+val_epoch: 41 it_train_num: 175000     time: 80977
+val_miou 0.8269773844482285 val_acc 0.960388821919759 val_loss: 0.1400397234261036
+********
+val_epoch: 41 it_train_num: 175014     time: 81020
+val_miou 0.8275705482935611 val_acc 0.9606190948486327 val_loss: 0.13981557554006577
+********
+*********
+epoch: 41     time: 81020
+train_loss: 0.1383097801193906
+SHAPE: (256, 256)
+********************************************
+val_epoch: 42 it_train_num: 175500     time: 81239
+val_miou 0.8282939218550892 val_acc 0.9608543370564776 val_loss: 0.14095897245407105
+********
+val_epoch: 42 it_train_num: 176000     time: 81461
+val_miou 0.8285935248156359 val_acc 0.9607959365844725 val_loss: 0.14085861957073212
+********
+val_epoch: 42 it_train_num: 176500     time: 81684
+val_miou 0.8268727213269575 val_acc 0.9602410354614256 val_loss: 0.14059121876955033
+********
+val_epoch: 42 it_train_num: 177000     time: 81907
+val_miou 0.8256227666626502 val_acc 0.9598612416585287 val_loss: 0.14093231099843978
+********
+val_epoch: 42 it_train_num: 177500     time: 82130
+val_miou 0.8294898618655232 val_acc 0.9613425470987955 val_loss: 0.1407532764673233
+********
+val_epoch: 42 it_train_num: 178000     time: 82353
+val_miou 0.8271207608540583 val_acc 0.9605527089436848 val_loss: 0.1412847439944744
+********
+val_epoch: 42 it_train_num: 178500     time: 82576
+val_miou 0.8283649113031938 val_acc 0.9605099945068358 val_loss: 0.14046326327323913
+********
+val_epoch: 42 it_train_num: 179000     time: 82799
+val_miou 0.825117756035306 val_acc 0.9597023315429687 val_loss: 0.14024374413490295
+********
+val_epoch: 42 it_train_num: 179181     time: 82904
+val_miou 0.8276392252681968 val_acc 0.9612897288004557 val_loss: 0.14096636790037156
+********
+*********
+epoch: 42     time: 82904
+train_loss: 0.13809380177180489
+SHAPE: (256, 256)
+********************************************
+val_epoch: 43 it_train_num: 179500     time: 83060
+val_miou 0.827687302943754 val_acc 0.9606308746337887 val_loss: 0.13987595847249032
+********
+val_epoch: 43 it_train_num: 180000     time: 83283
+val_miou 0.8294434033648137 val_acc 0.9615792948404953 val_loss: 0.14001864632964134
+********
+val_epoch: 43 it_train_num: 180500     time: 83506
+val_miou 0.8300032580238574 val_acc 0.9609043782552079 val_loss: 0.14000526905059815
+********
+val_epoch: 43 it_train_num: 181000     time: 83729
+val_miou 0.8259298398178325 val_acc 0.9598381347656247 val_loss: 0.14012774190306662
+********
+val_epoch: 43 it_train_num: 181500     time: 83952
+val_miou 0.8277806582526108 val_acc 0.9608567199707031 val_loss: 0.14066783368587493
+********
+val_epoch: 43 it_train_num: 182000     time: 84174
+val_miou 0.8282529393587765 val_acc 0.9611494598388677 val_loss: 0.13983579578995706
+********
+val_epoch: 43 it_train_num: 182500     time: 84397
+val_miou 0.8230910383615471 val_acc 0.9590588175455724 val_loss: 0.140792636603117
+********
+val_epoch: 43 it_train_num: 183000     time: 84620
+val_miou 0.8270138185821084 val_acc 0.9601693420410162 val_loss: 0.1403617924451828
+********
+val_epoch: 43 it_train_num: 183348     time: 84787
+val_miou 0.8265065767469248 val_acc 0.9603599395751953 val_loss: 0.14041424307227135
+********
+*********
+epoch: 43     time: 84787
+train_loss: 0.13781307266682266
+SHAPE: (256, 256)
+********************************************
+val_epoch: 44 it_train_num: 183500     time: 84881
+val_miou 0.8288464957613998 val_acc 0.9608211161295571 val_loss: 0.140081383228302
+********
+val_epoch: 44 it_train_num: 184000     time: 85104
+val_miou 0.8259164709593417 val_acc 0.9599355494181314 val_loss: 0.14009185862541199
+********
+val_epoch: 44 it_train_num: 184500     time: 85327
+val_miou 0.8294473871440872 val_acc 0.9612251968383793 val_loss: 0.14003829076886176
+********
+val_epoch: 44 it_train_num: 185000     time: 85549
+val_miou 0.8276016925792176 val_acc 0.9603901646931972 val_loss: 0.14007065081596373
+********
+val_epoch: 44 it_train_num: 185500     time: 85772
+val_miou 0.8283695018528047 val_acc 0.9607254714965818 val_loss: 0.1402856891453266
+********
+val_epoch: 44 it_train_num: 186000     time: 85995
+val_miou 0.8282357237845193 val_acc 0.960614774068196 val_loss: 0.140990171790123
+********
+val_epoch: 44 it_train_num: 186500     time: 86218
+val_miou 0.826548065146543 val_acc 0.9602798690795901 val_loss: 0.14088241279125213
+********
+val_epoch: 44 it_train_num: 187000     time: 86441
+val_miou 0.8295061293790833 val_acc 0.9613091735839842 val_loss: 0.1411753190457821
+********
+val_epoch: 44 it_train_num: 187500     time: 86664
+val_miou 0.8284819724170736 val_acc 0.9609830373128248 val_loss: 0.14032194223999978
+********
+val_epoch: 44 it_train_num: 187515     time: 86707
+val_miou 0.828901815620978 val_acc 0.9607907867431641 val_loss: 0.13986720368266106
+********
+*********
+epoch: 44     time: 86707
+train_loss: 0.13771336842869178
+SHAPE: (256, 256)
+********************************************
+val_epoch: 45 it_train_num: 188000     time: 86925
+val_miou 0.8290331640455437 val_acc 0.9612644551595056 val_loss: 0.14014298030734063
+********
+val_epoch: 45 it_train_num: 188500     time: 87147
+val_miou 0.8271985510987706 val_acc 0.9606438395182287 val_loss: 0.14013886228203773
+********
+val_epoch: 45 it_train_num: 189000     time: 87370
+val_miou 0.8306829232431134 val_acc 0.961793217976888 val_loss: 0.1403201733827591
+********
+val_epoch: 45 it_train_num: 189500     time: 87593
+val_miou 0.8271356740254534 val_acc 0.9603959274291989 val_loss: 0.14071870374679565
+********
+val_epoch: 45 it_train_num: 190000     time: 87816
+val_miou 0.8273982062110022 val_acc 0.9602186838785809 val_loss: 0.1405213589966297
+********
+val_epoch: 45 it_train_num: 190500     time: 88039
+val_miou 0.8288247703000282 val_acc 0.9609021555582682 val_loss: 0.14008955845236779
+********
+val_epoch: 45 it_train_num: 191000     time: 88262
+val_miou 0.828653352045863 val_acc 0.9607970504760736 val_loss: 0.13988513031601907
+********
+val_epoch: 45 it_train_num: 191500     time: 88484
+val_miou 0.8254808792763932 val_acc 0.9595310948689777 val_loss: 0.14030007600784303
+********
+val_epoch: 45 it_train_num: 191682     time: 88589
+val_miou 0.8293024737934326 val_acc 0.9608926289876302 val_loss: 0.14024736982584
+********
+*********
+epoch: 45     time: 88589
+train_loss: 0.13759615957443738
+SHAPE: (256, 256)
+********************************************
+val_epoch: 46 it_train_num: 192000     time: 88745
+val_miou 0.8310482061746549 val_acc 0.961131596883138 val_loss: 0.1395627381205559
+********
+val_epoch: 46 it_train_num: 192500     time: 88968
+val_miou 0.8295398321088263 val_acc 0.9609583613077802 val_loss: 0.13971930706501007
+********
+val_epoch: 46 it_train_num: 193000     time: 89191
+val_miou 0.8277729035862081 val_acc 0.9607235056559252 val_loss: 0.1403555008172989
+********
+val_epoch: 46 it_train_num: 193500     time: 89414
+val_miou 0.8276784001630477 val_acc 0.9607904052734371 val_loss: 0.14122493278980255
+********
+val_epoch: 46 it_train_num: 194000     time: 89637
+val_miou 0.8276738290560433 val_acc 0.9608675918579102 val_loss: 0.14056673619151117
+********
+val_epoch: 46 it_train_num: 194500     time: 89860
+val_miou 0.8302102559009408 val_acc 0.9612550252278647 val_loss: 0.1399726110994816
+********
+val_epoch: 46 it_train_num: 195000     time: 90082
+val_miou 0.8290119858745377 val_acc 0.9614051106770826 val_loss: 0.13962701165676117
+********
+val_epoch: 46 it_train_num: 195500     time: 90305
+val_miou 0.8280702770701412 val_acc 0.9602540410359696 val_loss: 0.1395943602025509
+********
+val_epoch: 46 it_train_num: 195849     time: 90472
+val_miou 0.8293635338318489 val_acc 0.9608591715494786 val_loss: 0.13988049703836442
+********
+*********
+epoch: 46     time: 90472
+train_loss: 0.13745995878794223
+SHAPE: (256, 256)
+********************************************
+val_epoch: 47 it_train_num: 196000     time: 90566
+val_miou 0.824987617451799 val_acc 0.9591366500854491 val_loss: 0.14031158274412156
+********
+val_epoch: 47 it_train_num: 196500     time: 90789
+val_miou 0.8282255080586495 val_acc 0.9601285552978509 val_loss: 0.13982996001839637
+********
+val_epoch: 47 it_train_num: 197000     time: 91012
+val_miou 0.8255497509579302 val_acc 0.9589169616699219 val_loss: 0.139969145655632
+********
+val_epoch: 47 it_train_num: 197500     time: 91235
+val_miou 0.826792237186651 val_acc 0.9602068532307941 val_loss: 0.14013735032081603
+********
+val_epoch: 47 it_train_num: 198000     time: 91457
+val_miou 0.8246409896106481 val_acc 0.9595646031697589 val_loss: 0.14027114954590797
+********
+val_epoch: 47 it_train_num: 198500     time: 91680
+val_miou 0.8292553305090521 val_acc 0.9609617131551107 val_loss: 0.1396150635480881
+********
+val_epoch: 47 it_train_num: 199000     time: 91903
+val_miou 0.8287668735793406 val_acc 0.960831214904785 val_loss: 0.1396231741309166
+********
+val_epoch: 47 it_train_num: 199500     time: 92125
+val_miou 0.8276676454016729 val_acc 0.9601457850138342 val_loss: 0.14004322689771653
+********
+val_epoch: 47 it_train_num: 200000     time: 92348
+val_miou 0.8281947744976634 val_acc 0.9610365982055664 val_loss: 0.14008881083130836
+********
+val_epoch: 47 it_train_num: 200016     time: 92392
+val_miou 0.8303539866425342 val_acc 0.9614091186523439 val_loss: 0.13955962902307512
+********
+*********
+epoch: 47     time: 92392
+train_loss: 0.137306892132699
+SHAPE: (256, 256)
+********************************************
+val_epoch: 48 it_train_num: 200500     time: 92609
+val_miou 0.8264527084820539 val_acc 0.9600007375081377 val_loss: 0.14024022063612937
+********
+val_epoch: 48 it_train_num: 201000     time: 92832
+val_miou 0.8289915146022012 val_acc 0.9607023264567063 val_loss: 0.1402535982131958
+********
+val_epoch: 48 it_train_num: 201500     time: 93055
+val_miou 0.8286175509977273 val_acc 0.9607374572753908 val_loss: 0.14023921060562133
+********
+val_epoch: 48 it_train_num: 202000     time: 93278
+val_miou 0.8276306811473282 val_acc 0.9605776418050127 val_loss: 0.13957730689644812
+********
+val_epoch: 48 it_train_num: 202500     time: 93501
+val_miou 0.8272671249468593 val_acc 0.9600094935099283 val_loss: 0.13970708191394807
+********
+val_epoch: 48 it_train_num: 203000     time: 93724
+val_miou 0.8294109656063313 val_acc 0.9605653533935538 val_loss: 0.13986622419953346
+********
+val_epoch: 48 it_train_num: 203500     time: 93947
+val_miou 0.830259571135307 val_acc 0.9610668411254883 val_loss: 0.13975273314118386
+********
+val_epoch: 48 it_train_num: 204000     time: 94169
+val_miou 0.8280755000324815 val_acc 0.9604635086059571 val_loss: 0.13954165107011796
+********
+val_epoch: 48 it_train_num: 204183     time: 94275
+val_miou 0.8303451492033098 val_acc 0.961383038838704 val_loss: 0.13936447837948798
+********
+*********
+epoch: 48     time: 94275
+train_loss: 0.13723273123658072
+SHAPE: (256, 256)
+********************************************
+val_epoch: 49 it_train_num: 204500     time: 94430
+val_miou 0.8298560099476945 val_acc 0.9609456303914385 val_loss: 0.14012468495965005
+********
+val_epoch: 49 it_train_num: 205000     time: 94653
+val_miou 0.8303031860673061 val_acc 0.9614257380167636 val_loss: 0.1396348131299019
+********
+val_epoch: 49 it_train_num: 205500     time: 94876
+val_miou 0.8278022247978178 val_acc 0.960397608439128 val_loss: 0.14006542426347732
+********
+val_epoch: 49 it_train_num: 206000     time: 95099
+val_miou 0.830141824789123 val_acc 0.9612642084757482 val_loss: 0.13975705376267433
+********
+val_epoch: 49 it_train_num: 206500     time: 95322
+val_miou 0.826882435312662 val_acc 0.9599200617472332 val_loss: 0.14067434260249137
+********
+val_epoch: 49 it_train_num: 207000     time: 95545
+val_miou 0.8304216517310824 val_acc 0.9615977554321291 val_loss: 0.1401037936806679
+********
+val_epoch: 49 it_train_num: 207500     time: 95767
+val_miou 0.8307841664386841 val_acc 0.9612655665079753 val_loss: 0.13924282863736154
+********
+val_epoch: 49 it_train_num: 208000     time: 95990
+val_miou 0.8282396257014079 val_acc 0.9601901931762694 val_loss: 0.14008426523208617
+********
+val_epoch: 49 it_train_num: 208350     time: 96157
+val_miou 0.8268294808083325 val_acc 0.9604978612263998 val_loss: 0.14074065417051315
+********
+*********
+epoch: 49     time: 96157
+train_loss: 0.1369570779741769
+SHAPE: (256, 256)
+********************************************
+val_epoch: 50 it_train_num: 208500     time: 96251
+val_miou 0.8288263467015021 val_acc 0.9609354298909507 val_loss: 0.13965330505371093
+********
+val_epoch: 50 it_train_num: 209000     time: 96474
+val_miou 0.8285077741806458 val_acc 0.9613588943481448 val_loss: 0.14008698382973672
+********
+val_epoch: 50 it_train_num: 209500     time: 96697
+val_miou 0.8297715018959964 val_acc 0.9604186681111652 val_loss: 0.14025890931487084
+********
+val_epoch: 50 it_train_num: 210000     time: 96919
+val_miou 0.8316469108833325 val_acc 0.9614255345662437 val_loss: 0.1392228115797043
+********
+val_epoch: 50 it_train_num: 210500     time: 97142
+val_miou 0.8280481225126713 val_acc 0.9607536163330077 val_loss: 0.1398608027100563
+********
+val_epoch: 50 it_train_num: 211000     time: 97365
+val_miou 0.8254701540564632 val_acc 0.9592875951131181 val_loss: 0.13977604800462723
+********
+val_epoch: 50 it_train_num: 211500     time: 97588
+val_miou 0.8279549123593086 val_acc 0.9606439285278325 val_loss: 0.13974911046028138
+********
+val_epoch: 50 it_train_num: 212000     time: 97810
+val_miou 0.8270756274474088 val_acc 0.9600465520222985 val_loss: 0.140160398542881
+********
+val_epoch: 50 it_train_num: 212500     time: 98033
+val_miou 0.8310999783487487 val_acc 0.9610753199259437 val_loss: 0.13954969984292984
+********
+val_epoch: 50 it_train_num: 212517     time: 98077
+val_miou 0.8290910968798386 val_acc 0.9606411844889327 val_loss: 0.14013131627440453
+********
+*********
+epoch: 50     time: 98077
+train_loss: 0.13688392000630917
+SHAPE: (256, 256)
+********************************************
+val_epoch: 51 it_train_num: 213000     time: 98294
+val_miou 0.8278745729135021 val_acc 0.9599665018717446 val_loss: 0.13964415591955184
+********
+val_epoch: 51 it_train_num: 213500     time: 98517
+val_miou 0.8281108923827694 val_acc 0.9602469940185553 val_loss: 0.13968643349409104
+********
+val_epoch: 51 it_train_num: 214000     time: 98740
+val_miou 0.8291672914870131 val_acc 0.9614226099650066 val_loss: 0.14017157074809075
+********
+val_epoch: 51 it_train_num: 214500     time: 98963
+val_miou 0.8319871790526353 val_acc 0.9617324752807618 val_loss: 0.13969056421518325
+********
+val_epoch: 51 it_train_num: 215000     time: 99186
+val_miou 0.8300083137681317 val_acc 0.9610982055664066 val_loss: 0.1399855467379093
+********
+val_epoch: 51 it_train_num: 215500     time: 99409
+val_miou 0.8318646595596626 val_acc 0.9618101476033538 val_loss: 0.13945147079229356
+********
+val_epoch: 51 it_train_num: 216000     time: 99632
+val_miou 0.8290029245554921 val_acc 0.9604518356323237 val_loss: 0.13917796310782432
+********
+val_epoch: 51 it_train_num: 216500     time: 99855
+val_miou 0.8318957696156211 val_acc 0.9615560836791991 val_loss: 0.13978402072191237
+********
+val_epoch: 51 it_train_num: 216684     time: 99960
+val_miou 0.8282259211353216 val_acc 0.960274617513021 val_loss: 0.13985554176568984
+********
+*********
+epoch: 51     time: 99960
+train_loss: 0.13672956614749507
+SHAPE: (256, 256)
+********************************************
+val_epoch: 52 it_train_num: 217000     time: 100115
+val_miou 0.8259085751501128 val_acc 0.9602132441202801 val_loss: 0.1409324991106987
+********
+val_epoch: 52 it_train_num: 217500     time: 100338
+val_miou 0.827710103923163 val_acc 0.9602294616699218 val_loss: 0.13971755215525627
+********
+val_epoch: 52 it_train_num: 218000     time: 100561
+val_miou 0.8303881967418437 val_acc 0.960899777730306 val_loss: 0.13954378619790078
+********
+val_epoch: 52 it_train_num: 218500     time: 100787
+val_miou 0.8315897545750438 val_acc 0.9615950215657548 val_loss: 0.1395652611553669
+********
+val_epoch: 52 it_train_num: 219000     time: 101017
+val_miou 0.8319128037001929 val_acc 0.9614242630004889 val_loss: 0.13959985920786858
+********
+val_epoch: 52 it_train_num: 219500     time: 101247
+val_miou 0.8312723618495154 val_acc 0.9614855117797855 val_loss: 0.13944924986362459
+********
+val_epoch: 52 it_train_num: 220000     time: 101476
+val_miou 0.8296923498955201 val_acc 0.9610097173055009 val_loss: 0.1402798103392124
+********
+val_epoch: 52 it_train_num: 220500     time: 101706
+val_miou 0.8301844108370972 val_acc 0.9613356399536135 val_loss: 0.13956032377481462
+********
+val_epoch: 52 it_train_num: 220851     time: 101879
+val_miou 0.8316527000855309 val_acc 0.9616949717203778 val_loss: 0.1391484114229679
+********
+*********
+epoch: 52     time: 101879
+train_loss: 0.13675100289290548
+SHAPE: (256, 256)
+********************************************
+val_epoch: 53 it_train_num: 221000     time: 101976
+val_miou 0.8286417872240823 val_acc 0.9599671783447269 val_loss: 0.13938887935876845
+********
+val_epoch: 53 it_train_num: 221500     time: 102204
+val_miou 0.8327833180957444 val_acc 0.9619997787475588 val_loss: 0.13927011585235596
+********
+val_epoch: 53 it_train_num: 222000     time: 102427
+val_miou 0.8256447741333709 val_acc 0.9593319473266603 val_loss: 0.14012427851557732
+********
+val_epoch: 53 it_train_num: 222500     time: 102653
+val_miou 0.8303243937475567 val_acc 0.9610153452555343 val_loss: 0.13925599825382232
+********
+val_epoch: 53 it_train_num: 223000     time: 102883
+val_miou 0.8274887845684342 val_acc 0.9596937662760412 val_loss: 0.1413584207892418
+********
+val_epoch: 53 it_train_num: 223500     time: 103113
+val_miou 0.8326527424927254 val_acc 0.9615487263997393 val_loss: 0.13981731688976287
+********
+val_epoch: 53 it_train_num: 224000     time: 103343
+val_miou 0.8280561391743934 val_acc 0.9601964518229168 val_loss: 0.1391805662214756
+********
+val_epoch: 53 it_train_num: 224500     time: 103574
+val_miou 0.8293928785962759 val_acc 0.9605478769938153 val_loss: 0.1394944857954979
+********
+val_epoch: 53 it_train_num: 225000     time: 103800
+val_miou 0.8305030958394043 val_acc 0.9607964274088538 val_loss: 0.139660475730896
+********
+val_epoch: 53 it_train_num: 225018     time: 103845
+val_miou 0.8301916660791592 val_acc 0.9608063379923508 val_loss: 0.13938692578673362
+********
+*********
+epoch: 53     time: 103845
+train_loss: 0.13648101349500033
+SHAPE: (256, 256)
+********************************************
+val_epoch: 54 it_train_num: 225500     time: 104067
+val_miou 0.8327954468841481 val_acc 0.9620718943277997 val_loss: 0.1388322679400444
+********
+val_epoch: 54 it_train_num: 226000     time: 104295
+val_miou 0.8335260415003755 val_acc 0.9619518559773766 val_loss: 0.13966962945461273
+********
+val_epoch: 54 it_train_num: 226500     time: 104523
+val_miou 0.8325797538239423 val_acc 0.9614883244832357 val_loss: 0.13947740957140922
+********
+val_epoch: 54 it_train_num: 227000     time: 104752
+val_miou 0.8315566812575879 val_acc 0.9617382787068682 val_loss: 0.13915321919322013
+********
+val_epoch: 54 it_train_num: 227500     time: 104979
+val_miou 0.8309718348662919 val_acc 0.9615336049397784 val_loss: 0.13932364836335182
+********
+val_epoch: 54 it_train_num: 228000     time: 105207
+val_miou 0.8334855155737595 val_acc 0.9622389526367183 val_loss: 0.1393298522233963
+********
+val_epoch: 54 it_train_num: 228500     time: 105434
+val_miou 0.830973082099814 val_acc 0.9610506617228193 val_loss: 0.1395855837762356
+********
+val_epoch: 54 it_train_num: 229000     time: 105661
+val_miou 0.8330135780869269 val_acc 0.9618204676310228 val_loss: 0.1394852750301361
+********
+val_epoch: 54 it_train_num: 229185     time: 105769
+val_miou 0.8314630764984966 val_acc 0.9611631749471025 val_loss: 0.13984661519527436
+********
+*********
+epoch: 54     time: 105769
+train_loss: 0.13625858622380288
+SHAPE: (256, 256)
+********************************************
+val_epoch: 55 it_train_num: 229500     time: 105927
+val_miou 0.8335701783793606 val_acc 0.9621009318033855 val_loss: 0.13886106315255164
+********
+val_epoch: 55 it_train_num: 230000     time: 106155
+val_miou 0.8327734050964501 val_acc 0.9617273356119793 val_loss: 0.13986799165606498
+********
+val_epoch: 55 it_train_num: 230500     time: 106383
+val_miou 0.8319674522882073 val_acc 0.9616381047566734 val_loss: 0.1388215544819832
+********
+val_epoch: 55 it_train_num: 231000     time: 106611
+val_miou 0.8338538494233811 val_acc 0.9621545969645185 val_loss: 0.13952861192822458
+********
+val_epoch: 55 it_train_num: 231500     time: 106839
+val_miou 0.831442280636785 val_acc 0.9615777206420905 val_loss: 0.13978566089272498
+********
+val_epoch: 55 it_train_num: 232000     time: 107066
+val_miou 0.8321483420041056 val_acc 0.961545575459798 val_loss: 0.13927067971229554
+********
+val_epoch: 55 it_train_num: 232500     time: 107292
+val_miou 0.8322213205717334 val_acc 0.9613808746337896 val_loss: 0.13939554312825203
+********
+val_epoch: 55 it_train_num: 233000     time: 107516
+val_miou 0.8316400065175523 val_acc 0.9616371739705402 val_loss: 0.13961786183714867
+********
+val_epoch: 55 it_train_num: 233352     time: 107685
+val_miou 0.8308284149863263 val_acc 0.9616508763631187 val_loss: 0.13876392370462418
+********
+*********
+epoch: 55     time: 107685
+train_loss: 0.13605988678283934
+SHAPE: (256, 256)
+********************************************
+val_epoch: 56 it_train_num: 233500     time: 107778
+val_miou 0.8346633874181777 val_acc 0.9625015309651686 val_loss: 0.13917207166552545
+********
+val_epoch: 56 it_train_num: 234000     time: 108000
+val_miou 0.8286191857248963 val_acc 0.9604287897745769 val_loss: 0.1402856993675232
+********
+val_epoch: 56 it_train_num: 234500     time: 108223
+val_miou 0.8345174895084041 val_acc 0.962667401631673 val_loss: 0.13868469324707985
+********
+val_epoch: 56 it_train_num: 235000     time: 108447
+val_miou 0.8329086790122648 val_acc 0.9619289245605468 val_loss: 0.139374614238739
+********
+val_epoch: 56 it_train_num: 235500     time: 108669
+val_miou 0.833274201084505 val_acc 0.9621706593831382 val_loss: 0.13918985947966575
+********
+val_epoch: 56 it_train_num: 236000     time: 108892
+val_miou 0.8317874686655916 val_acc 0.9615973739624017 val_loss: 0.13895803329348563
+********
+val_epoch: 56 it_train_num: 236500     time: 109115
+val_miou 0.8327524344713987 val_acc 0.9618338775634764 val_loss: 0.1390949813723564
+********
+val_epoch: 56 it_train_num: 237000     time: 109343
+val_miou 0.8324176016985311 val_acc 0.9615199279785159 val_loss: 0.13915073969960212
+********
+val_epoch: 56 it_train_num: 237500     time: 109571
+val_miou 0.8332990370367593 val_acc 0.96196452331543 val_loss: 0.13876703372597696
+********
+val_epoch: 56 it_train_num: 237519     time: 109617
+val_miou 0.8316044693550457 val_acc 0.9613875885009767 val_loss: 0.13916004663705825
+********
+*********
+epoch: 56     time: 109617
+train_loss: 0.13590966483865508
+SHAPE: (256, 256)
+********************************************
+val_epoch: 57 it_train_num: 238000     time: 109835
+val_miou 0.831927870795681 val_acc 0.961428413391113 val_loss: 0.13884518897533416
+********
+val_epoch: 57 it_train_num: 238500     time: 110060
+val_miou 0.8304114412454484 val_acc 0.960932019551595 val_loss: 0.1398208753168583
+********
+val_epoch: 57 it_train_num: 239000     time: 110284
+val_miou 0.830469510712246 val_acc 0.9610851745605465 val_loss: 0.1394310624599457
+********
+val_epoch: 57 it_train_num: 239500     time: 110507
+val_miou 0.832831779949308 val_acc 0.9618958663940429 val_loss: 0.1390878556072712
+********
+val_epoch: 57 it_train_num: 240000     time: 110730
+val_miou 0.8331227284096614 val_acc 0.9616348393758138 val_loss: 0.1398331253528595
+********
+val_epoch: 57 it_train_num: 240500     time: 110986
+val_miou 0.8330563234143407 val_acc 0.9621286799112956 val_loss: 0.13965722912549972
+********
+val_epoch: 57 it_train_num: 241000     time: 111211
+val_miou 0.8316782439265041 val_acc 0.9613104960123701 val_loss: 0.1390212129354477
+********
+val_epoch: 57 it_train_num: 241500     time: 111437
+val_miou 0.8342929673333446 val_acc 0.9622835795084633 val_loss: 0.13957550913095473
+********
+val_epoch: 57 it_train_num: 241686     time: 111547
+val_miou 0.834123052990321 val_acc 0.9624936828613283 val_loss: 0.13849655854701995
+********
+*********
+epoch: 57     time: 111547
+train_loss: 0.13587448994139845
+SHAPE: (256, 256)
+********************************************
+val_epoch: 58 it_train_num: 242000     time: 111704
+val_miou 0.8346238388027417 val_acc 0.9631472295125326 val_loss: 0.13920992961525916
+********
+val_epoch: 58 it_train_num: 242500     time: 111928
+val_miou 0.8331892830526518 val_acc 0.9621937357584631 val_loss: 0.1388349061012268
+********
+val_epoch: 58 it_train_num: 243000     time: 112151
+val_miou 0.8344203163466988 val_acc 0.961976206461588 val_loss: 0.13900565752387048
+********
+val_epoch: 58 it_train_num: 243500     time: 112374
+val_miou 0.8325514704521189 val_acc 0.9615246658325195 val_loss: 0.13876292440295218
+********
+val_epoch: 58 it_train_num: 244000     time: 112597
+val_miou 0.8269909829938835 val_acc 0.9597570088704427 val_loss: 0.14032848581671714
+********
+val_epoch: 58 it_train_num: 244500     time: 112820
+val_miou 0.8322286750277036 val_acc 0.9615684407552083 val_loss: 0.13943610003590584
+********
+val_epoch: 58 it_train_num: 245000     time: 113043
+val_miou 0.8286547417727589 val_acc 0.9605001678466799 val_loss: 0.1397852401137352
+********
+val_epoch: 58 it_train_num: 245500     time: 113266
+val_miou 0.832526809500376 val_acc 0.9615766042073568 val_loss: 0.13886740598082542
+********
+val_epoch: 58 it_train_num: 245853     time: 113435
+val_miou 0.8323298674146815 val_acc 0.9615171635945636 val_loss: 0.13932182976603508
+********
+*********
+epoch: 58     time: 113435
+train_loss: 0.13583326846618632
+SHAPE: (256, 256)
+********************************************
+val_epoch: 59 it_train_num: 246000     time: 113527
+val_miou 0.8303199667146449 val_acc 0.9607267735799159 val_loss: 0.13899727880954743
+********
+val_epoch: 59 it_train_num: 246500     time: 113750
+val_miou 0.8328084659139265 val_acc 0.9619000625610356 val_loss: 0.1392360071837902
+********
+val_epoch: 59 it_train_num: 247000     time: 113973
+val_miou 0.8318725549329162 val_acc 0.9619597167968748 val_loss: 0.1389106561243534
+********
+val_epoch: 59 it_train_num: 247500     time: 114196
+val_miou 0.8326845534948272 val_acc 0.9616245422363282 val_loss: 0.1391648640036583
+********
+val_epoch: 59 it_train_num: 248000     time: 114418
+val_miou 0.8331658023047107 val_acc 0.9623438847859694 val_loss: 0.1388299584388733
+********
+val_epoch: 59 it_train_num: 248500     time: 114641
+val_miou 0.8326952966403913 val_acc 0.9616168238321937 val_loss: 0.1392316448688507
+********
+val_epoch: 59 it_train_num: 249000     time: 114864
+val_miou 0.8347771069211614 val_acc 0.9627121709187825 val_loss: 0.138511071652174
+********
+val_epoch: 59 it_train_num: 249500     time: 115087
+val_miou 0.8314111836774094 val_acc 0.9617551905314131 val_loss: 0.13931562492251395
+********
+val_epoch: 59 it_train_num: 250000     time: 115309
+val_miou 0.8332068863008311 val_acc 0.9620309778849281 val_loss: 0.13918272984027863
+********
+val_epoch: 59 it_train_num: 250020     time: 115354
+val_miou 0.8343493692610762 val_acc 0.9625309371948242 val_loss: 0.13915960562229157
+********
+*********
+epoch: 59     time: 115354
+train_loss: 0.13551660642324662
+SHAPE: (256, 256)
+********************************************
+val_epoch: 60 it_train_num: 250500     time: 115570
+val_miou 0.8340277066184836 val_acc 0.9621800918579101 val_loss: 0.13934858959913254
+********
+val_epoch: 60 it_train_num: 251000     time: 115793
+val_miou 0.8314578768943685 val_acc 0.9612278289794927 val_loss: 0.13946159675717354
+********
+val_epoch: 60 it_train_num: 251500     time: 116016
+val_miou 0.8315971601782928 val_acc 0.9613426793416346 val_loss: 0.1392713403403759
+********
+val_epoch: 60 it_train_num: 252000     time: 116239
+val_miou 0.8342610304454376 val_acc 0.9620807139078777 val_loss: 0.13827310171723367
+********
+val_epoch: 60 it_train_num: 252500     time: 116462
+val_miou 0.8369751290353137 val_acc 0.9633924179077146 val_loss: 0.13872679534554483
+********
+val_epoch: 60 it_train_num: 253000     time: 116685
+val_miou 0.8332454804234654 val_acc 0.9615659612019857 val_loss: 0.13920565861463546
+********
+val_epoch: 60 it_train_num: 253500     time: 116908
+val_miou 0.8308495791664046 val_acc 0.960998896280925 val_loss: 0.13885225614905358
+********
+val_epoch: 60 it_train_num: 254000     time: 117131
+val_miou 0.8361318207556877 val_acc 0.9629694747924809 val_loss: 0.13874618867039681
+********
+val_epoch: 60 it_train_num: 254187     time: 117238
+val_miou 0.8323044454266415 val_acc 0.9619180348714192 val_loss: 0.1383556875884533
+********
+*********
+epoch: 60     time: 117238
+train_loss: 0.13543557328108777
+SHAPE: (256, 256)
+********************************************
+val_epoch: 61 it_train_num: 254500     time: 117393
+val_miou 0.8346428700341263 val_acc 0.9622750218709315 val_loss: 0.13863744655251503
+********
+val_epoch: 61 it_train_num: 255000     time: 117617
+val_miou 0.8354631208581546 val_acc 0.9630933685302732 val_loss: 0.13880776923894883
+********
+val_epoch: 61 it_train_num: 255500     time: 117840
+val_miou 0.8350415338999345 val_acc 0.9626321945190432 val_loss: 0.13802884170413018
+********
+val_epoch: 61 it_train_num: 256000     time: 118064
+val_miou 0.831350048867008 val_acc 0.9606415481567377 val_loss: 0.13947522136569024
+********
+val_epoch: 61 it_train_num: 256500     time: 118287
+val_miou 0.8338601479677035 val_acc 0.9630574035644526 val_loss: 0.13936442345380784
+********
+val_epoch: 61 it_train_num: 257000     time: 118511
+val_miou 0.8328788438981342 val_acc 0.9621853103637693 val_loss: 0.13945007732510567
+********
+val_epoch: 61 it_train_num: 257500     time: 118734
+val_miou 0.8346149174703876 val_acc 0.9626377309163412 val_loss: 0.13950400555133818
+********
+val_epoch: 61 it_train_num: 258000     time: 118957
+val_miou 0.8323519721218618 val_acc 0.9617283426920573 val_loss: 0.13971275159716606
+********
+val_epoch: 61 it_train_num: 258354     time: 119126
+val_miou 0.8351743138495816 val_acc 0.9626212793986003 val_loss: 0.13838488602638244
+********
+*********
+epoch: 61     time: 119126
+train_loss: 0.13521554224677643
+SHAPE: (256, 256)
+********************************************
+val_epoch: 62 it_train_num: 258500     time: 119219
+val_miou 0.8325191569834531 val_acc 0.9616737111409502 val_loss: 0.13849848884344101
+********
+val_epoch: 62 it_train_num: 259000     time: 119442
+val_miou 0.8331833077624814 val_acc 0.9620102488199869 val_loss: 0.13897841438651085
+********
+val_epoch: 62 it_train_num: 259500     time: 119665
+val_miou 0.8355242523831504 val_acc 0.9626844558715819 val_loss: 0.13876628836989402
+********
+val_epoch: 62 it_train_num: 260000     time: 119888
+val_miou 0.8313854344636084 val_acc 0.9611965154012037 val_loss: 0.13856970217823983
+********
+val_epoch: 62 it_train_num: 260500     time: 120112
+val_miou 0.8336797384959023 val_acc 0.9622766850789386 val_loss: 0.1390447853207588
+********
+val_epoch: 62 it_train_num: 261000     time: 120335
+val_miou 0.8351448884252556 val_acc 0.9627368570963541 val_loss: 0.1386604777276516
+********
+val_epoch: 62 it_train_num: 261500     time: 120558
+val_miou 0.8343794244201789 val_acc 0.96228992207845 val_loss: 0.13891643467545509
+********
+val_epoch: 62 it_train_num: 262000     time: 120781
+val_miou 0.8329590135315789 val_acc 0.9616236953735351 val_loss: 0.13890105685591697
+********
+val_epoch: 62 it_train_num: 262500     time: 121004
+val_miou 0.8332827786189553 val_acc 0.9616792322794595 val_loss: 0.1384175410270691
+********
+val_epoch: 62 it_train_num: 262521     time: 121050
+val_miou 0.835803353351835 val_acc 0.9626368713378907 val_loss: 0.1387647197842598
+********
+*********
+epoch: 62     time: 121050
+train_loss: 0.1352034464446309
+SHAPE: (256, 256)
+********************************************
+val_epoch: 63 it_train_num: 263000     time: 121265
+val_miou 0.8299675695350017 val_acc 0.9611242599487307 val_loss: 0.13893741258978845
+********
+val_epoch: 63 it_train_num: 263500     time: 121489
+val_miou 0.8326373652475533 val_acc 0.9619073435465493 val_loss: 0.13850468370318414
+********
+val_epoch: 63 it_train_num: 264000     time: 121712
+val_miou 0.834122674702916 val_acc 0.9620368474324543 val_loss: 0.1391410738527775
+********
+val_epoch: 63 it_train_num: 264500     time: 121935
+val_miou 0.8316780962277891 val_acc 0.961043612162272 val_loss: 0.13887527710199357
+********
+val_epoch: 63 it_train_num: 265000     time: 122158
+val_miou 0.834673941954085 val_acc 0.9625954640706377 val_loss: 0.13856115218997
+********
+val_epoch: 63 it_train_num: 265500     time: 122381
+val_miou 0.8341053932868943 val_acc 0.9618448206583662 val_loss: 0.13863210979104043
+********
+val_epoch: 63 it_train_num: 266000     time: 122605
+val_miou 0.8339460158871862 val_acc 0.9629717381795251 val_loss: 0.13889920073747636
+********
+val_epoch: 63 it_train_num: 266500     time: 122828
+val_miou 0.833632794205022 val_acc 0.9617807693481447 val_loss: 0.13923670008778571
+********
+val_epoch: 63 it_train_num: 266688     time: 122936
+val_miou 0.8343104956870594 val_acc 0.9624963963826494 val_loss: 0.1387097487449646
+********
+*********
+epoch: 63     time: 122936
+train_loss: 0.13521936472182597
+SHAPE: (256, 256)
+********************************************
+val_epoch: 64 it_train_num: 267000     time: 123089
+val_miou 0.8315879088585689 val_acc 0.9615603764851879 val_loss: 0.13869926914572717
+********
+val_epoch: 64 it_train_num: 267500     time: 123313
+val_miou 0.831169770004904 val_acc 0.9608260930379232 val_loss: 0.1393939684033394
+********
+val_epoch: 64 it_train_num: 268000     time: 123536
+val_miou 0.8324848945140714 val_acc 0.9617570622762042 val_loss: 0.1389511353671551
+********
+val_epoch: 64 it_train_num: 268500     time: 123759
+val_miou 0.8315821905997496 val_acc 0.9613046417236331 val_loss: 0.13895323368906976
+********
+val_epoch: 64 it_train_num: 269000     time: 123983
+val_miou 0.835583262636004 val_acc 0.9623194656372067 val_loss: 0.13864713883399962
+********
+val_epoch: 64 it_train_num: 269500     time: 124206
+val_miou 0.833281148330707 val_acc 0.9617768198649089 val_loss: 0.1389009846150875
+********
+val_epoch: 64 it_train_num: 270000     time: 124429
+val_miou 0.8324269989861365 val_acc 0.9617960001627609 val_loss: 0.13863540416955947
+********
+val_epoch: 64 it_train_num: 270500     time: 124652
+val_miou 0.8355344874767173 val_acc 0.9631801020304358 val_loss: 0.13798820075392723
+********
+val_epoch: 64 it_train_num: 270855     time: 124822
+val_miou 0.8350862706449227 val_acc 0.9621138610839847 val_loss: 0.13848239117860794
+********
+*********
+epoch: 64     time: 124822
+train_loss: 0.13501422375776742
+SHAPE: (256, 256)
+********************************************
+val_epoch: 65 it_train_num: 271000     time: 124914
+val_miou 0.8365999887470534 val_acc 0.9627273941040034 val_loss: 0.13813866192102434
+********
+val_epoch: 65 it_train_num: 271500     time: 125137
+val_miou 0.8337308030613584 val_acc 0.9619384867350257 val_loss: 0.13863762497901916
+********
+val_epoch: 65 it_train_num: 272000     time: 125360
+val_miou 0.8311093248268289 val_acc 0.9616873143514 val_loss: 0.1390637336373329
+********
+val_epoch: 65 it_train_num: 272500     time: 125583
+val_miou 0.8324666854133262 val_acc 0.9619306259155278 val_loss: 0.13830486297607422
+********
+val_epoch: 65 it_train_num: 273000     time: 125806
+val_miou 0.8333100845942967 val_acc 0.9619022420247394 val_loss: 0.13843591076135636
+********
+val_epoch: 65 it_train_num: 273500     time: 126029
+val_miou 0.8340210566286842 val_acc 0.9623018086751295 val_loss: 0.138479298889637
+********
+val_epoch: 65 it_train_num: 274000     time: 126252
+val_miou 0.8349647118261992 val_acc 0.9622447891235357 val_loss: 0.13892653453350068
+********
+val_epoch: 65 it_train_num: 274500     time: 126475
+val_miou 0.8344313178552254 val_acc 0.9625348536173504 val_loss: 0.1380573530495167
+********
+val_epoch: 65 it_train_num: 275000     time: 126698
+val_miou 0.834833275696387 val_acc 0.9621418991088867 val_loss: 0.13858199658989906
+********
+val_epoch: 65 it_train_num: 275022     time: 126744
+val_miou 0.8319563911340025 val_acc 0.9617129974365237 val_loss: 0.13889762204885484
+********
+*********
+epoch: 65     time: 126744
+train_loss: 0.13490479919216403
+SHAPE: (256, 256)
+********************************************
+val_epoch: 66 it_train_num: 275500     time: 126960
+val_miou 0.8364648995387373 val_acc 0.962925211588541 val_loss: 0.1387160193324089
+********
+val_epoch: 66 it_train_num: 276000     time: 127183
+val_miou 0.8353615413848366 val_acc 0.962735605875651 val_loss: 0.1383155344426632
+********
+val_epoch: 66 it_train_num: 276500     time: 127406
+val_miou 0.8322063578035922 val_acc 0.9618960113525389 val_loss: 0.13878752821683885
+********
+val_epoch: 66 it_train_num: 277000     time: 127629
+val_miou 0.8351811889145137 val_acc 0.9623095423380538 val_loss: 0.13813271129131316
+********
+val_epoch: 66 it_train_num: 277500     time: 127852
+val_miou 0.8358760771846628 val_acc 0.9627877909342444 val_loss: 0.13802681520581245
+********
+val_epoch: 66 it_train_num: 278000     time: 128075
+val_miou 0.8324445071788538 val_acc 0.9612347564697268 val_loss: 0.14096913170814515
+********
+val_epoch: 66 it_train_num: 278500     time: 128298
+val_miou 0.837043602865432 val_acc 0.9630001602172849 val_loss: 0.13936797326803207
+********
+val_epoch: 66 it_train_num: 279000     time: 128521
+val_miou 0.8325907811599161 val_acc 0.9612765375773115 val_loss: 0.1395545210838318
+********
+val_epoch: 66 it_train_num: 279189     time: 128629
+val_miou 0.8349457128920628 val_acc 0.9624490025838214 val_loss: 0.1392850710451603
+********
+*********
+epoch: 66     time: 128629
+train_loss: 0.134765779300505
+SHAPE: (256, 256)
+********************************************
+val_epoch: 67 it_train_num: 279500     time: 128783
+val_miou 0.8338116489974963 val_acc 0.9621075185139977 val_loss: 0.1391182008087635
+********
+val_epoch: 67 it_train_num: 280000     time: 129006
+val_miou 0.8353266074317497 val_acc 0.9627318166097002 val_loss: 0.1381211217045784
+********
+val_epoch: 67 it_train_num: 280500     time: 129229
+val_miou 0.8355013742422595 val_acc 0.96235319519043 val_loss: 0.1383214765191078
+********
+val_epoch: 67 it_train_num: 281000     time: 129452
+val_miou 0.8353488141271456 val_acc 0.9627350794474282 val_loss: 0.13854719975590707
+********
+val_epoch: 67 it_train_num: 281500     time: 129675
+val_miou 0.836543195681303 val_acc 0.9632199427286782 val_loss: 0.13837169215083123
+********
+val_epoch: 67 it_train_num: 282000     time: 129898
+val_miou 0.8335838374955614 val_acc 0.9620680770874026 val_loss: 0.1384041260778904
+********
+val_epoch: 67 it_train_num: 282500     time: 130121
+val_miou 0.8364752702612113 val_acc 0.9626575826009113 val_loss: 0.13901292234659196
+********
+val_epoch: 67 it_train_num: 283000     time: 130344
+val_miou 0.8306767792721987 val_acc 0.9610355733235675 val_loss: 0.13892773884534837
+********
+val_epoch: 67 it_train_num: 283356     time: 130514
+val_miou 0.8364240012873257 val_acc 0.9629489212036124 val_loss: 0.13831558036804198
+********
+*********
+epoch: 67     time: 130514
+train_loss: 0.13461507271992265
+SHAPE: (256, 256)
+********************************************
+val_epoch: 68 it_train_num: 283500     time: 130606
+val_miou 0.8366984308396861 val_acc 0.9624740091959634 val_loss: 0.1380894151031971
+********
+val_epoch: 68 it_train_num: 284000     time: 130829
+val_miou 0.8363478791418213 val_acc 0.962883356730143 val_loss: 0.13805675598978998
+********
+val_epoch: 68 it_train_num: 284500     time: 131052
+val_miou 0.8377834764300376 val_acc 0.9633527374267573 val_loss: 0.13839858919382095
+********
+val_epoch: 68 it_train_num: 285000     time: 131276
+val_miou 0.8338143037363586 val_acc 0.9617648162841795 val_loss: 0.13814116102457047
+********
+val_epoch: 68 it_train_num: 285500     time: 131499
+val_miou 0.8354489722236805 val_acc 0.9626239802042643 val_loss: 0.13787966740131377
+********
+val_epoch: 68 it_train_num: 286000     time: 131722
+val_miou 0.835503585232693 val_acc 0.962319300333659 val_loss: 0.13805986124277114
+********
+val_epoch: 68 it_train_num: 286500     time: 131945
+val_miou 0.8360070985989625 val_acc 0.9630342407226563 val_loss: 0.13833510640263558
+********
+val_epoch: 68 it_train_num: 287000     time: 132168
+val_miou 0.8361392313722663 val_acc 0.9627077509562176 val_loss: 0.13787377321720123
+********
+val_epoch: 68 it_train_num: 287500     time: 132391
+val_miou 0.8373373438828843 val_acc 0.9635200271606458 val_loss: 0.1380527237057686
+********
+val_epoch: 68 it_train_num: 287523     time: 132437
+val_miou 0.8342624432921104 val_acc 0.9619170939127608 val_loss: 0.13823865666985513
+********
+*********
+epoch: 68     time: 132437
+train_loss: 0.13437251114955417
+SHAPE: (256, 256)
+********************************************
+val_epoch: 69 it_train_num: 288000     time: 132653
+val_miou 0.836075324426917 val_acc 0.9632003326416018 val_loss: 0.1380832956135273
+********
+val_epoch: 69 it_train_num: 288500     time: 132876
+val_miou 0.8340818036971359 val_acc 0.9619119593302407 val_loss: 0.13827812734246253
+********
+val_epoch: 69 it_train_num: 289000     time: 133099
+val_miou 0.834498999186731 val_acc 0.9624940567016604 val_loss: 0.13842498302459716
+********
+val_epoch: 69 it_train_num: 289500     time: 133322
+val_miou 0.8356621279956713 val_acc 0.9622827428181961 val_loss: 0.1387264319062233
+********
+val_epoch: 69 it_train_num: 290000     time: 133545
+val_miou 0.831235353102724 val_acc 0.9610897623697915 val_loss: 0.13831115779280662
+********
+val_epoch: 69 it_train_num: 290500     time: 133768
+val_miou 0.8289661146296359 val_acc 0.9599643707275389 val_loss: 0.1390271272957325
+********
+val_epoch: 69 it_train_num: 291000     time: 133991
+val_miou 0.8373127603534977 val_acc 0.9630701395670573 val_loss: 0.13813588100671767
+********
+val_epoch: 69 it_train_num: 291500     time: 134214
+val_miou 0.8354131051659678 val_acc 0.9628138173421225 val_loss: 0.1384862992465496
+********
+val_epoch: 69 it_train_num: 291690     time: 134323
+val_miou 0.8344263254477999 val_acc 0.9623062515258787 val_loss: 0.1381569926738739
+********
+*********
+epoch: 69     time: 134323
+train_loss: 0.1343368104776805
+SHAPE: (256, 256)
+********************************************
+val_epoch: 70 it_train_num: 292000     time: 134476
+val_miou 0.8327566367679683 val_acc 0.9615754776000973 val_loss: 0.13896490317583085
+********
+val_epoch: 70 it_train_num: 292500     time: 134698
+val_miou 0.8348056764139336 val_acc 0.9622982762654625 val_loss: 0.13819401502609252
+********
+val_epoch: 70 it_train_num: 293000     time: 134922
+val_miou 0.83458854650158 val_acc 0.9622420527140302 val_loss: 0.13798854032158853
+********
+val_epoch: 70 it_train_num: 293500     time: 135144
+val_miou 0.837195103817409 val_acc 0.9631963043212888 val_loss: 0.13817825493216515
+********
+val_epoch: 70 it_train_num: 294000     time: 135367
+val_miou 0.8325414489704771 val_acc 0.9609475987752277 val_loss: 0.1384499921798706
+********
+val_epoch: 70 it_train_num: 294500     time: 135591
+val_miou 0.8351526683372025 val_acc 0.9622153116861982 val_loss: 0.13793691012263298
+********
+val_epoch: 70 it_train_num: 295000     time: 135814
+val_miou 0.8329132444148859 val_acc 0.9612142868041991 val_loss: 0.13850726756453513
+********
+val_epoch: 70 it_train_num: 295500     time: 136037
+val_miou 0.836383058591233 val_acc 0.9623128153483075 val_loss: 0.13850847962498664
+********
+val_epoch: 70 it_train_num: 295857     time: 136207
+val_miou 0.8355443628618681 val_acc 0.9624868087768553 val_loss: 0.13867801043391229
+********
+*********
+epoch: 70     time: 136207
+train_loss: 0.134252619049247
+SHAPE: (256, 256)
+********************************************
+val_epoch: 71 it_train_num: 296000     time: 136298
+val_miou 0.8337783642619613 val_acc 0.9623874664306638 val_loss: 0.13827916064858436
+********
+val_epoch: 71 it_train_num: 296500     time: 136521
+val_miou 0.8309178247319272 val_acc 0.9608489964803056 val_loss: 0.13905396488308908
+********
+val_epoch: 71 it_train_num: 297000     time: 136744
+val_miou 0.834834167179765 val_acc 0.9621782836914057 val_loss: 0.13826415583491325
+********
+val_epoch: 71 it_train_num: 297500     time: 136967
+val_miou 0.8355482923860221 val_acc 0.962422719319661 val_loss: 0.13808017313480378
+********
+val_epoch: 71 it_train_num: 298000     time: 137191
+val_miou 0.8373317309321123 val_acc 0.9631380488077801 val_loss: 0.13840282806754112
+********
+val_epoch: 71 it_train_num: 298500     time: 137413
+val_miou 0.83572245208486 val_acc 0.9627191238403318 val_loss: 0.1383385789990425
+********
+val_epoch: 71 it_train_num: 299000     time: 137637
+val_miou 0.8381954363614234 val_acc 0.9635407536824545 val_loss: 0.138307868629694
+********
+val_epoch: 71 it_train_num: 299500     time: 137860
+val_miou 0.8370972850373138 val_acc 0.9623665288289387 val_loss: 0.1376492345035076
+********
+val_epoch: 71 it_train_num: 300000     time: 138083
+val_miou 0.8341263213189836 val_acc 0.9618896840413411 val_loss: 0.1387457230389118
+********
+val_epoch: 71 it_train_num: 300024     time: 138129
+val_miou 0.8366888460770497 val_acc 0.9630522969563798 val_loss: 0.13846209487318992
+********
+*********
+epoch: 71     time: 138129
+train_loss: 0.134087379797417
+SHAPE: (256, 256)
+********************************************
+val_epoch: 72 it_train_num: 300500     time: 138344
+val_miou 0.8351598048511594 val_acc 0.9620743687947593 val_loss: 0.13847840428352357
+********
+val_epoch: 72 it_train_num: 301000     time: 138567
+val_miou 0.8355442011653537 val_acc 0.9618222986857095 val_loss: 0.13815308368206025
+********
+val_epoch: 72 it_train_num: 301500     time: 138790
+val_miou 0.8343219435533828 val_acc 0.9623219401041668 val_loss: 0.13811386799812317
+********
+val_epoch: 72 it_train_num: 302000     time: 139012
+val_miou 0.8383627137428837 val_acc 0.9632796656290693 val_loss: 0.13766808757185936
+********
+val_epoch: 72 it_train_num: 302500     time: 139236
+val_miou 0.8334807996405502 val_acc 0.962008733113607 val_loss: 0.13871017813682557
+********
+val_epoch: 72 it_train_num: 303000     time: 139459
+val_miou 0.835720573293485 val_acc 0.9624900843302409 val_loss: 0.13802116125822067
+********
+val_epoch: 72 it_train_num: 303500     time: 139682
+val_miou 0.83400049174349 val_acc 0.9614834594726562 val_loss: 0.1386568135023117
+********
+val_epoch: 72 it_train_num: 304000     time: 139905
+val_miou 0.832536556076985 val_acc 0.9612661717732747 val_loss: 0.13854520344734192
+********
+val_epoch: 72 it_train_num: 304191     time: 140013
+val_miou 0.8377256739412732 val_acc 0.9634047571818033 val_loss: 0.1383056338727474
+********
+*********
+epoch: 72     time: 140013
+train_loss: 0.1340619080128045
+SHAPE: (256, 256)
+********************************************
+val_epoch: 73 it_train_num: 304500     time: 140166
+val_miou 0.8356969327280801 val_acc 0.962740923563639 val_loss: 0.13812116074562072
+********
+val_epoch: 73 it_train_num: 305000     time: 140389
+val_miou 0.8386008516808402 val_acc 0.9631816431681315 val_loss: 0.13770566561818123
+********
+val_epoch: 73 it_train_num: 305500     time: 140612
+val_miou 0.8359276646378431 val_acc 0.9622654571533203 val_loss: 0.13812135976552964
+********
+val_epoch: 73 it_train_num: 306000     time: 140834
+val_miou 0.8345389830663877 val_acc 0.9617579269409179 val_loss: 0.13817794194817543
+********
+val_epoch: 73 it_train_num: 306500     time: 141057
+val_miou 0.8358551065805429 val_acc 0.9625012995402016 val_loss: 0.13860611698031425
+********
+val_epoch: 73 it_train_num: 307000     time: 141280
+val_miou 0.837804473134424 val_acc 0.9630936177571616 val_loss: 0.13875344544649124
+********
+val_epoch: 73 it_train_num: 307500     time: 141504
+val_miou 0.835927108987108 val_acc 0.9625296605428054 val_loss: 0.13758311542868615
+********
+val_epoch: 73 it_train_num: 308000     time: 141727
+val_miou 0.8406010398791391 val_acc 0.9638776372273762 val_loss: 0.13817374250292777
+********
+val_epoch: 73 it_train_num: 308358     time: 141897
+val_miou 0.8363910063769509 val_acc 0.9627604014078779 val_loss: 0.13891698834300042
+********
+*********
+epoch: 73     time: 141897
+train_loss: 0.13381950570463075
+SHAPE: (256, 256)
+********************************************
+val_epoch: 74 it_train_num: 308500     time: 141988
+val_miou 0.8386480753148686 val_acc 0.963756556193034 val_loss: 0.13785102692246437
+********
+val_epoch: 74 it_train_num: 309000     time: 142211
+val_miou 0.8367300315495164 val_acc 0.9628834025065102 val_loss: 0.1379726687669754
+********
+val_epoch: 74 it_train_num: 309500     time: 142434
+val_miou 0.8347740471924435 val_acc 0.9622275466918938 val_loss: 0.13906120845675468
+********
+val_epoch: 74 it_train_num: 310000     time: 142657
+val_miou 0.8359102352726666 val_acc 0.962408498128255 val_loss: 0.13811311721801758
+********
+val_epoch: 74 it_train_num: 310500     time: 142879
+val_miou 0.8304427832938016 val_acc 0.9604207153320311 val_loss: 0.13898250797390937
+********
+val_epoch: 74 it_train_num: 311000     time: 143102
+val_miou 0.839596484256266 val_acc 0.9637605311075849 val_loss: 0.13781237667798996
+********
+val_epoch: 74 it_train_num: 311500     time: 143326
+val_miou 0.8380576540626026 val_acc 0.963139767964681 val_loss: 0.13777349206805228
+********
+val_epoch: 74 it_train_num: 312000     time: 143549
+val_miou 0.8373680652046825 val_acc 0.9633084894816075 val_loss: 0.13760767418146133
+********
+val_epoch: 74 it_train_num: 312500     time: 143771
+val_miou 0.836683304444226 val_acc 0.9627995529174808 val_loss: 0.13771163925528526
+********
+val_epoch: 74 it_train_num: 312525     time: 143818
+val_miou 0.8361682867060627 val_acc 0.9628068389892581 val_loss: 0.1377474824488163
+********
+*********
+epoch: 74     time: 143818
+train_loss: 0.13379762623345562
+SHAPE: (256, 256)
+********************************************
+val_epoch: 75 it_train_num: 313000     time: 144033
+val_miou 0.8376410875556713 val_acc 0.9634704233805336 val_loss: 0.1383478938639164
+********
+val_epoch: 75 it_train_num: 313500     time: 144256
+val_miou 0.8373434915209533 val_acc 0.9628819580078118 val_loss: 0.13828058490157127
+********
+val_epoch: 75 it_train_num: 314000     time: 144479
+val_miou 0.8383968149841639 val_acc 0.9634904149373367 val_loss: 0.13827674412727356
+********
+val_epoch: 75 it_train_num: 314500     time: 144702
+val_miou 0.8373254696502814 val_acc 0.96292537689209 val_loss: 0.13862250146269797
+********
+val_epoch: 75 it_train_num: 315000     time: 144925
+val_miou 0.8390421644910032 val_acc 0.9634784342447923 val_loss: 0.13729596835374833
+********
+val_epoch: 75 it_train_num: 315500     time: 145148
+val_miou 0.8372062696980354 val_acc 0.9627702000935872 val_loss: 0.13893718841671943
+********
+val_epoch: 75 it_train_num: 316000     time: 145371
+val_miou 0.8355150705775415 val_acc 0.9627645670572915 val_loss: 0.1379477325081825
+********
+val_epoch: 75 it_train_num: 316500     time: 145594
+val_miou 0.8364420265943815 val_acc 0.9630208689371746 val_loss: 0.1375187302827835
+********
+val_epoch: 75 it_train_num: 316692     time: 145703
+val_miou 0.8368117322178884 val_acc 0.9626405690511067 val_loss: 0.13807050806283952
+********
+*********
+epoch: 75     time: 145703
+train_loss: 0.13363411186344765
+SHAPE: (256, 256)
+********************************************
+val_epoch: 76 it_train_num: 317000     time: 145856
+val_miou 0.8360714435985003 val_acc 0.9626124114990235 val_loss: 0.13814501702785492
+********
+val_epoch: 76 it_train_num: 317500     time: 146079
+val_miou 0.8357739705115281 val_acc 0.9621905059814456 val_loss: 0.13804754090309143
+********
+val_epoch: 76 it_train_num: 318000     time: 146302
+val_miou 0.8364695253884376 val_acc 0.9626335118611653 val_loss: 0.13825915598869323
+********
+val_epoch: 76 it_train_num: 318500     time: 146525
+val_miou 0.8366385816485512 val_acc 0.9625308939615889 val_loss: 0.13868636563420295
+********
+val_epoch: 76 it_train_num: 319000     time: 146748
+val_miou 0.8356395502007515 val_acc 0.9620302581787104 val_loss: 0.13795878472924233
+********
+val_epoch: 76 it_train_num: 319500     time: 146971
+val_miou 0.8353480267632213 val_acc 0.9623712234497069 val_loss: 0.13785579538345336
+********
+val_epoch: 76 it_train_num: 320000     time: 147195
+val_miou 0.8379716184742328 val_acc 0.9635307133992514 val_loss: 0.13786944460868836
+********
+val_epoch: 76 it_train_num: 320500     time: 147418
+val_miou 0.8369876066176575 val_acc 0.9627960942586268 val_loss: 0.13830369341373444
+********
+val_epoch: 76 it_train_num: 320859     time: 147589
+val_miou 0.8399822058281187 val_acc 0.9640101242065429 val_loss: 0.13750831225514412
+********
+*********
+epoch: 76     time: 147589
+train_loss: 0.13368126709762454
+SHAPE: (256, 256)
+********************************************

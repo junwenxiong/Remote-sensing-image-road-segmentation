@@ -1,0 +1,1 @@
+Namespace(batch_size=64, dataset='./huawei', gpus='1', lr=0.0001, network='se_resnet_50', num_class=2, num_epochs=100, print_freq=10, resume='', save_epoch_freq=1, save_path='output', start_epoch=0, workers=8)
