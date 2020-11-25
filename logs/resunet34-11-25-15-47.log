@@ -1,1 +1,32 @@
 Namespace(backbone='resunet34', batch_size=16, combine=False, dataset='./huawei/new_data/384', dyrelu='True', epochs=100, learn_rate=0.0001, loss='dice_bce', model1=None, model1_checkpoint=None, model2=None, model2_checkpoint=None, optim='adam', resume=None, test=False, train=True, workers=8)
+val_epoch: 0 it_train_num: 500     time: 328
+val_miou 0.5556737090923172 val_acc 0.8739850513719297 val_loss: 0.27262758175795176
+********
+val_epoch: 0 it_train_num: 1000     time: 656
+val_miou 0.5243772184189054 val_acc 0.8661199878314941 val_loss: 0.2495814399674502
+********
+val_epoch: 0 it_train_num: 1500     time: 984
+val_miou 0.5832609951748519 val_acc 0.8858527074917867 val_loss: 0.2181318708701639
+********
+val_epoch: 0 it_train_num: 2000     time: 1312
+val_miou 0.5821558094234971 val_acc 0.8830040633615078 val_loss: 0.2145866441641159
+********
+val_epoch: 0 it_train_num: 2500     time: 1641
+val_miou 0.603385025207401 val_acc 0.8943966275838068 val_loss: 0.20904194963294148
+********
+val_epoch: 0 it_train_num: 3000     time: 1969
+val_miou 0.6152916603996397 val_acc 0.901773660382366 val_loss: 0.2039109252179432
+********
+val_epoch: 0 it_train_num: 3500     time: 2297
+val_miou 0.6190351121262189 val_acc 0.9029019923799217 val_loss: 0.20306419189731542
+********
+val_epoch: 0 it_train_num: 4000     time: 2626
+val_miou 0.5908729617278948 val_acc 0.8907491217843941 val_loss: 0.21287594538256033
+********
+val_epoch: 0 it_train_num: 4167     time: 2794
+val_miou 0.6177471581420446 val_acc 0.8944145903136276 val_loss: 0.2014776784721063
+********
+*********
+epoch: 0     time: 2794
+train_loss: 0.22908736337517158
+********************************************
