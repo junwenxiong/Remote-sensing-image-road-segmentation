@@ -26,6 +26,7 @@ from apex.parallel import DistributedDataParallel as DPP
 
 class MyFrame():
     def __init__(self, args=None, evalmode=False):
+        self.args = args
 
         if args.train:
             if args.backbone == 'unet':
@@ -201,7 +202,8 @@ class MyFrame():
         img = np.array(img, np.float32) / 255.0 * 3.2 - 1.6
         img = V(torch.Tensor(img).cuda())
 
-        mask = self.net.forward(img).squeeze().cpu().data.numpy()  # .squeeze(1)
+        mask = self.net.forward(
+            img).squeeze().cpu().data.numpy()  # .squeeze(1)
         mask[mask > 0.5] = 1
         mask[mask <= 0.5] = 0
 
@@ -290,8 +292,12 @@ class MyFrame():
         torch.save(weight_dict, path)
 
     def save(self, path):
+        # wraped the module layer when use the mixed precision for training
+        self.model_state_dict = self.net.module.state_dict() if len(
+            self.args.gpu_ids) > 1 else self.net.state_dict()
+
         weight_dict = {
-            'model': self.net.state_dict(),
+            'model': self.model_state_dict,
             'optimizer': self.optimizer.state_dict(),
         }
         torch.save(weight_dict, path)
