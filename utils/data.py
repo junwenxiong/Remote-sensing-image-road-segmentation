@@ -9,7 +9,14 @@ import cv2
 import numpy as np
 from PIL import Image
 import os
-u2 = 0.15  #默认0.5
+from torch.utils.data import DataLoader
+from albumentations import (PadIfNeeded, HorizontalFlip, VerticalFlip,
+                            CenterCrop, Crop, Compose, Transpose,
+                            RandomRotate90, ElasticTransform, GridDistortion,
+                            OpticalDistortion, RandomSizedCrop, OneOf, CLAHE,
+                            RandomContrast, RandomGamma, RandomBrightness)
+
+u2 = 0.15  # 默认0.5
 
 
 def randomHueSaturationValue(image,
@@ -117,6 +124,15 @@ def randomRotate90(image, mask, u=u2):
     return image, mask
 
 
+def transposeXY(image, mask):
+    aug = Transpose(p=1)
+    augmented = aug(image=image, mask=mask)
+    image_transposed = augmented['image']
+    mask_transposed = augmented['mask']
+
+    return image_transposed, mask_transposed
+
+
 def default_loader(id, root, mode):
     img = cv2.imread(os.path.join(root, 'images', '{}').format(id))
     mask = cv2.imread(
@@ -125,19 +141,20 @@ def default_loader(id, root, mode):
     mask = mask * 255
     if mode == 'train':
         img = randomHueSaturationValue(img,
-                                    hue_shift_limit=(-30, 30),
-                                    sat_shift_limit=(-5, 5),
-                                    val_shift_limit=(-15, 15))
+                                       hue_shift_limit=(-30, 30),
+                                       sat_shift_limit=(-5, 5),
+                                       val_shift_limit=(-15, 15))
 
         img, mask = randomShiftScaleRotate(img,
-                                        mask,
-                                        shift_limit=(-0.1, 0.1),
-                                        scale_limit=(-0.1, 0.1),
-                                        aspect_limit=(-0.1, 0.1),
-                                        rotate_limit=(-0, 0))
+                                           mask,
+                                           shift_limit=(-0.1, 0.1),
+                                           scale_limit=(-0.1, 0.1),
+                                           aspect_limit=(-0.1, 0.1),
+                                           rotate_limit=(-0, 0))
         img, mask = randomHorizontalFlip(img, mask)
         img, mask = randomVerticleFlip(img, mask)
         img, mask = randomRotate90(img, mask)
+        img, mask = transposeXY(img, mask)
 
     mask = np.expand_dims(mask, axis=2)
     img = np.array(img, np.float32).transpose(2, 0, 1) / 255.0 * 3.2 - 1.6
@@ -160,12 +177,7 @@ def load_img_wo_label(id, root, mode):
 
 
 class ImageFolder(data.Dataset):
-    def __init__(
-        self,
-        trainlist,
-        root,
-        mode='train'
-    ):
+    def __init__(self, trainlist, root, mode='train'):
         self.ids = trainlist
         self.loader = default_loader
         self.root = root
@@ -173,11 +185,7 @@ class ImageFolder(data.Dataset):
 
     def __getitem__(self, index):
         id = self.ids[index]
-        img, mask = self.loader(
-            id,
-            self.root,
-            mode = self.mode
-        )
+        img, mask = self.loader(id, self.root, mode=self.mode)
         img = torch.Tensor(img)
         mask = torch.Tensor(mask)
         return img, mask
@@ -206,5 +214,41 @@ class ImageFolderv2(data.Dataset):
         labels_df = pd.read_csv(labels)
         id_image = labels_df['fname'][id]
         id_label = labels_df['street'][id]
-        
-        return id_image, id_label 
+
+        return id_image, id_label
+
+
+def make_dataloader(args):
+    if args.train:
+        train_ROOT = os.path.join(args.dataset, 'train_new')
+        val_ROOT = os.path.join(args.dataset, 'val_new')
+
+        train_image_dir = os.path.join(train_ROOT, 'images')
+        val_image_dir = os.path.join(val_ROOT, 'images')
+        train_list = os.listdir(train_image_dir)
+        val_list = os.listdir(val_image_dir)
+
+        dataset = ImageFolder(train_list, train_ROOT, mode='train')
+        train_data_loader = DataLoader(dataset,
+                                       batch_size=args.batch_size,
+                                       shuffle=True,
+                                       num_workers=args.workers)
+
+        val_dataset = ImageFolder(val_list, val_ROOT, mode='val')
+        val_data_loader = DataLoader(val_dataset,
+                                     batch_size=args.batch_size,
+                                     shuffle=True,
+                                     num_workers=args.workers)
+
+        return train_data_loader, val_data_loader
+    else:
+        test_ROOT = os.path.join(args.dataset, 'test_new')
+        test_image_dir = os.path.join(test_ROOT, 'images')
+        test_list = os.listdir(test_image_dir)
+
+        test_dataset = ImageFolder(test_list, test_ROOT, mode='val')
+        test_data_loader = DataLoader(test_dataset,
+                                      batch_size=args.batch_size,
+                                      shuffle=False,
+                                      num_workers=args.workers)
+        return test_data_loader

@@ -10,6 +10,7 @@ import torch.nn.functional as F
 from collections import OrderedDict
 from torch.autograd import Variable
 from networks.Resnet18Unet import ResNet18Unet, ResNet34Unet
+from networks.unet_model import Res34Unetv5
 import torchvision.transforms as transforms
 from metric.metrics_manager import MetricsManager
 from model_service.pytorch_model_service import PTServingBaseService
@@ -22,7 +23,7 @@ class ImageClassificationService(PTServingBaseService):
         self.model_name = model_name
         self.model_path = model_path
 
-        self.model = ResNet34Unet(pretrained=False)
+        self.model = Res34Unetv5(pretrained=False)
         self.use_cuda = False
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         if torch.cuda.is_available():

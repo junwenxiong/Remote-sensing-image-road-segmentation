@@ -12,9 +12,11 @@ OHEM/*
 runs
 runs/*
 logs/*
+preprocess/*
 weights/*
 filname.zip
 custom2.py
 custom3.py
 customize.py
 fusion_model.py
+*.sh
