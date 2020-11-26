@@ -3,18 +3,11 @@ Based on https://github.com/asanakoy/kaggle_carvana_segmentation
 """
 import torch
 import torch.utils.data as data
-from torch.autograd import Variable as V
 import pandas as pd
 import cv2
 import numpy as np
-from PIL import Image
 import os
 from torch.utils.data import DataLoader
-from albumentations import (PadIfNeeded, HorizontalFlip, VerticalFlip,
-                            CenterCrop, Crop, Compose, Transpose,
-                            RandomRotate90, ElasticTransform, GridDistortion,
-                            OpticalDistortion, RandomSizedCrop, OneOf, CLAHE,
-                            RandomContrast, RandomGamma, RandomBrightness)
 
 u2 = 0.15  # 默认0.5
 

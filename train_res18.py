@@ -34,7 +34,7 @@ tic = time()
 no_optim = 0
 total_epoch = args.epochs
 train_epoch_best_loss = 100.
-str = ""
+
 writer = SummaryWriter()
 
 
