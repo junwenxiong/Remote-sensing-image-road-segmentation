@@ -11,7 +11,7 @@ OHEM
 OHEM/*
 runs
 runs/*
-weights
+logs/*
 weights/*
 filname.zip
 custom2.py
