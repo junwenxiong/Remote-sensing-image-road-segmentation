@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 from torch.autograd import Variable as V
-from apex import amp
+
 import cv2
 import numpy as np
 from utils.Optimizer import Optim
@@ -10,12 +10,19 @@ from networks.unet_model import Res34Unetv3, Res34Unetv4, Res34Unetv5
 from networks.unet_att_Dyrelu import UNet_att_Dyre
 from networks.dinknet import DinkNet50, DinkNet34
 from networks.CombineNet import CombineNet
-# from networks.unet import Unet
+from networks.unet import Unet
+from networks.baseline_6_Frelu import UNet
 from utils.loss_2 import SegmentationLosses
 from utils.ranger import Ranger  # this is from ranger.py
 from utils.loss import dice_bce_loss
 from networks.dlinknet import DLinkNet34, DLinkNet50
 from networks.baseline_6_Frelu import UNet
+
+# Mixed Precision training
+from apex import amp
+from apex.parallel import convert_syncbn_model
+from apex.parallel import DistributedDataParallel as DPP
+
 
 class MyFrame():
     def __init__(self, args=None, evalmode=False):
@@ -37,11 +44,6 @@ class MyFrame():
                 self.net = DinkNet34(pretrained=True)
             elif args.backbone == 'combinenet':
                 self.net = CombineNet()
-
-        if evalmode:
-            for i in self.net.modules():
-                if isinstance(i, nn.BatchNorm2d):
-                    i.eval()
 
         if args.combine:
             self.model1_name = args.model1
@@ -101,17 +103,31 @@ class MyFrame():
             elif args.backbone == 'combinenet':
                 self.net = CombineNet()
 
-        self.net = self.net.cuda()
-        self.optimizer = Optim(self.net.parameters(),
-                               lr=args.learn_rate).build(args.optim)
-        self.CosineLR = torch.optim.lr_scheduler.CosineAnnealingLR(
-            self.optimizer, T_max=150, eta_min=0)
-        self.loss = SegmentationLosses(cuda=True).build_loss(args.loss)
         self.old_lr = args.learn_rate
-        self.net, self.optimizer = amp.initialize(self.net,
-                                                  self.optimizer,
-                                                  opt_level="O1")
-        
+
+        # if train with mixed precision
+        if not args.mixed_train:
+            self.net = self.net.cuda()
+            self.optimizer = Optim(self.net.parameters(),
+                                   lr=args.learn_rate).build(args.optim)
+            self.CosineLR = torch.optim.lr_scheduler.CosineAnnealingLR(
+                self.optimizer, T_max=150, eta_min=0)
+            self.loss = SegmentationLosses(cuda=True).build_loss(args.loss)
+            self.net, self.optimizer = amp.initialize(self.net,
+                                                      self.optimizer,
+                                                      opt_level="O1")
+        else:
+            self.device = torch.device(f'cuda:{args.local_rank}')
+            self.net = convert_syncbn_model(self.net).to(self.device)
+            self.optimizer = Optim(self.net.parameters(),
+                                   lr=args.learn_rate).build(args.optim)
+            self.CosineLR = torch.optim.lr_scheduler.CosineAnnealingLR(
+                self.optimizer, T_max=150, eta_min=0)
+            self.loss = SegmentationLosses(cuda=True).build_loss(args.loss)
+            self.net, self.optimizer = amp.initialize(self.net,
+                                                      self.optimizer,
+                                                      opt_level="O1")
+            self.net = DPP(self.net)
 
     # use this function if combine equals ture
     def combine_val_optimize(self):
@@ -185,7 +201,7 @@ class MyFrame():
         img = np.array(img, np.float32) / 255.0 * 3.2 - 1.6
         img = V(torch.Tensor(img).cuda())
 
-        mask = self.net.forward(img).squeeze().cpu().data.numpy()  #.squeeze(1)
+        mask = self.net.forward(img).squeeze().cpu().data.numpy()  # .squeeze(1)
         mask[mask > 0.5] = 1
         mask[mask <= 0.5] = 0
 
@@ -206,11 +222,11 @@ class MyFrame():
         )  # pred mask : 20*1*1024*1024
         with amp.scale_loss(loss, self.optimizer) as scaled_loss:
             scaled_loss.backward()
-        #loss.backward()
+        # loss.backward()
         self.optimizer.step()
         return loss.item()
 
-    #验证时使用
+    # 验证时使用
 
     def _generate_matrix(self, gt_image, pre_image, num_class=2):
         mask = (gt_image >= 0) & (

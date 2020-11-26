@@ -11,11 +11,12 @@ import random
 import shutil
 Image.MAX_IMAGE_PIXELS = 1000000000000000
 TARGET_W, TARGET_H = 384, 384
-#TARGET_W, TARGET_H = 256, 256
+# TARGET_W, TARGET_H = 768, 768
+# TARGET_W, TARGET_H = 256, 256
 STEP = 992
 
 
-#切成9*9
+# 切成9*9
 def cut_images_9_9(image_name,
                    image_path,
                    label_path,
@@ -89,18 +90,19 @@ def cut_images_9_9(image_name,
 def cut_images(image_name, image_path, label_path, save_dir, is_show=False):
     # 初始化路径
     image_save_dir = os.path.join(save_dir, "images/")
-    if not os.path.exists(image_save_dir): 
+    if not os.path.exists(image_save_dir):
         os.makedirs(image_save_dir)
     label_save_dir = os.path.join(save_dir, "labels/")
-    if not os.path.exists(label_save_dir): 
+    if not os.path.exists(label_save_dir):
         os.makedirs(label_save_dir)
-        
+
     if is_show:
         label_show_save_dir = os.path.join(save_dir, "labels_show/")
         if not os.path.exists(label_show_save_dir):
             os.makedirs(label_show_save_dir)
 
     target_w, target_h = TARGET_W, TARGET_H
+
     overlap = target_h // 3
     #overlap = 0
     stride = target_h - overlap
@@ -188,58 +190,73 @@ if __name__ == "__main__":
     data_img_dir = "/data/home/zy/huawei/new_data/9_9/images/"
     data_label_dir = "/data/home/zy/huawei/new_data/9_9/labels/"
     #更改文件夹 需要更改顶部的TRAGET_W  TRAGET_H
-    save_dir = "/data/home/zy/huawei/new_data/384/train_new/"
 
-    img_name1 = "382_0_0.png"
-    img_name2 = "382_0_1.png"
-    img_name3 = "382_0_2.png"
-    img_name4 = "382_1_0.png"
-    img_name5 = "382_1_2.png"
-    img_name6 = "382_2_0.png"
-    img_name7 = "382_2_2.png"
+    train_save_dir = "/data/home/zy/huawei/new_data/" + str(TARGET_W) + "/train_new/"
+    val_save_dir = "/data/home/zy/huawei/new_data/" + str(TARGET_W) + "/val_new/"
+    test_save_dir = "/data/home/zy/huawei/new_data/" + str(TARGET_W) + "/test_new/"
 
-    # img_name1 = "382_1_1.png"  #测试集 三份
-    # img_name2 = "382_2_1.png"  #测试集 三份
-    # img_name3 = "182_0_1.png"  #测试集 三份
+    train_img_name1 = "382_0_0.png"
+    train_img_name2 = "382_0_1.png"
+    train_img_name3 = "382_0_2.png"
+    train_img_name4 = "382_1_0.png"
+    train_img_name5 = "382_1_2.png"
+    train_img_name6 = "382_2_0.png"
+    train_img_name7 = "382_2_2.png"
 
-    #img_name1 = "182_1_1.png"    #验证集 1份
+    train_img_name1_ = "182_0_0.png"
+    train_img_name2_ = "182_0_2.png"
+    train_img_name3_ = "182_1_0.png"
+    train_img_name4_ = "182_1_2.png"
+    train_img_name5_ = "182_2_0.png"
+    train_img_name6_ = "182_2_1.png"
+    train_img_name7_ = "182_2_2.png"
 
-    img_name1_ = "182_0_0.png"
-    img_name2_ = "182_0_2.png"
-    img_name3_ = "182_1_0.png"
-    img_name4_ = "182_1_2.png"
-    img_name5_ = "182_2_0.png"
-    img_name6_ = "182_2_1.png"
-    img_name7_ = "182_2_2.png"
+    val_img_name1 = "382_1_1.png"  # 测试集 三份
+    val_img_name2 = "382_2_1.png"  # 测试集 三份
+    val_img_name3 = "182_0_1.png"  # 测试集 三份
 
-    cut_images(img_name1, os.path.join(data_img_dir, img_name1),
-               os.path.join(data_label_dir, img_name1), save_dir)
-    cut_images(img_name2, os.path.join(data_img_dir, img_name2),
-               os.path.join(data_label_dir, img_name2), save_dir)
-    cut_images(img_name3, os.path.join(data_img_dir, img_name3),
-               os.path.join(data_label_dir, img_name3), save_dir)
-    cut_images(img_name4, os.path.join(data_img_dir, img_name4),
-               os.path.join(data_label_dir, img_name4), save_dir)
-    cut_images(img_name5, os.path.join(data_img_dir, img_name5),
-               os.path.join(data_label_dir, img_name5), save_dir)
-    cut_images(img_name6, os.path.join(data_img_dir, img_name6),
-               os.path.join(data_label_dir, img_name6), save_dir)
-    cut_images(img_name7, os.path.join(data_img_dir, img_name7),
-               os.path.join(data_label_dir, img_name7), save_dir)
+    test_img_name1 = "182_1_1.png"    # 验证集 1份
 
-    cut_images(img_name1_, os.path.join(data_img_dir, img_name1_),
-               os.path.join(data_label_dir, img_name1_), save_dir)
-    cut_images(img_name2_, os.path.join(data_img_dir, img_name2_),
-               os.path.join(data_label_dir, img_name2_), save_dir)
-    cut_images(img_name3_, os.path.join(data_img_dir, img_name3_),
-               os.path.join(data_label_dir, img_name3_), save_dir)
-    cut_images(img_name4_, os.path.join(data_img_dir, img_name4_),
-               os.path.join(data_label_dir, img_name4_), save_dir)
-    cut_images(img_name5_, os.path.join(data_img_dir, img_name5_),
-               os.path.join(data_label_dir, img_name5_), save_dir)
-    cut_images(img_name6_, os.path.join(data_img_dir, img_name6_),
-               os.path.join(data_label_dir, img_name6_), save_dir)
-    cut_images(img_name7_, os.path.join(data_img_dir, img_name7_),
-               os.path.join(data_label_dir, img_name7_), save_dir)
+
+    # cut train datas
+    cut_images(train_img_name1, os.path.join(data_img_dir, train_img_name1),
+               os.path.join(data_label_dir, train_img_name1), train_save_dir)
+    cut_images(train_img_name2, os.path.join(data_img_dir, train_img_name2),
+               os.path.join(data_label_dir, train_img_name2), train_save_dir)
+    cut_images(train_img_name3, os.path.join(data_img_dir, train_img_name3),
+               os.path.join(data_label_dir, train_img_name3), train_save_dir)
+    cut_images(train_img_name4, os.path.join(data_img_dir, train_img_name4),
+               os.path.join(data_label_dir, train_img_name4), train_save_dir)
+    cut_images(train_img_name5, os.path.join(data_img_dir, train_img_name5),
+               os.path.join(data_label_dir, train_img_name5), train_save_dir)
+    cut_images(train_img_name6, os.path.join(data_img_dir, train_img_name6),
+               os.path.join(data_label_dir, train_img_name6), train_save_dir)
+    cut_images(train_img_name7, os.path.join(data_img_dir, train_img_name7),
+               os.path.join(data_label_dir, train_img_name7), train_save_dir)
+
+    cut_images(train_img_name1_, os.path.join(data_img_dir, train_img_name1_),
+               os.path.join(data_label_dir, train_img_name1_), train_save_dir)
+    cut_images(train_img_name2_, os.path.join(data_img_dir, train_img_name2_),
+               os.path.join(data_label_dir, train_img_name2_), train_save_dir)
+    cut_images(train_img_name3_, os.path.join(data_img_dir, train_img_name3_),
+               os.path.join(data_label_dir, train_img_name3_), train_save_dir)
+    cut_images(train_img_name4_, os.path.join(data_img_dir, train_img_name4_),
+               os.path.join(data_label_dir, train_img_name4_), train_save_dir)
+    cut_images(train_img_name5_, os.path.join(data_img_dir, train_img_name5_),
+               os.path.join(data_label_dir, train_img_name5_), train_save_dir)
+    cut_images(train_img_name6_, os.path.join(data_img_dir, train_img_name6_),
+               os.path.join(data_label_dir, train_img_name6_), train_save_dir)
+    cut_images(train_img_name7_, os.path.join(data_img_dir, train_img_name7_),
+               os.path.join(data_label_dir, train_img_name7_), train_save_dir)
+
+    cut_images(val_img_name1, os.path.join(data_img_dir, val_img_name1),
+               os.path.join(data_label_dir, val_img_name1), val_save_dir)
+    cut_images(val_img_name2, os.path.join(data_img_dir, val_img_name2),
+               os.path.join(data_label_dir, val_img_name2), val_save_dir)          
+    cut_images(val_img_name3, os.path.join(data_img_dir, val_img_name3),
+               os.path.join(data_label_dir, val_img_name3), val_save_dir)
+
+    cut_images(test_img_name1, os.path.join(data_img_dir, test_img_name1),
+               os.path.join(data_label_dir, test_img_name1), test_save_dir)
 
     #get_train_val(save_dir)

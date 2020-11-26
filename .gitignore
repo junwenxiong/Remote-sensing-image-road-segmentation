@@ -1,5 +1,12 @@
 __pycache__
 __pycache__/*
+utils/__pycache__/args_config.cpython-37.pyc
+utils/__pycache__/args_config.cpython-37.pyc
+utils/__pycache__/data.cpython-37.pyc
+utils/__pycache__/framework.cpython-37.pyc
+networks/__pycache__/*
+utils/__pycache__/*
+classifier/__pycache__/*
 .idea
 .idea/*
 .vscode
@@ -19,4 +26,3 @@ custom2.py
 custom3.py
 customize.py
 fusion_model.py
-*.sh

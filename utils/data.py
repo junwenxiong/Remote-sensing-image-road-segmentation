@@ -3,11 +3,19 @@ Based on https://github.com/asanakoy/kaggle_carvana_segmentation
 """
 import torch
 import torch.utils.data as data
+from torch.autograd import Variable as V
 import pandas as pd
 import cv2
 import numpy as np
+from PIL import Image
 import os
 from torch.utils.data import DataLoader
+from torch.utils.data.distributed import DistributedSampler
+from albumentations import (PadIfNeeded, HorizontalFlip, VerticalFlip,
+                            CenterCrop, Crop, Compose, Transpose,
+                            RandomRotate90, ElasticTransform, GridDistortion,
+                            OpticalDistortion, RandomSizedCrop, OneOf, CLAHE,
+                            RandomContrast, RandomGamma, RandomBrightness)
 
 u2 = 0.15  # 默认0.5
 
@@ -212,36 +220,46 @@ class ImageFolderv2(data.Dataset):
 
 
 def make_dataloader(args):
+    train_ROOT = os.path.join(args.dataset, 'train_new')
+    val_ROOT = os.path.join(args.dataset, 'val_new')
+    test_ROOT = os.path.join(args.dataset, 'test_new')
+
+    train_image_dir = os.path.join(train_ROOT, 'images')
+    val_image_dir = os.path.join(val_ROOT, 'images')
+    train_list = os.listdir(train_image_dir)
+    val_list = os.listdir(val_image_dir)
+    test_image_dir = os.path.join(test_ROOT, 'images')
+    test_list = os.listdir(test_image_dir)
+    # import pdb
+    # pdb.set_trace()
+    train_dataset = ImageFolder(train_list, train_ROOT, mode='train')
+    val_dataset = ImageFolder(val_list, val_ROOT, mode='val')
+    test_dataset = ImageFolder(test_list, test_ROOT, mode='val')
+    train_data_loader, val_data_loader, test_data_loader = None, None, None
+    shuffle = True
+    train_sampler = None
+    val_sampler = None
     if args.train:
-        train_ROOT = os.path.join(args.dataset, 'train_new')
-        val_ROOT = os.path.join(args.dataset, 'val_new')
+        if args.mixed_train:
+            train_sampler = DistributedSampler(train_dataset)
+            val_sampler = DistributedSampler(val_dataset)
+            shuffle = False
 
-        train_image_dir = os.path.join(train_ROOT, 'images')
-        val_image_dir = os.path.join(val_ROOT, 'images')
-        train_list = os.listdir(train_image_dir)
-        val_list = os.listdir(val_image_dir)
-
-        dataset = ImageFolder(train_list, train_ROOT, mode='train')
-        train_data_loader = DataLoader(dataset,
+        train_data_loader = DataLoader(train_dataset,
                                        batch_size=args.batch_size,
-                                       shuffle=True,
-                                       num_workers=args.workers)
+                                       shuffle=shuffle,
+                                       num_workers=args.workers,
+                                       sampler=train_sampler)
 
-        val_dataset = ImageFolder(val_list, val_ROOT, mode='val')
         val_data_loader = DataLoader(val_dataset,
                                      batch_size=args.batch_size,
-                                     shuffle=True,
-                                     num_workers=args.workers)
-
-        return train_data_loader, val_data_loader
+                                     shuffle=shuffle,
+                                     num_workers=args.workers,
+                                     sampler=val_sampler)
     else:
-        test_ROOT = os.path.join(args.dataset, 'test_new')
-        test_image_dir = os.path.join(test_ROOT, 'images')
-        test_list = os.listdir(test_image_dir)
-
-        test_dataset = ImageFolder(test_list, test_ROOT, mode='val')
         test_data_loader = DataLoader(test_dataset,
                                       batch_size=args.batch_size,
                                       shuffle=False,
                                       num_workers=args.workers)
-        return test_data_loader
+
+    return train_data_loader, val_data_loader, test_data_loader

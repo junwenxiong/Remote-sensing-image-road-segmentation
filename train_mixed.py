@@ -9,7 +9,7 @@ from utils.data import ImageFolder, make_dataloader
 from utils.args_config import make_args
 from utils.loss_2 import SegmentationLosses
 from torch.utils.data import DataLoader
-
+from torch import distributed, optim
 
 args = make_args()
 print(args)
@@ -20,8 +20,11 @@ model_dir = './weights/' + NAME + now + '/'
 if not os.path.exists(model_dir):
     os.mkdir(model_dir)
 
-
-loss_func = SegmentationLosses(cuda=True).build_loss(mode=args.loss)
+torch.distributed.init_process_group(
+            'nccl',
+            init_method='env://'
+        )
+torch.cuda.set_device(args.local_rank)
 
 solver = MyFrame(args, )
 
@@ -34,7 +37,7 @@ tic = time()
 no_optim = 0
 total_epoch = args.epochs
 train_epoch_best_loss = 100.
-
+str = ""
 writer = SummaryWriter()
 
 

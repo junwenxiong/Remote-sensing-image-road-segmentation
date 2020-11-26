@@ -25,8 +25,16 @@ def make_args():
                         default=8,
                         metavar='N',
                         help='dataloader threads')
+    parser.add_argument('--local_rank',
+                        default=-1,
+                        type=int,
+                        help='ranking within the nodes')
+    parser.add_argument('--gpu-ids',
+                        type=str,
+                        default='0',
+                        help='use which gpu to train')
 
-    #training hyperparameters
+    # training hyperparameters
     parser.add_argument('--epochs',
                         type=int,
                         default=40,
@@ -57,6 +65,8 @@ def make_args():
                         type=str,
                         default=None,
                         help='put the path to resuming file if needed')
+
+    # train mode
     parser.add_argument(
         '--combine',
         type=str,
@@ -88,8 +98,11 @@ def make_args():
                         type=str,
                         default=True,
                         help='dive into train mode')
-    parser.add_argument('--iter-num',
-                        type=int,
-                        help='iter num')
+    parser.add_argument('--mixed-train',
+                        type=str,
+                        default=False,
+                        help='dive into mixed train mode')
+
+    parser.add_argument('--iter-num', type=int, help='iter num')
     args = parser.parse_args()
     return args
