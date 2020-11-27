@@ -5,57 +5,43 @@ from tqdm import tqdm
 import cv2
 import os
 import numpy as np
+from PIL import Image
 from time import time, strftime, localtime
 from tensorboardX import SummaryWriter
 from torch.autograd import Variable as V
 from utils.framework import MyFrame
-from utils.data import ImageFolder
+from utils.data import ImageFolder, make_dataloader
 from utils.args_config import make_args
-
-# os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
 args = make_args()
 print(args)
 
 #训练测试 256*256
-train_ROOT = os.path.join(args.dataset, 'train')
-val_ROOT = os.path.join(args.dataset, 'val')
-
-train_image_dir = os.path.join(train_ROOT, 'images')
-val_image_dir = os.path.join(val_ROOT, 'images')
-
-train_list = os.listdir(train_image_dir)
-val_list = os.listdir(val_image_dir)
-x, y, c = cv2.imread(os.path.join(train_image_dir, train_list[0])).shape
-SHAPE = (x, y)
-
 NAME = args.backbone
-model_dir = './weights/' + NAME + '/'
+now = strftime('%m-%d-%H-%M', localtime())
+model_dir = './weights/' + NAME + now + '/'
 if not os.path.exists(model_dir):
     os.mkdir(model_dir)
 
-BATCHSIZE_PER_CARD = args.batch_size
+solver = MyFrame(args, )
 
-solver = MyFrame(
-    args,
-)
+train_ROOT = os.path.join(args.dataset, 'train_new')
+val_ROOT = os.path.join(args.dataset, 'val_new')
+test_ROOT = os.path.join(args.dataset, 'test_new')
 
-batchsize = torch.cuda.device_count() * BATCHSIZE_PER_CARD
+train_image_dir = os.path.join(train_ROOT, 'images')
+train_label_dir = os.path.join(train_ROOT, 'labels')
 
-dataset = ImageFolder(train_list[:50000], train_ROOT)
-data_loader = torch.utils.data.DataLoader(dataset,
-                                          batch_size=batchsize,
-                                          shuffle=True,
-                                          num_workers=args.workers)
+val_image_dir = os.path.join(val_ROOT, 'images')
+val_label_dir = os.path.join(val_ROOT, 'labels')
 
-val_dataset = ImageFolder(val_list, val_ROOT)
-val_data_loader = torch.utils.data.DataLoader(val_dataset,
-                                              batch_size=batchsize,
-                                              shuffle=True,
-                                              num_workers=args.workers)
+train_list = os.listdir(train_image_dir)
+val_list = os.listdir(val_image_dir)
+test_image_dir = os.path.join(test_ROOT, 'images')
+test_list = os.listdir(test_image_dir)
 
-now = strftime('%m-%d-%H-%M', localtime())
-mylog = open('logs/' + NAME + now + '.log', 'w')
+
+mylog = open('logs/' + NAME + '.log', 'w')
 print(args, file=mylog)
 tic = time()
 no_optim = 0
@@ -67,38 +53,40 @@ writer = SummaryWriter()
 it_train_num = 0
 
 
-def valid(epoch, it_train_num):
+def valid(epoch):
     # *****验证*******
-    val_data_loader_iter = iter(val_data_loader)
+    num_img_tr = len(val_list)
+    tbar = tqdm(val_list, desc='\r')
     val_epoch_loss = 0
     val_miou = 0.0
     val_acc = 0.0
     it_val_num = 0
     print("validing:")
-    for img, mask in tqdm(val_data_loader_iter):
+    for i, filename in tbar:
         it_val_num += 1
-        solver.set_input(img, mask)
-        miou, acc, val_loss = solver.combine_val_optimize()
+        image = Image.open(os.path.join(val_image_dir, filename))
+        label = Image.open(os.path.join(val_label_dir, filename))
+        label = np.array(label).astype(np.float32)
+        image = np.array(image, np.float32).transpose(2, 0, 1) / 255.0 * 3.2 - 1.6
+        label = np.array(label, np.float32).transpose(2, 0, 1) / 255.0
+        label = torch.from_numpy(label).float()
+        label = label.cuda()
+
+        solver.set_combine_input(image, label)
+        miou, acc, val_loss = solver.ensemble_val_optimize()
+        
         val_miou += miou
         val_acc += acc
         val_epoch_loss += val_loss
-        writer.add_scalar('dataset/val_loss%d' % it_train_num, val_loss,
-                          it_val_num)
-        writer.add_scalar('dataset/val_loss%d' % epoch, val_loss, it_val_num)
-        writer.add_scalar('dataset/miou%d' % it_train_num, miou, it_val_num)
-
-    val_epoch_loss /= len(val_data_loader_iter)
-    val_miou /= len(val_data_loader_iter)
-    val_acc /= len(val_data_loader_iter)
+        
+    val_epoch_loss /= num_img_tr
+    val_miou /= num_img_tr
+    val_acc /= num_img_tr
     writer.add_scalar('dataset/val_epoch_loss', val_epoch_loss, epoch)
     writer.add_scalar('dataset/val_miou', val_miou, epoch)
 
     print('val_epoch:',
           epoch,
-          'it_train_num:',
-          it_train_num,
-          '    time:',
-          int(time() - tic),
           file=mylog)
     print('val_miou',
           val_miou,
@@ -109,36 +97,37 @@ def valid(epoch, it_train_num):
           file=mylog)
     print('********', file=mylog)
 
-    print('val_epoch:', epoch, 'it_train_num:', it_train_num, '    time:',
-          int(time() - tic))
+    print('val_epoch:', epoch,)
     print('val_miou', val_miou, 'val_acc', val_acc, 'val_loss:',
           val_epoch_loss)
 
 
 for epoch in range(0, total_epoch + 1):
-    data_loader_iter = iter(data_loader)
     train_epoch_loss = 0
-    print('********************************************')
-    print("training:")
-
-    for img, mask in tqdm(data_loader_iter):
+    num_img_tr = len(train_list)
+    tbar = tqdm(train_list, desc='\r')
+    it_train_num = 0
+    for i, filename in enumerate(tbar):
         it_train_num += 1
-        solver.set_input(img, mask)
-        train_loss = solver.combine_optimize()
-        writer.add_scalar('dataset/train_loss%d' % epoch, train_loss,
-                          it_train_num)
+        image = Image.open(os.path.join(train_image_dir, filename))
+        label = Image.open(os.path.join(train_label_dir, filename))
+        label = np.array(label).astype(np.float32)
+        image = np.array(image, np.float32).transpose(2, 0, 1) / 255.0 * 3.2 - 1.6
+        label = np.array(label, np.float32).transpose(2, 0, 1) / 255.0
+        label = torch.from_numpy(label).float()
+        label = label.cuda()
+
+        solver.set_combine_input(image, label)
+        train_loss = solver.ensemble_optimize()
         train_epoch_loss += train_loss
 
-    train_epoch_loss /= len(data_loader_iter)
-    writer.add_scalar('dataset/train_epoch_loss', train_epoch_loss, epoch)
-    valid(epoch, it_train_num)
+    valid(epoch)
 
+    train_epoch_loss /= num_img_tr
+    writer.add_scalar('dataset/train_epoch_loss', train_epoch_loss, epoch)
     print('*********', file=mylog)
-    print('epoch:', epoch, '    time:', int(time() - tic), file=mylog)
+    print('epoch:', epoch,  file=mylog)
     print('train_loss:', train_epoch_loss, file=mylog)
-    print('********************************************', file=mylog)
-    print('epoch:', epoch, '    time:', int(time() - tic))
-    print('train_loss:', train_epoch_loss)
 
     if train_epoch_loss >= train_epoch_best_loss:
         no_optim += 1

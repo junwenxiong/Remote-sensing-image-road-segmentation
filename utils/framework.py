@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 from torch.autograd import Variable as V
-
+from PIL import Image
 import cv2
 import numpy as np
 from utils.Optimizer import Optim
@@ -53,46 +53,46 @@ class MyFrame():
             self.model2_name = args.model2
 
             if self.model1_name == 'unet':
-                self.model1 = Unet()
+                self.modelA = Unet()
             elif self.model1_name == 'resunet34':
-                self.model1 = ResNet34Unet(pretrained=False)
+                self.modelA = ResNet34Unet(pretrained=False)
             elif self.model1_name == 'resunet18':
-                self.model1 = ResNet18Unet(pretrained=False)
+                self.modelA = ResNet18Unet(pretrained=False)
             elif self.model1_name == 'resxtunet34':
-                self.model1 = ResNeXt50Unet(pretrained=False)
+                self.modelA = ResNeXt50Unet(pretrained=False)
             elif self.model1_name == 'res34unetv5':
-                self.model1 = Res34Unetv5(pretrained=False, dyrelu=False)
+                self.modelA = Res34Unetv5(pretrained=False, dyrelu=False)
             elif self.model1_name == 'dinknet34':
-                self.model1 = DinkNet34(pretrained=False)
+                self.modelA = DinkNet34(pretrained=False)
 
             if self.model2_name == 'unet':
-                self.model2 = Unet()
+                self.modelB = Unet()
             elif self.model2_name == 'resunet34':
-                self.model2 = ResNet34Unet(pretrained=False)
+                self.modelB = ResNet34Unet(pretrained=False)
             elif self.model2_name == 'resunet18':
-                self.model2 = ResNet18Unet(pretrained=False)
+                self.modelB = ResNet18Unet(pretrained=False)
             elif self.model2_name == 'resxtunet34':
-                self.model2 = ResNeXt50Unet(pretrained=False)
+                self.modelB = ResNeXt50Unet(pretrained=False)
             elif self.model2_name == 'res34unetv5':
-                self.model2 = Res34Unetv5(pretrained=False, dyrelu=False)
+                self.modelB = Res34Unetv5(pretrained=False, dyrelu=False)
             elif self.model2_name == 'dinknet34':
-                self.model2 = DinkNet34(pretrained=False)
+                self.modelB = DinkNet34(pretrained=False)
 
-            self.model1.cuda()
-            self.model2.cuda()
-            self.model1_checkpoint = torch.load(args.model1_checkpoint)
-            self.model2_checkpoint = torch.load(args.model2_checkpoint)
+            self.modelA.cuda()
+            self.modelB.cuda()
+            self.modelA_checkpoint = torch.load(args.modelA_checkpoint)
+            self.modelB_checkpoint = torch.load(args.modelB_checkpoint)
 
-            self.model1.load_state_dict(self.model1_checkpoint)
-            self.model2.load_state_dict(self.model2_checkpoint)
-            
+            self.modelA.load_state_dict(self.modelA_checkpoint)
+            self.modelB.load_state_dict(self.modelB_checkpoint)
+
             # Freeze these models
-            for param in self.model1.parameters():
+            for param in self.modelA.parameters():
                 param.requires_grad_(False)
-            for param in self.model2.parameters():
+            for param in self.modelB.parameters():
                 param.requires_grad_(False)
 
-            self.net = MyEnsemble(self.model1, self.model2, 2, 1)
+            self.net = MyEnsemble(2, 1)
 
         if args.test:
             if args.backbone == 'unet':
@@ -139,6 +139,10 @@ class MyFrame():
             self.net = DPP(self.net)
 
     # use this function if combine equals ture
+    def set_combine_input(self, img_batch, mask_batch=None):
+        self.combine_img = img_batch
+        self.combine_mask = mask_batch
+
     def combine_val_optimize(self):
         self.forward()
         self.optimizer.zero_grad()
@@ -173,6 +177,151 @@ class MyFrame():
 
         self.optimizer.step()
         return loss.item()
+
+    def ensemble_val_optimize(self):
+        self.optimizer.zero_grad()
+        modelA_pred = self.modelA_multi_scale_predict(self.combine_img)
+        modelB_pred = self.modelB_multi_scale_predict(self.combine_img)
+
+        net_input = torch.cat([modelA_pred, modelB_pred], 1)
+        output = self.net.forward(net_input)
+        loss = self.loss(output, self.combine_mask)
+        pred_label = output.squeeze().cpu().data.numpy()
+        gt = self.combine_mask.squeeze().cpu().data.numpy()
+        pred_label[pred_label > 0.5] = 1
+        pred_label[pred_label <= 0.5] = 0
+        
+        confusion_matrix = self._generate_matrix(
+            gt.astype(np.int8), pred_label.astype(np.int8))
+        miou = self._Class_IOU(confusion_matrix)
+        acc = np.diag(confusion_matrix).sum() / confusion_matrix.sum()
+
+        return miou, acc, loss.item()
+
+    def ensemble_optimize(self):
+        self.optimizer.zero_grad()
+        
+        modelA_pred = self.modelA_multi_scale_predict(self.combine_img)
+        modelB_pred = self.modelB_multi_scale_predict(self.combine_img)
+
+        net_input = torch.cat([modelA_pred, modelB_pred], 1)
+        output = self.net.forward(net_input)
+        loss = self.loss(output, self.combine_mask)
+        with amp.scale_loss(loss, self.optimizer) as scaled_loss:
+            scaled_loss.backward()
+        
+        self.optimizer.step()
+        return loss.item()
+
+    def modelA_multi_scale_predict(self, image_ori: Image):
+        h, w = image_ori.shape[0], image_ori[1]
+        self.modelA.eval()
+
+        sample_ori = image_ori.copy()
+        output_ori = self.modelA_predict(sample_ori)
+
+        # rotate three angles for predicting
+        angle_list = [90, 180, 270]
+        for angle in angle_list:
+            img_rotate = image_ori.rotate(angle, Image.BILINEAR)
+            output = self.modelA_predict(img_rotate)
+            pred = output.data.cpu().numpy()
+            pred = pred.transpose((1, 2, 0))
+            m_rotate = cv2.getRotationMatrix2D((h // 2, w // 2), 360.0 - angle,
+                                               1)
+            pred = cv2.warpAffine(pred, m_rotate, (h, w))
+            pred = pred.transpose(2, 0, 1)
+            output = torch.from_numpy(np.array([
+                pred,
+            ])).float()
+            output_ori = torch.cat([output_ori, output.cuda()], 1)
+
+        # vertical flip
+        img_flip = image_ori.transpose(Image.FLIP_TOP_BOTTOM)
+        output = self.modelA_predict(img_flip)
+        pred = output.data.cpu().numpy()
+        pred = pred.transpose((1, 2, 0))
+        pred = cv2.flip(pred, 0)
+        pred = pred.transpose((2, 0, 1))
+        output = torch.from_numpy(np.array([
+            pred,
+        ])).float()
+        output_ori = torch.cat([output_ori, output.cuda()], 1)
+
+        # horizontal flip
+        img_flip = image_ori.transpose(Image.FLIP_LEFT_RIGHT)
+        output = self.modelA_predict(img_flip)
+        pred = output.data.cpu().numpy()
+        pred = pred.transpose((1, 2, 0))
+        pred = cv2.flip(pred, 1)
+        pred = pred.transpose((2, 0, 1))
+        output = torch.from_numpy(np.array([
+            pred,
+        ])).float()
+        output_ori = torch.cat([output_ori, output.cuda()], 1)
+
+        return output_ori
+
+    def modelA_predict(self, img):
+        img = img.cuda()
+        with torch.no_grad():
+            output = self.modelA(img)
+        return output
+
+    def modelB_multi_scale_predict(self, image_ori: Image):
+        h, w = image_ori.shape[0], image_ori[1]
+        self.modelB.eval()
+
+        sample_ori = image_ori.copy()
+        output_ori = self.modelB_predict(sample_ori)
+
+        # rotate three angles for predicting
+        angle_list = [90, 180, 270]
+        for angle in angle_list:
+            img_rotate = image_ori.rotate(angle, Image.BILINEAR)
+            output = self.modelB_predict(img_rotate)
+            pred = output.data.cpu().numpy()
+            pred = pred.transpose((1, 2, 0))
+            m_rotate = cv2.getRotationMatrix2D((h // 2, w // 2), 360.0 - angle,
+                                               1)
+            pred = cv2.warpAffine(pred, m_rotate, (h, w))
+            pred = pred.transpose(2, 0, 1)
+            output = torch.from_numpy(np.array([
+                pred,
+            ])).float()
+            output_ori = torch.cat([output_ori, output.cuda()], 1)
+
+        # vertical flip
+        img_flip = image_ori.transpose(Image.FLIP_TOP_BOTTOM)
+        output = self.modelB_predict(img_flip)
+        pred = output.data.cpu().numpy()
+        pred = pred.transpose((1, 2, 0))
+        pred = cv2.flip(pred, 0)
+        pred = pred.transpose((2, 0, 1))
+        output = torch.from_numpy(np.array([
+            pred,
+        ])).float()
+        output_ori = torch.cat([output_ori, output.cuda()], 1)
+
+        # horizontal flip
+        img_flip = image_ori.transpose(Image.FLIP_LEFT_RIGHT)
+        output = self.modelB_predict(img_flip)
+        pred = output.data.cpu().numpy()
+        pred = pred.transpose((1, 2, 0))
+        pred = cv2.flip(pred, 1)
+        pred = pred.transpose((2, 0, 1))
+        output = torch.from_numpy(np.array([
+            pred,
+        ])).float()
+        output_ori = torch.cat([output_ori, output.cuda()], 1)
+
+        return output_ori
+
+    def modelB_predict(self, img):
+        img = img.cuda()
+        with torch.no_grad():
+            output = self.modelB(img)
+        return output
 
     def set_input(self, img_batch, mask_batch=None, img_id=None):
         self.img = img_batch
