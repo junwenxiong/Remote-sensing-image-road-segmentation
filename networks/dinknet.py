@@ -229,10 +229,10 @@ class DinkNet34(nn.Module):
 
         self.dblock = Dblock(512, dyrelu)
 
-        self.decoder4 = DecoderBlock(filters[3], filters[2], dyrelu)
-        self.decoder3 = DecoderBlock(filters[2], filters[1], dyrelu)
-        self.decoder2 = DecoderBlock(filters[1], filters[0], dyrelu)
-        self.decoder1 = DecoderBlock(filters[0], filters[0], dyrelu)
+        self.decoder4 = DecoderBlock(filters[3], filters[2], False)
+        self.decoder3 = DecoderBlock(filters[2], filters[1], False)
+        self.decoder2 = DecoderBlock(filters[1], filters[0], False)
+        self.decoder1 = DecoderBlock(filters[0], filters[0], False)
 
         self.finaldeconv1 = nn.ConvTranspose2d(filters[0], 32, 4, 2, 1)
         if dyrelu:

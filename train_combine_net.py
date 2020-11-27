@@ -61,7 +61,7 @@ tic = time()
 no_optim = 0
 total_epoch = args.epochs
 train_epoch_best_loss = 100.
-str = ""
+
 writer = SummaryWriter()
 
 it_train_num = 0
@@ -128,12 +128,9 @@ for epoch in range(0, total_epoch + 1):
         writer.add_scalar('dataset/train_loss%d' % epoch, train_loss,
                           it_train_num)
         train_epoch_loss += train_loss
-        if it_train_num % 1000 == 0:
-            valid(epoch, it_train_num)
 
     train_epoch_loss /= len(data_loader_iter)
     writer.add_scalar('dataset/train_epoch_loss', train_epoch_loss, epoch)
-
     valid(epoch, it_train_num)
 
     print('*********', file=mylog)

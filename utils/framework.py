@@ -6,7 +6,7 @@ import cv2
 import numpy as np
 from utils.Optimizer import Optim
 from networks.Resnet18Unet import ResNet18Unet, ResNet34Unet, ResNeXt50Unet, ResNeXt50Unetv2
-from networks.unet_model import Res34Unetv3, Res34Unetv4, Res34Unetv5
+from networks.unet_model import Res34Unetv3, Res34Unetv4, Res34Unetv5, ResXt50Unetv5
 from networks.unet_att_Dyrelu import UNet_att_Dyre
 from networks.dinknet import DinkNet50, DinkNet34
 from networks.CombineNet import CombineNet
@@ -17,7 +17,7 @@ from utils.ranger import Ranger  # this is from ranger.py
 from utils.loss import dice_bce_loss
 from networks.dlinknet import DLinkNet34, DLinkNet50
 from networks.baseline_6_Frelu import UNet
-
+from networks.Ensemble import MyEnsemble
 # Mixed Precision training
 from apex import amp
 from apex.parallel import convert_syncbn_model
@@ -41,10 +41,12 @@ class MyFrame():
                 self.net = ResNeXt50Unetv2()
             elif args.backbone == 'res34unetv5':
                 self.net = Res34Unetv5(pretrained=True, dyrelu=args.dyrelu)
+            elif args.backbone == 'resxt50unetv5':
+                self.net = ResXt50Unetv5(pretrained=True)
             elif args.backbone == 'dinknet34':
                 self.net = DinkNet34(pretrained=True)
-            elif args.backbone == 'combinenet':
-                self.net = CombineNet()
+            # elif args.backbone == 'combinenet':
+            #     self.net = MyEnsemble()
 
         if args.combine:
             self.model1_name = args.model1
@@ -72,7 +74,7 @@ class MyFrame():
             elif self.model2_name == 'resxtunet34':
                 self.model2 = ResNeXt50Unet(pretrained=False)
             elif self.model2_name == 'res34unetv5':
-                self.model2 = Res34Unetv5(dyrelu=False)
+                self.model2 = Res34Unetv5(pretrained=False, dyrelu=False)
             elif self.model2_name == 'dinknet34':
                 self.model2 = DinkNet34(pretrained=False)
 
@@ -83,8 +85,14 @@ class MyFrame():
 
             self.model1.load_state_dict(self.model1_checkpoint)
             self.model2.load_state_dict(self.model2_checkpoint)
-            self.model1.eval()
-            self.model2.eval()
+            
+            # Freeze these models
+            for param in self.model1.parameters():
+                param.requires_grad_(False)
+            for param in self.model2.parameters():
+                param.requires_grad_(False)
+
+            self.net = MyEnsemble(self.model1, self.model2, 2, 1)
 
         if args.test:
             if args.backbone == 'unet':
@@ -135,12 +143,7 @@ class MyFrame():
         self.forward()
         self.optimizer.zero_grad()
 
-        pred1 = self.model1.forward(self.img)
-        pred2 = self.model2.forward(self.img)
-
-        net_input = torch.cat([pred1, pred2], 1)
-
-        final_pred = self.net(net_input)
+        final_pred = self.net(self.img)
         loss = self.loss(final_pred, self.mask)
 
         final_pred_label = final_pred.squeeze().cpu().data.numpy()
@@ -159,11 +162,7 @@ class MyFrame():
         self.forward()
         self.optimizer.zero_grad()
 
-        pred1 = self.model1.forward(self.img)
-        pred2 = self.model2.forward(self.img)
-
-        net_input = torch.cat([pred1, pred2], 1)
-        final_pred = self.net.forward(net_input)
+        final_pred = self.net.forward(self.img)
 
         loss = self.loss(
             final_pred,
@@ -229,7 +228,6 @@ class MyFrame():
         return loss.item()
 
     # 验证时使用
-
     def _generate_matrix(self, gt_image, pre_image, num_class=2):
         mask = (gt_image >= 0) & (
             gt_image < num_class
@@ -292,7 +290,7 @@ class MyFrame():
         torch.save(weight_dict, path)
 
     def save(self, path):
-        # wraped the module layer when use the mixed precision for training
+        # wraped the module layer when use the mixed precision
         self.model_state_dict = self.net.module.state_dict() if len(
             self.args.gpu_ids) > 1 else self.net.state_dict()
 

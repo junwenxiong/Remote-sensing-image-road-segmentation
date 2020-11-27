@@ -277,7 +277,7 @@ class ResNet34Unet(nn.Module):
         is_deconv=False,
         decoder_kernel_size=3,
         pretrained=True,
-        dyrelu=True,
+        dyrelu=False,
     ):
         super().__init__()
 
@@ -346,12 +346,12 @@ class ResNet34Unet(nn.Module):
             self.relu = nn.ReLU(inplace=True)
 
         self.finalconv2 = nn.Conv2d(32, num_classes, 1)
+        self.sigmoid = nn.Sigmoid()
 
     #     self.finalconv = nn.Sequential(
     #         nn.Conv2d(filters[0], 32, 3, padding=1, bias=False),
     #         nn.BatchNorm2d(32), nn.ReLU(), nn.Dropout2d(0.1, False),
     #         nn.Conv2d(32, num_classes, 1))
-
     def require_encoder_grad(self, requires_grad):
         blocks = [
             self.firstconv, self.encoder1, self.encoder2, self.encoder3,
@@ -386,7 +386,8 @@ class ResNet34Unet(nn.Module):
         f = self.bn1(f)
         f = self.relu(f)
         f = self.finalconv2(f)
-        return F.sigmoid(f)
+        f = self.sigmoid(f)
+        return f
 
 
 class ResNeXt50Unet(nn.Module):
