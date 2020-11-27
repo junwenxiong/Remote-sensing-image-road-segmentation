@@ -21,8 +21,6 @@ if not os.path.exists(model_dir):
     os.mkdir(model_dir)
 
 
-loss_func = SegmentationLosses(cuda=True).build_loss(mode=args.loss)
-
 solver = MyFrame(args, )
 
 train_dataloader, val_dataloader, _ = make_dataloader(args)
