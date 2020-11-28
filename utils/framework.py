@@ -28,7 +28,7 @@ class MyFrame():
     def __init__(self, args=None, evalmode=False):
         self.args = args
 
-        if args.train:
+        if args.train == 'True':
             if args.backbone == 'unet':
                 self.net = UNet()
             elif args.backbone == 'resunet34':
@@ -48,7 +48,7 @@ class MyFrame():
             # elif args.backbone == 'combinenet':
             #     self.net = MyEnsemble()
 
-        if args.combine:
+        if args.combine == 'True':
             self.model1_name = args.model1
             self.model2_name = args.model2
 
@@ -94,7 +94,7 @@ class MyFrame():
 
             self.net = MyEnsemble(2, 1)
 
-        if args.test:
+        if args.test == 'True':
             if args.backbone == 'unet':
                 self.net = Unet()
             elif args.backbone == 'resunet34':

@@ -106,7 +106,7 @@ class Dblock(nn.Module):
 
 
 class DecoderBlock(nn.Module):
-    def __init__(self, in_channels, n_filters, dyrelu):
+    def __init__(self, in_channels, n_filters, dyrelu, is_deconv=False):
         super(DecoderBlock, self).__init__()
 
         self.conv1 = nn.Conv2d(in_channels, in_channels // 4, 1)
@@ -117,12 +117,20 @@ class DecoderBlock(nn.Module):
         else:
             self.relu1 = nonlinearity
 
+        # if is_deconv == True:
         self.deconv2 = nn.ConvTranspose2d(in_channels // 4,
                                           in_channels // 4,
                                           3,
                                           stride=2,
                                           padding=1,
                                           output_padding=1)
+        # else:
+        #     self.deconv2 = nn.Upsample(
+        #         scale_factor=2,
+        #         mode='bilinear',
+        #         align_corners=True,
+        #     )
+
         self.norm2 = nn.BatchNorm2d(in_channels // 4)
 
         if dyrelu:
@@ -213,11 +221,11 @@ class DinkNet34_less_pool(nn.Module):
 
 
 class DinkNet34(nn.Module):
-    def __init__(self, num_classes=1, num_channels=3, dyrelu=False):
+    def __init__(self, num_classes=1, num_channels=3, pretrained=True, dyrelu=False):
         super(DinkNet34, self).__init__()
 
         filters = [64, 128, 256, 512]
-        resnet = resnet34(pretrained=False)
+        resnet = resnet34(pretrained=pretrained)
         self.firstconv = resnet.conv1
         self.firstbn = resnet.bn1
         self.firstrelu = resnet.relu

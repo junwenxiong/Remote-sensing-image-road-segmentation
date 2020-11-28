@@ -7,7 +7,6 @@ import cv2
 import os
 import numpy as np
 from time import time
-os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
 from networks.dunet import Dunet
 from networks.dinknet import LinkNet34, DinkNet34, DinkNet50, DinkNet101
@@ -32,7 +31,7 @@ print(args)
 # val_ROOT = '/data/home/xjw/dataset/Huawei/data/val/'
 # val_image_dir = '/data/home/xjw/dataset/Huawei/data/val/images/'
 
-val_ROOT = os.path.join(args.dataset, 'val')
+val_ROOT = os.path.join(args.dataset, 'test')
 val_image_dir = os.path.join(val_ROOT, 'images')
 
 # import pdb 
@@ -44,7 +43,7 @@ SHAPE = (x, y)
 
 # NAME = args.backbone
 
-NAME = 'ResNet34UnetDyrelu'
+NAME = args.backbone
 
 BATCHSIZE_PER_CARD = 1
 
@@ -64,8 +63,8 @@ model_dir = './weights/' + NAME + '/'
 model_list = os.listdir(model_dir)
 sort_num_list = []
 for file in model_list:
-    sort_num_list.append(int(file.split(NAME)[1].split('.pth')[0]))  # 去掉前面的字符串和下划线以及后缀，只留下数字并转换为整数方便后面排序
-    # sort_num_list.append(file)
+    # sort_num_list.append(int(file.split(NAME)[1].split('.pth')[0]))  # 去掉前面的字符串和下划线以及后缀，只留下数字并转换为整数方便后面排序
+    sort_num_list.append(file)
 sort_num_list.sort()  # 然后再重新排序
 
 # print(sort_num_list)
@@ -73,14 +72,14 @@ sort_num_list.sort()  # 然后再重新排序
 # import pdb
 # pdb.set_trace()
 sorted_model_file = []
-for sort_num in sort_num_list:
-    for file in model_list:
-        if sort_num == int(file.split(NAME)[1].split('.pth')[0]):
-            sorted_model_file.append(file)
+# for sort_num in sort_num_list:
+#     for file in model_list:
+#         if sort_num == int(file.split(NAME)[1].split('.pth')[0]):
+#             sorted_model_file.append(file)
 
 # import pdb
 # pdb.set_trace()
-for model_path in sorted_model_file:
+for model_path in sort_num_list:
    
     solver = MyFrame(args, )
     solver.load(str(model_dir + model_path))
