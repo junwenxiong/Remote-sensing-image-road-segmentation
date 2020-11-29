@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 from torch.autograd import Variable as V
 from PIL import Image
-import cv2
+import cv2 as cv
 import numpy as np
 from utils.Optimizer import Optim
 from networks.Resnet18Unet import ResNet18Unet, ResNet34Unet, ResNeXt50Unet, ResNeXt50Unetv2
@@ -122,9 +122,9 @@ class MyFrame():
             self.CosineLR = torch.optim.lr_scheduler.CosineAnnealingLR(
                 self.optimizer, T_max=150, eta_min=0)
             self.loss = SegmentationLosses(cuda=True).build_loss(args.loss)
-            self.net, self.optimizer = amp.initialize(self.net,
-                                                      self.optimizer,
-                                                      opt_level="O1")
+            # self.net, self.optimizer = amp.initialize(self.net,
+            #                                           self.optimizer,
+            #                                           opt_level="O1")
         else:
             self.device = torch.device(f'cuda:{args.local_rank}')
             self.net = convert_syncbn_model(self.net).to(self.device)
@@ -370,9 +370,9 @@ class MyFrame():
             pred,
             self.mask,
         )  # pred mask : 20*1*1024*1024
-        with amp.scale_loss(loss, self.optimizer) as scaled_loss:
-            scaled_loss.backward()
-        # loss.backward()
+        # with amp.scale_loss(loss, self.optimizer) as scaled_loss:
+        #     scaled_loss.backward()
+        loss.backward()
         self.optimizer.step()
         return loss.item()
 
@@ -463,13 +463,9 @@ class MyFrame():
         self.net.load_state_dict(torch.load(path))
 
     def update_lr(self, new_lr, mylog, factor=False):
-        # if factor:
-        #     new_lr = self.old_lr / new_lr
-        # for param_group in self.optimizer.param_groups:
-        #     param_group['lr'] = new_lr
-
-        # print('update learning rate: %f -> %f' % (self.old_lr, new_lr),
-        #       file=mylog)
-        # print('update learning rate: %f -> %f' % (self.old_lr, new_lr))
-        # self.old_lr = new_lr
         return self.CosineLR.step()
+    
+    def save_img(pred, src):
+        img = np.float32(pred)
+        cv.cvtColor(pred, cv.COLOR_GRAY2BGR)
+        cv.imwrite(src, img)

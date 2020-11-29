@@ -1,2 +1,2 @@
-CUDA_VISIBLE_DEVICES=1 python train_res18.py --backbone res34unetv5 --dyrelu False --dataset ./huawei/new_data/256 --workers 8 \
---epochs 100 --batch-size 18 --learn-rate 1e-4 --loss dice_bce  --optim ranger --iter-num 1000 
+CUDA_VISIBLE_DEVICES=0 python train_res18.py --backbone dinknet34 --dyrelu False --dataset ./huawei/data_1024_augment --workers 8 \
+--epochs 100 --batch-size 4 --learn-rate 1e-4 --loss focal  --optim ranger --iter-num 1000 --train True

@@ -220,9 +220,9 @@ class ImageFolderv2(data.Dataset):
 
 
 def make_dataloader(args):
-    train_ROOT = os.path.join(args.dataset, 'train_new')
-    val_ROOT = os.path.join(args.dataset, 'val_new')
-    test_ROOT = os.path.join(args.dataset, 'test_new')
+    train_ROOT = os.path.join(args.dataset, 'train')
+    val_ROOT = os.path.join(args.dataset, 'val')
+    test_ROOT = os.path.join(args.dataset, 'test')
 
     train_image_dir = os.path.join(train_ROOT, 'images')
     val_image_dir = os.path.join(val_ROOT, 'images')

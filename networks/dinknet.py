@@ -13,6 +13,10 @@ from .dyrelu import DyReLUB
 nonlinearity = partial(F.relu, inplace=True)
 
 
+def swish(x):
+    return x * F.sigmoid(x)
+
+
 class Dblock_more_dilate(nn.Module):
     def __init__(self, channel, dyrelu):
         super(Dblock_more_dilate, self).__init__()
@@ -246,12 +250,12 @@ class DinkNet34(nn.Module):
         if dyrelu:
             self.finalrelu1 = DyReLUB(32)
         else:
-            self.finalrelu1 = nonlinearity
+            self.finalrelu1 = swish
         self.finalconv2 = nn.Conv2d(32, 32, 3, padding=1)
         if dyrelu:
             self.finalrelu2 = DyReLUB(32)
         else:
-            self.finalrelu2 = nonlinearity
+            self.finalrelu2 = swish
         self.finalconv3 = nn.Conv2d(32, num_classes, 3, padding=1)
 
     def forward(self, x):

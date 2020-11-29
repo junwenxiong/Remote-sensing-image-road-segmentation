@@ -68,22 +68,11 @@ class SegmentationLosses(object):
         return loss
 
     def focal_loss(self, logit, target, gamma=2, alpha=0.5):
-        n, c, h, w = logit.size()
-        criterion = nn.CrossEntropyLoss(weight=self.weight,
-                                        ignore_index=self.ignore_index,
-                                        reduction='mean')
-
         if self.cuda:
-            criterion = criterion.cuda()
-        logpt = -criterion(logit, target.long())
-        pt = torch.exp(logpt)
-        if alpha is not None:
-            logpt *= alpha
-        loss = -((1 - pt)**gamma) * logpt
-
-        if self.batch_average:
-            loss /= n
-
+            criterion = FocalLoss(gamma=2).cuda()
+        else:
+            criterion = FocalLoss(gamma=2)
+        loss = criterion(logit, target)
         return loss
 
     def dice_bce(self, logit, target):
@@ -101,6 +90,43 @@ class SegmentationLosses(object):
             criterion = MixedLoss(alpha=10.0, gamma=2.0)
         loss = criterion(logit, target)
         return loss
+
+
+class FocalLoss(nn.Module):
+    def __init__(self, gamma=0, alpha=None, size_average=True):
+        super(FocalLoss, self).__init__()
+        self.gamma = gamma
+        self.alpha = alpha
+        if isinstance(alpha, (float, int, long)): 
+            self.alpha = torch.Tensor([alpha, 1-alpha])
+        if isinstance(alpha, list):
+            self.alpha = torch.Tensor(alpha)
+        self.size_average = size_average
+    
+    def forward(self, input, target):
+        if input.dim() > 2:
+            input = input.view(input.size(0), input.size(1), -1)  # N,C,H,W => N,C,H*W
+            input = input.transpose(1, 2)    # N,C,H*W => N,H*W,C
+            input = input.contiguous().view(-1, input.size(2))   # N,H*W,C => N*H*W,C
+
+        target = target.view(-1, 1)
+
+        logpt = F.log_softmax(input)
+        logpt = logpt.gather(1, target)
+        logpt = logpt.view(-1)
+        pt = Variable(logpt.data.exp())
+
+        if self.alpha is not None:
+            if self.alpha.type() != input.data.type():
+                self.alpha = self.alpha.type_as(input.data)
+            at = self.alpha.gather(0, target.data.view(-1))
+            logpt = logpt * Variable(at)
+
+        loss = -1 * (1-pt)**self.gamma * logpt
+        if self.size_average: 
+            return loss.mean()
+        else: 
+            return loss.sum()
 
 
 def lovasz_grad(gt_sorted):
@@ -236,27 +262,6 @@ class dice_bce_loss(nn.Module):
 
         b = self.soft_dice_loss(y_true1, y_pred1)
         return a + b
-
-
-class FocalLoss(nn.Module):
-    def __init__(self, gamma):
-        super().__init__()
-        self.gamma = gamma
-
-    def forward(self, input, target):
-        if not (target.size() == input.size()):
-            raise ValueError(
-                'Target size ({}) must be the same as the input size ({})'.
-                format(target.size(), input.size()))
-
-        max_val = (-input).clamp(min=0)
-        loss = input - input * target + max_val + (
-            (-max_val).exp() + (-input - max_val).exp()).long()
-
-        invprobs = F.logsigmoid(-input * (target * 2.0 - 1.0))
-        loss = (invprobs * self.gamma).exp() * loss
-
-        return loss.mean()
 
 
 class MixedLoss(nn.Module):
