@@ -8,14 +8,13 @@ from utils.Optimizer import Optim
 from networks.Resnet18Unet import ResNet18Unet, ResNet34Unet, ResNeXt50Unet, ResNeXt50Unetv2
 from networks.unet_model import Res34Unetv3, Res34Unetv4, Res34Unetv5, ResXt50Unetv5
 from networks.unet_att_Dyrelu import UNet_att_Dyre
-from networks.dinknet import DinkNet50, DinkNet34
+from networks.dinknet import DinkNet50, DinkNet34, DinkNet50V2
 from networks.CombineNet import CombineNet
 from networks.unet import Unet
 from networks.baseline_6_Frelu import UNet
 from utils.loss_2 import SegmentationLosses
 from utils.ranger import Ranger  # this is from ranger.py
 from utils.loss import dice_bce_loss
-from networks.dlinknet import DLinkNet34, DLinkNet50
 from networks.baseline_6_Frelu import UNet
 from networks.Ensemble import MyEnsemble
 # Mixed Precision training
@@ -45,8 +44,8 @@ class MyFrame():
                 self.net = ResXt50Unetv5(pretrained=True)
             elif args.backbone == 'dinknet34':
                 self.net = DinkNet34(pretrained=True)
-            # elif args.backbone == 'combinenet':
-            #     self.net = MyEnsemble()
+            elif args.backbone == 'dinknet50v2':
+                self.net = DinkNet50V2(pretrained=True)
 
         if args.combine == 'True':
             self.model1_name = args.model1

@@ -9,7 +9,7 @@ def make_args():
                         choices=[
                             'unet', 'resunet34', 'resunet18', 'resxtunet34',
                             'combinenet', 'res34unetv5', 'dinknet34',
-                            'resnext50unetv2'
+                            'resnext50unetv2', 'dinknet50v2'
                         ],
                         help="backbone name (default: unet)")
     parser.add_argument('--dyrelu',
@@ -55,12 +55,14 @@ def make_args():
                         type=str,
                         choices=['adam', 'sgd', 'rmsprop', 'ranger'],
                         help='optimizer type ')
-    parser.add_argument(
-        '--loss',
-        default='lovasz',
-        type=str,
-        choices=['dice_bce', 'lovasz', 'ce', 'focal', 'dice', 'mixed'],
-        help='loss type ')
+    parser.add_argument('--loss',
+                        default='lovasz',
+                        type=str,
+                        choices=[
+                            'dice_bce', 'lovasz', 'ce', 'focal', 'dice',
+                            'mixed', 'dice_bce_focal'
+                        ],
+                        help='loss type ')
     parser.add_argument('--resume',
                         type=str,
                         default=None,

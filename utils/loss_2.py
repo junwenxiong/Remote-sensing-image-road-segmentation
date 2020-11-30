@@ -2,6 +2,7 @@ import torch
 import torch.nn as nn
 from torch.autograd import Variable
 import torch.nn.functional as F
+import numpy as np
 
 
 class SegmentationLosses(object):
@@ -29,6 +30,8 @@ class SegmentationLosses(object):
             return self.dice
         if mode == 'mixed':
             return self.mixedloss
+        if mode == 'dice_bce_focal':
+            return self.dice_bce_focal_loss
 
     def dice(self, logit, target):
         if self.cuda:
@@ -69,9 +72,9 @@ class SegmentationLosses(object):
 
     def focal_loss(self, logit, target, gamma=2, alpha=0.5):
         if self.cuda:
-            criterion = FocalLoss(gamma=2).cuda()
+            criterion = FocalLoss2d(gamma=2).cuda()
         else:
-            criterion = FocalLoss(gamma=2)
+            criterion = FocalLoss2d(gamma=2)
         loss = criterion(logit, target)
         return loss
 
@@ -80,6 +83,16 @@ class SegmentationLosses(object):
             criterion = dice_bce_loss().cuda()
         else:
             criterion = dice_bce_loss()
+
+        loss = criterion(logit, target)
+        return loss
+    
+    def dice_bce_focal_loss(self, logit, target):
+        if self.cuda:
+            criterion = dice_bce_focal_loss().cuda()
+        else:
+            criterion = dice_bce_focal_loss()
+
         loss = criterion(logit, target)
         return loss
 
@@ -88,45 +101,28 @@ class SegmentationLosses(object):
             criterion = MixedLoss(alpha=10.0, gamma=2.0).cuda()
         else:
             criterion = MixedLoss(alpha=10.0, gamma=2.0)
+
         loss = criterion(logit, target)
         return loss
 
 
-class FocalLoss(nn.Module):
-    def __init__(self, gamma=0, alpha=None, size_average=True):
-        super(FocalLoss, self).__init__()
+class FocalLoss2d(nn.Module):
+    def __init__(self, gamma=2, ignore_index=255):
+        super().__init__()
         self.gamma = gamma
-        self.alpha = alpha
-        if isinstance(alpha, (float, int, long)): 
-            self.alpha = torch.Tensor([alpha, 1-alpha])
-        if isinstance(alpha, list):
-            self.alpha = torch.Tensor(alpha)
-        self.size_average = size_average
-    
-    def forward(self, input, target):
-        if input.dim() > 2:
-            input = input.view(input.size(0), input.size(1), -1)  # N,C,H,W => N,C,H*W
-            input = input.transpose(1, 2)    # N,C,H*W => N,H*W,C
-            input = input.contiguous().view(-1, input.size(2))   # N,H*W,C => N*H*W,C
+        self.ignore_index = ignore_index
 
-        target = target.view(-1, 1)
-
-        logpt = F.log_softmax(input)
-        logpt = logpt.gather(1, target)
-        logpt = logpt.view(-1)
-        pt = Variable(logpt.data.exp())
-
-        if self.alpha is not None:
-            if self.alpha.type() != input.data.type():
-                self.alpha = self.alpha.type_as(input.data)
-            at = self.alpha.gather(0, target.data.view(-1))
-            logpt = logpt * Variable(at)
-
-        loss = -1 * (1-pt)**self.gamma * logpt
-        if self.size_average: 
-            return loss.mean()
-        else: 
-            return loss.sum()
+    def forward(self, outputs, targets):
+        outputs = outputs.contiguous()
+        targets = targets.contiguous()
+        eps = 1e-8
+        non_ignored = targets.view(-1) != self.ignore_index
+        targets = targets.view(-1)[non_ignored].float()
+        outputs = outputs.contiguous().view(-1)[non_ignored]
+        outputs = torch.clamp(outputs, eps, 1. - eps)
+        targets = torch.clamp(targets, eps, 1. - eps)
+        pt = (1 - targets) * (1 - outputs) + targets * outputs
+        return (-(1. - pt) ** self.gamma * torch.log(pt)).mean()
 
 
 def lovasz_grad(gt_sorted):
@@ -264,11 +260,50 @@ class dice_bce_loss(nn.Module):
         return a + b
 
 
+class dice_bce_focal_loss(nn.Module):
+    def __init__(self, batch=True):
+        super(dice_bce_focal_loss, self).__init__()
+        self.batch = batch
+        #self.bce_loss = nn.BCELoss()
+        weight = torch.tensor([0.1])
+        self.bce_loss = nn.BCEWithLogitsLoss(pos_weight=weight)
+        self.focal = FocalLoss2d(gamma=2.0)
+
+    def soft_dice_coeff(self, y_true, y_pred):
+        smooth = 0.0  # may change
+        if self.batch:
+            i = torch.sum(y_true)
+            j = torch.sum(y_pred)
+            intersection = torch.sum(y_true * y_pred)
+        else:
+            i = y_true.sum(1).sum(1).sum(1)
+            j = y_pred.sum(1).sum(1).sum(1)
+            intersection = (y_true * y_pred).sum(1).sum(1).sum(1)
+        score = (2. * intersection + smooth) / (i + j + smooth)
+        return score.mean()
+
+    def soft_dice_loss(self, y_true, y_pred):
+        loss = 1 - self.soft_dice_coeff(y_true, y_pred)
+        return loss
+
+    def __call__(self, y_pred, y_true):
+        y_true = y_true.squeeze()
+        y_pred = y_pred.squeeze()
+
+        y_true1 = y_true.float()
+        y_pred1 = y_pred.float()
+
+        a = self.bce_loss(y_pred1, y_true1)
+        b = self.soft_dice_loss(y_true1, y_pred1)
+        c = self.focal(y_pred1, y_true1)
+        return a + b + c
+
+
 class MixedLoss(nn.Module):
     def __init__(self, alpha, gamma):
         super().__init__()
         self.alpha = alpha
-        self.focal = FocalLoss(gamma)
+        self.focal = FocalLoss2d(gamma)
         self.dice = DiceLoss()
 
     def forward(self, target, pred):
