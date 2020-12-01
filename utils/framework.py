@@ -7,15 +7,11 @@ import numpy as np
 from utils.Optimizer import Optim
 from networks.Resnet18Unet import ResNet18Unet, ResNet34Unet, ResNeXt50Unet, ResNeXt50Unetv2
 from networks.unet_model import Res34Unetv3, Res34Unetv4, Res34Unetv5, ResXt50Unetv5
-from networks.unet_att_Dyrelu import UNet_att_Dyre
 from networks.dinknet import DinkNet50, DinkNet34, DinkNet50V2
 from networks.CombineNet import CombineNet
-from networks.unet import Unet
-from networks.baseline_6_Frelu import UNet
 from utils.loss_2 import SegmentationLosses
 from utils.ranger import Ranger  # this is from ranger.py
 from utils.loss import dice_bce_loss
-from networks.baseline_6_Frelu import UNet
 from networks.Ensemble import MyEnsemble
 # Mixed Precision training
 from apex import amp
@@ -459,7 +455,7 @@ class MyFrame():
         self.net.load_state_dict(checkpoint['model'])
 
     def load(self, path):
-        self.net.load_state_dict(torch.load(path))
+        self.net.load_state_dict(torch.load(path)['model'])
 
     def update_lr(self, new_lr, mylog, factor=False):
         return self.CosineLR.step()
