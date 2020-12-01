@@ -25,7 +25,7 @@ solver = MyFrame(args, )
 
 train_dataloader, val_dataloader, _ = make_dataloader(args)
 
-mylog = open('logs/' + NAME + now + '.log', 'w')
+mylog = open('logs/' + NAME + '.log', 'w')
 print(args, file=mylog)
 mylog.flush()
 tic = time()
@@ -33,7 +33,8 @@ no_optim = 0
 total_epoch = args.epochs
 train_epoch_best_loss = 100.
 
-writer = SummaryWriter()
+logdir = 'logs/' + NAME
+writer = SummaryWriter(logdir,)
 
 
 def valid(epoch, it_train_num):
