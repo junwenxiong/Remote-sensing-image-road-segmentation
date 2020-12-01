@@ -4,7 +4,7 @@ import torch.nn.functional as F
 import torchvision
 from .resnet import resnet34, resnext50_32x4d
 from .dyrelu import DyReLUB, DyReLUA
-
+from .resnest import resnest50
 
 @torch.jit.script
 def mish(input):
@@ -454,6 +454,72 @@ class ResXt50Unetv5(nn.Module):
         e3 = self.encode3(e2)  # 128, 128, 128
         e4 = self.encode4(e3)  # 256, 64, 64
         e5 = self.encode5(e4)  # 512, 32, 32
+
+        f = self.center(e5)  # 256, 8, 8
+
+        d5 = self.decode5(f, e5)  # 64, 32, 32
+        d4 = self.decode4(d5, e4)  # 64, 64, 64
+        d3 = self.decode3(d4, e3)  # 64, 128, 128
+        d2 = self.decode2(d3, e2)  # 64, 256, 256
+
+        f = torch.cat(
+            (d2,
+             F.upsample(
+                 d3, scale_factor=2, mode='bilinear', align_corners=True),
+             F.upsample(
+                 d4, scale_factor=4, mode='bilinear', align_corners=True),
+             F.upsample(
+                 d5, scale_factor=8, mode='bilinear', align_corners=True)),
+            1)  # 256, 256, 256
+
+        f = F.dropout2d(f, p=0.4)
+        logit = self.logit(f)  # 1, 128, 128
+
+        return logit
+
+
+class ResSt50Unetv5(nn.Module):
+    def __init__(self,
+                 num_classes=1,
+                 num_channels=3,
+                 pretrained=True,
+                 dyrelu=False):
+        super(ResSt50Unetv5, self).__init__()
+        self.pretrained = pretrained
+        filters = [64, 256, 512, 1024, 2048]
+        self.resnet = resnest50(pretrained=self.pretrained)
+
+        self.conv1 = nn.Sequential(
+            nn.Conv2d(3, 64, kernel_size=3, padding=1, bias=False),
+            # self.resnet.conv1,
+            self.resnet.bn1, 
+            self.resnet.relu)
+
+        self.encode2 = nn.Sequential(self.resnet.layer1, SCse(filters[1]))  # 256
+        self.encode3 = nn.Sequential(self.resnet.layer2, SCse(filters[2]))  # 512
+        self.encode4 = nn.Sequential(self.resnet.layer3, SCse(filters[3]))  # 1024
+        self.encode5 = nn.Sequential(self.resnet.layer4, SCse(filters[4]))  # 2048
+
+        self.center = nn.Sequential(FPAv2(filters[4], filters[3]), nn.MaxPool2d(2, 2))  # 2048 1024
+
+        self.decode5 = Decoderv2(filters[3], filters[4], filters[1])  # 1024, 2048, 256
+        self.decode4 = Decoderv2(filters[1], filters[3], filters[1])  # 256, 1024, 256  
+        self.decode3 = Decoderv2(filters[1], filters[2], filters[1])  # 256, 512 , 256
+        self.decode2 = Decoderv2(filters[1], filters[1], filters[1])  # 256， 256， 256
+
+        self.logit = nn.Sequential(
+            nn.Conv2d(1024, 32, kernel_size=3, padding=1), 
+            nn.ELU(True),
+            nn.Conv2d(32, 1, kernel_size=1, bias=False), 
+            nn.Sigmoid())
+
+    def forward(self, x):
+        # x: batch_size, 3, 256, 256
+        x = self.conv1(x)  # 64, 256, 256
+        e2 = self.encode2(x)  # 256, 256, 256
+        e3 = self.encode3(e2)  # 512, 128, 128
+        e4 = self.encode4(e3)  # 1024, 64, 64
+        e5 = self.encode5(e4)  # 2048, 32, 32
 
         f = self.center(e5)  # 256, 8, 8
 

@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-from .resnet import resnet18, resnet34, resnet50, resnext50_32x4d, resnext101_32x8d
+from .resnet import resnet18, resnet34, resnet50, resnext50_32x4d
 import torch.nn.functional as F
 from .dyrelu import DyReLUB
 
@@ -383,11 +383,11 @@ class ResNet34Unet(nn.Module):
         d2 = self.decoder2(torch.cat([d3, e1], 1))
         d1 = self.decoder1(torch.cat([d2, x], 1))
 
-        f = self.finalconv(d1)
-        # f = self.finalconv1(d1)
-        # f = self.bn1(f)
-        # f = self.relu(f)
-        # f = self.finalconv2(f)
+        # f = self.finalconv(d1)
+        f = self.finalconv1(d1)
+        f = self.bn1(f)
+        f = self.relu(f)
+        f = self.finalconv2(f)
         f = self.sigmoid(f)
         return f
 
