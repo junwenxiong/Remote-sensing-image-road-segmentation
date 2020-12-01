@@ -6,9 +6,11 @@ import torch.nn as nn
 from torch.autograd import Variable
 from torchvision import models
 import torch.nn.functional as F
-from .resnet import resnet34, resnet50, resnet101
+from .resnet import resnet34, resnet50, resnet101, resnext50_32x4d
+from .pyconvhgresnet import pyconvhgresnet50, pyconvhgresnet101
 from functools import partial
 from .dyrelu import DyReLUB
+from .resnest import resnest50, resnest101
 
 nonlinearity = partial(F.relu, inplace=True)
 
@@ -225,7 +227,11 @@ class DinkNet34_less_pool(nn.Module):
 
 
 class DinkNet34(nn.Module):
-    def __init__(self, num_classes=1, num_channels=3, pretrained=True, dyrelu=False):
+    def __init__(self,
+                 num_classes=1,
+                 num_channels=3,
+                 pretrained=True,
+                 dyrelu=False):
         super(DinkNet34, self).__init__()
 
         filters = [64, 128, 256, 512]
@@ -250,12 +256,12 @@ class DinkNet34(nn.Module):
         if dyrelu:
             self.finalrelu1 = DyReLUB(32)
         else:
-            self.finalrelu1 = swish
+            self.finalrelu1 = nonlinearity
         self.finalconv2 = nn.Conv2d(32, 32, 3, padding=1)
         if dyrelu:
             self.finalrelu2 = DyReLUB(32)
         else:
-            self.finalrelu2 = swish
+            self.finalrelu2 = nonlinearity
         self.finalconv3 = nn.Conv2d(32, num_classes, 3, padding=1)
 
     def forward(self, x):
@@ -341,6 +347,199 @@ class DinkNet50(nn.Module):
         d2 = self.decoder2(d3) + e1
         d1 = self.decoder1(d2)
         out = self.finaldeconv1(d1)
+        out = self.finalrelu1(out)
+        out = self.finalconv2(out)
+        out = self.finalrelu2(out)
+        out = self.finalconv3(out)
+
+        return F.sigmoid(out)
+
+# resnext50
+class DinkNet50V2(nn.Module):
+    def __init__(self, num_classes=1, pretrained=True, dyrelu=False):
+        super(DinkNet50V2, self).__init__()
+
+        filters = [256, 512, 1024, 2048]
+        resnet = resnext50_32x4d(pretrained=pretrained)
+        self.firstconv = resnet.conv1
+        self.firstbn = resnet.bn1
+        self.firstrelu = resnet.relu
+        self.firstmaxpool = resnet.maxpool
+        self.encoder1 = resnet.layer1
+        self.encoder2 = resnet.layer2
+        self.encoder3 = resnet.layer3
+        self.encoder4 = resnet.layer4
+
+        self.dblock = Dblock_more_dilate(2048, dyrelu)
+
+        self.decoder4 = DecoderBlock(filters[3], filters[2], dyrelu)
+        self.decoder3 = DecoderBlock(filters[2], filters[1], dyrelu)
+        self.decoder2 = DecoderBlock(filters[1], filters[0], dyrelu)
+        self.decoder1 = DecoderBlock(filters[0], filters[0], dyrelu)
+
+        self.finaldeconv1 = nn.ConvTranspose2d(filters[0], 32, 4, 2, 1)
+        if dyrelu:
+            self.finalrelu1 = DyReLUB(32)
+        else:
+            self.finalrelu1 = nonlinearity
+        self.finalconv2 = nn.Conv2d(32, 32, 3, padding=1)
+        if dyrelu:
+            self.finalrelu2 = DyReLUB(32)
+        else:
+            self.finalrelu2 = nonlinearity
+        self.finalconv3 = nn.Conv2d(32, num_classes, 3, padding=1)
+
+    def forward(self, x):
+        # Encoder
+        x = self.firstconv(x)
+        x = self.firstbn(x)
+        x = self.firstrelu(x)
+        x = self.firstmaxpool(x)
+        e1 = self.encoder1(x)
+        e2 = self.encoder2(e1)
+        e3 = self.encoder3(e2)
+        e4 = self.encoder4(e3)
+
+        # Center
+        e4 = self.dblock(e4)
+
+        # Decoder
+        d4 = self.decoder4(e4) + e3
+        d3 = self.decoder3(d4) + e2
+        d2 = self.decoder2(d3) + e1
+        d1 = self.decoder1(d2)
+        out = self.finaldeconv1(d1)
+        out = self.finalrelu1(out)
+        out = self.finalconv2(out)
+        out = self.finalrelu2(out)
+        out = self.finalconv3(out)
+
+        return F.sigmoid(out)
+
+
+# resnest50
+class DinkNet50V3(nn.Module):
+    def __init__(self, num_classes=1, pretrained=True, dyrelu=False):
+        super(DinkNet50V3, self).__init__()
+
+        filters = [256, 512, 1024, 2048]
+        resnet = resnest50(pretrained=pretrained)
+        self.firstconv = resnet.conv1
+        self.firstbn = resnet.bn1
+        self.firstrelu = resnet.relu
+        self.firstmaxpool = resnet.maxpool
+        self.encoder1 = resnet.layer1
+        self.encoder2 = resnet.layer2
+        self.encoder3 = resnet.layer3
+        self.encoder4 = resnet.layer4
+
+        self.dblock = Dblock_more_dilate(2048, dyrelu)
+
+        self.decoder4 = DecoderBlock(filters[3], filters[2], dyrelu)
+        self.decoder3 = DecoderBlock(filters[2], filters[1], dyrelu)
+        self.decoder2 = DecoderBlock(filters[1], filters[0], dyrelu)
+        self.decoder1 = DecoderBlock(filters[0], filters[0], dyrelu)
+
+        self.finaldeconv1 = nn.ConvTranspose2d(filters[0], 32, 4, 2, 1)
+        if dyrelu:
+            self.finalrelu1 = DyReLUB(32)
+        else:
+            self.finalrelu1 = nonlinearity
+        self.finalconv2 = nn.Conv2d(32, 32, 3, padding=1)
+        if dyrelu:
+            self.finalrelu2 = DyReLUB(32)
+        else:
+            self.finalrelu2 = nonlinearity
+        self.finalconv3 = nn.Conv2d(32, num_classes, 3, padding=1)
+
+    def forward(self, x):
+        # Encoder
+        x = self.firstconv(x)
+        x = self.firstbn(x)
+        x = self.firstrelu(x)
+        x = self.firstmaxpool(x)
+        e1 = self.encoder1(x)
+        e2 = self.encoder2(e1)
+        e3 = self.encoder3(e2)
+        e4 = self.encoder4(e3)
+
+        # Center
+        e4 = self.dblock(e4)
+
+        # Decoder
+        d4 = self.decoder4(e4) + e3
+        d3 = self.decoder3(d4) + e2
+        d2 = self.decoder2(d3) + e1
+        d1 = self.decoder1(d2)
+        out = self.finaldeconv1(d1)
+        out = self.finalrelu1(out)
+        out = self.finalconv2(out)
+        out = self.finalrelu2(out)
+        out = self.finalconv3(out)
+
+        return F.sigmoid(out)
+
+
+class DinkNet34_FPN4(nn.Module):
+    def __init__(self, num_classes=1, num_channels=3):
+        super(DinkNet34_FPN4, self).__init__()
+
+        filters = [64, 128, 256, 512]
+        resnet = models.resnet34(pretrained=False)
+        self.firstconv = resnet.conv1
+        self.firstbn = resnet.bn1
+        self.firstrelu = resnet.relu
+        self.firstmaxpool = resnet.maxpool
+        self.encoder1 = resnet.layer1
+        self.encoder2 = resnet.layer2
+        self.encoder3 = resnet.layer3
+        self.encoder4 = resnet.layer4
+
+        self.dblock = Dblock(512, False)
+
+        self.decoder4 = DecoderBlock(filters[3], filters[2], False)
+        self.decoder3 = DecoderBlock(filters[2], filters[1], False)
+        self.decoder2 = DecoderBlock(filters[1], filters[0], False)
+        self.decoder1 = DecoderBlock(filters[0], filters[0], False)
+
+        self.finaldeconv1 = nn.ConvTranspose2d(filters[0] * 8, 32, 4, 2, 1)
+        self.finalrelu1 = torch.nn.ELU(True)
+
+        self.finalconv2 = nn.Conv2d(32, 32, 3, padding=1)
+        self.finalrelu2 = torch.nn.ELU(True)
+        self.finalconv3 = nn.Conv2d(32, num_classes, 3, padding=1)
+
+    def forward(self, x):
+        # Encoder
+        x = self.firstconv(x)
+        x = self.firstbn(x)
+        x = self.firstrelu(x)
+        x = self.firstmaxpool(x)  # 256
+        e1 = self.encoder1(x)  # 256
+        e2 = self.encoder2(e1)  # 128
+        e3 = self.encoder3(e2)  # 64
+        e4 = self.encoder4(e3)  # 32
+
+        # Center
+        e4 = self.dblock(e4)  # 32
+
+        # Decoder
+        d4 = self.decoder4(e4) + e3  # 256  64
+        d3 = self.decoder3(d4) + e2  # 64  128
+        d2 = self.decoder2(d3) + e1  # 64  256
+        d1 = self.decoder1(d2)  #64  512
+
+        f = torch.cat(
+            (d1,
+             F.upsample(
+                 d2, scale_factor=2, mode='bilinear', align_corners=True),
+             F.upsample(
+                 d3, scale_factor=4, mode='bilinear', align_corners=True),
+             F.upsample(
+                 d4, scale_factor=8, mode='bilinear', align_corners=True)),
+            1)  #
+
+        out = self.finaldeconv1(f)  #32 1024
         out = self.finalrelu1(out)
         out = self.finalconv2(out)
         out = self.finalrelu2(out)
