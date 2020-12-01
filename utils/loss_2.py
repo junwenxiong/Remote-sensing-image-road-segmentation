@@ -32,6 +32,25 @@ class SegmentationLosses(object):
             return self.mixedloss
         if mode == 'dice_bce_focal':
             return self.dice_bce_focal_loss
+        if mode == 'aux':
+            return self.loss_aux
+
+    def loss_aux(self, logit, target):
+        pred1 = logit[0]
+        pred2 = logit[1]
+        aux_weight = 0.4
+        weight = torch.tensor([0.1])
+        if self.cuda:
+            criterion1 = dice_bce_loss().cuda()
+            criterion2 = nn.BCEWithLogitsLoss(pos_weight=weight).cuda()
+            
+        else:
+            criterion1 = dice_bce_loss()
+            criterion2 = nn.BCEWithLogitsLoss(pos_weight=weight)
+        loss1 = criterion1(pred1, target)
+        loss2 = criterion2(pred2, target)
+
+        return loss1 + aux_weight * loss2
 
     def dice(self, logit, target):
         if self.cuda:

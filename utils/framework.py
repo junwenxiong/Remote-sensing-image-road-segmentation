@@ -7,8 +7,10 @@ import numpy as np
 from utils.Optimizer import Optim
 from networks.Resnet18Unet import ResNet18Unet, ResNet34Unet, ResNeXt50Unet, ResNeXt50Unetv2
 from networks.unet_model import Res34Unetv3, Res34Unetv4, Res34Unetv5, ResXt50Unetv5
-from networks.dinknet import DinkNet50, DinkNet34, DinkNet50V2
+from networks.dinknet import DinkNet50, DinkNet34, DinkNet50V2, DinkNet50V3_FCN
+from networks.deeplab import DeepLabV3_FCN
 from networks.CombineNet import CombineNet
+from networks.baseline import UNet
 from utils.loss_2 import SegmentationLosses
 from utils.ranger import Ranger  # this is from ranger.py
 from utils.loss import dice_bce_loss
@@ -42,13 +44,17 @@ class MyFrame():
                 self.net = DinkNet34(pretrained=True)
             elif args.backbone == 'dinknet50v2':
                 self.net = DinkNet50V2(pretrained=True)
-
+            elif args.aux and args.backbone == 'dinknet50v3_fcn':
+                self.net = DinkNet50V3_FCN(pretrained=True)
+            elif args.aux and args.backbone == 'deeplabv3_fcn':
+                self.net = DeepLabV3_FCN(pretrained=True)
+                
         if args.combine == 'True':
             self.model1_name = args.model1
             self.model2_name = args.model2
 
             if self.model1_name == 'unet':
-                self.modelA = Unet()
+                self.modelA = UNet()
             elif self.model1_name == 'resunet34':
                 self.modelA = ResNet34Unet(pretrained=False)
             elif self.model1_name == 'resunet18':
@@ -91,7 +97,7 @@ class MyFrame():
 
         if args.test == 'True':
             if args.backbone == 'unet':
-                self.net = Unet()
+                self.net = UNet()
             elif args.backbone == 'resunet34':
                 self.net = ResNet34Unet()
             elif args.backbone == 'resunet18':
@@ -185,9 +191,9 @@ class MyFrame():
         gt = self.combine_mask.squeeze().cpu().data.numpy()
         pred_label[pred_label > 0.5] = 1
         pred_label[pred_label <= 0.5] = 0
-        
-        confusion_matrix = self._generate_matrix(
-            gt.astype(np.int8), pred_label.astype(np.int8))
+
+        confusion_matrix = self._generate_matrix(gt.astype(np.int8),
+                                                 pred_label.astype(np.int8))
         miou = self._Class_IOU(confusion_matrix)
         acc = np.diag(confusion_matrix).sum() / confusion_matrix.sum()
 
@@ -195,7 +201,7 @@ class MyFrame():
 
     def ensemble_optimize(self):
         self.optimizer.zero_grad()
-        
+
         modelA_pred = self.modelA_multi_scale_predict(self.combine_img)
         modelB_pred = self.modelB_multi_scale_predict(self.combine_img)
 
@@ -204,7 +210,7 @@ class MyFrame():
         loss = self.loss(output, self.combine_mask)
         with amp.scale_loss(loss, self.optimizer) as scaled_loss:
             scaled_loss.backward()
-        
+
         self.optimizer.step()
         return loss.item()
 
@@ -399,7 +405,8 @@ class MyFrame():
             pred,
             self.mask,
         )
-
+        if self.args.aux:
+            pred = pred[0]
         pred_label = pred.squeeze().cpu().data.numpy()
         gt = self.mask.squeeze().cpu().data.numpy()
         pred_label[pred_label > 0.5] = 1
@@ -459,7 +466,7 @@ class MyFrame():
 
     def update_lr(self, new_lr, mylog, factor=False):
         return self.CosineLR.step()
-    
+
     def save_img(pred, src):
         img = np.float32(pred)
         cv.cvtColor(pred, cv.COLOR_GRAY2BGR)

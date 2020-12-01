@@ -9,13 +9,18 @@ def make_args():
                         choices=[
                             'unet', 'resunet34', 'resunet18', 'resxtunet34',
                             'combinenet', 'res34unetv5', 'dinknet34',
-                            'resnext50unetv2', 'dinknet50v2'
+                            'resnext50unetv2', 'dinknet50v2', 'dinknet50v3_fcn',
+                            'deeplabv3_fcn'
                         ],
                         help="backbone name (default: unet)")
     parser.add_argument('--dyrelu',
                         type=str,
                         default=False,
                         help="decide whether to use dynamic relu func ")
+    parser.add_argument('--aux',
+                        type=str,
+                        default=False,
+                        help="Auxilary Loss ")
     parser.add_argument('--dataset',
                         type=str,
                         default='./huawei/',
@@ -60,7 +65,7 @@ def make_args():
                         type=str,
                         choices=[
                             'dice_bce', 'lovasz', 'ce', 'focal', 'dice',
-                            'mixed', 'dice_bce_focal'
+                            'mixed', 'dice_bce_focal', 'aux'
                         ],
                         help='loss type ')
     parser.add_argument('--resume',
