@@ -10,7 +10,6 @@ from utils.args_config import make_args
 from utils.loss_2 import SegmentationLosses
 from torch.utils.data import DataLoader
 
-
 args = make_args()
 print(args)
 
@@ -19,7 +18,6 @@ now = strftime('-%m-%d-%H-%M', localtime())
 model_dir = './weights/' + NAME + now + '/'
 if not os.path.exists(model_dir):
     os.mkdir(model_dir)
-
 
 solver = MyFrame(args, )
 
@@ -34,7 +32,7 @@ total_epoch = args.epochs
 train_epoch_best_loss = 100.
 
 logdir = 'logs/' + NAME
-writer = SummaryWriter(logdir,)
+writer = SummaryWriter(logdir, )
 
 
 def valid(epoch, it_train_num):
@@ -84,7 +82,10 @@ def valid(epoch, it_train_num):
     print('val_miou', val_miou, 'val_acc', val_acc, 'val_loss:',
           val_epoch_loss)
 
+    return val_miou
 
+
+best_miou = 0
 for epoch in range(0, total_epoch + 1):
     data_loader_iter = iter(train_dataloader)
     train_epoch_loss = 0
@@ -102,7 +103,7 @@ for epoch in range(0, total_epoch + 1):
     train_epoch_loss /= len(data_loader_iter)
     writer.add_scalar('dataset/train_epoch_loss', train_epoch_loss, epoch)
 
-    valid(epoch, it_train_num)
+    val_miou = valid(epoch, it_train_num)
 
     print('*********', file=mylog)
     print('epoch:', epoch, '    time:', int(time() - tic), file=mylog)
@@ -116,8 +117,12 @@ for epoch in range(0, total_epoch + 1):
     else:
         no_optim = 0
         train_epoch_best_loss = train_epoch_loss
-        solver.save(model_dir + NAME + '%d.pth' % epoch)
-        str = NAME + '%d.pth' % epoch
+        if best_miou < val_miou:
+            best_miou = val_miou
+            solver.save(model_dir + NAME +
+                        '{}_miou_{}.pth'.format(epoch, val_miou))
+            str = NAME + '{}_miou_{}.pth'.format(epoch, val_miou)
+            
     if no_optim > 8:
         print('early stop at %d epoch', file=mylog)
 
