@@ -10,7 +10,7 @@ def make_args():
                             'unet', 'resunet34', 'resunet18', 'resxtunet34',
                             'combinenet', 'res34unetv5', 'dinknet34',
                             'resnext50unetv2', 'dinknet50v2', 'dinknet50v3_fcn',
-                            'deeplabv3_fcn'
+                            'deeplabv3_fcn', 'dinknet50psp_fcn'
                         ],
                         help="backbone name (default: unet)")
     parser.add_argument('--dyrelu',

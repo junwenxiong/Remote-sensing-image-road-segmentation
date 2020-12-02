@@ -7,7 +7,7 @@ import numpy as np
 from utils.Optimizer import Optim
 from networks.Resnet18Unet import ResNet18Unet, ResNet34Unet, ResNeXt50Unet, ResNeXt50Unetv2
 from networks.unet_model import Res34Unetv3, Res34Unetv4, Res34Unetv5, ResXt50Unetv5
-from networks.dinknet import DinkNet50, DinkNet34, DinkNet50V2, DinkNet50V3_FCN
+from networks.dinknet import DinkNet50, DinkNet34, DinkNet50V2, DinkNet50V3_FCN, DinkNet50PSP_FCN
 from networks.deeplab import DeepLabV3_FCN
 from networks.CombineNet import CombineNet
 from networks.baseline import UNet
@@ -48,6 +48,9 @@ class MyFrame():
                 self.net = DinkNet50V3_FCN(pretrained=True)
             elif args.aux and args.backbone == 'deeplabv3_fcn':
                 self.net = DeepLabV3_FCN(pretrained=True)
+            elif args.aux and args.backbone == 'dinknet50psp_fcn':
+                self.net = DinkNet50PSP_FCN(pretrained=True)
+
 
         if args.combine == 'True':
             self.model1_name = args.model1
@@ -123,9 +126,9 @@ class MyFrame():
             self.CosineLR = torch.optim.lr_scheduler.CosineAnnealingLR(
                 self.optimizer, T_max=150, eta_min=0)
             self.loss = SegmentationLosses(cuda=True).build_loss(args.loss)
-            # self.net, self.optimizer = amp.initialize(self.net,
-            #                                           self.optimizer,
-            #                                           opt_level="O1")
+            self.net, self.optimizer = amp.initialize(self.net,
+                                                      self.optimizer,
+                                                      opt_level="O1")
         else:
             self.device = torch.device(f'cuda:{args.local_rank}')
             self.net = convert_syncbn_model(self.net).to(self.device)
@@ -371,9 +374,9 @@ class MyFrame():
             pred,
             self.mask,
         )  # pred mask : 20*1*1024*1024
-        # with amp.scale_loss(loss, self.optimizer) as scaled_loss:
-        #     scaled_loss.backward()
-        loss.backward()
+        with amp.scale_loss(loss, self.optimizer) as scaled_loss:
+            scaled_loss.backward()
+        # loss.backward()
         self.optimizer.step()
         return loss.item()
 
