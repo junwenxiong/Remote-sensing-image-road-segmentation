@@ -48,7 +48,7 @@ class MyFrame():
                 self.net = DinkNet50V3_FCN(pretrained=True)
             elif args.aux and args.backbone == 'deeplabv3_fcn':
                 self.net = DeepLabV3_FCN(pretrained=True)
-                
+
         if args.combine == 'True':
             self.model1_name = args.model1
             self.model2_name = args.model2
@@ -447,7 +447,6 @@ class MyFrame():
 
         weight_dict = {
             'model': self.model_state_dict,
-            'optimizer': self.optimizer.state_dict(),
         }
         torch.save(weight_dict, path)
 
