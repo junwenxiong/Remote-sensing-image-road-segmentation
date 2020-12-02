@@ -99,3 +99,59 @@ class DeepLabV3Head(nn.Module):
         x = self.aspp(x)
         x = self.block(x)
         return x
+
+
+class PyramidPooling(nn.Module):
+    def __init__(self, in_channels, norm_layer, up_kwargs):
+        super(PyramidPooling, self).__init__()
+        self.pool1 = nn.AdaptiveAvgPool2d(1)
+        self.pool2 = nn.AdaptiveAvgPool2d(2)
+        self.pool3 = nn.AdaptiveAvgPool2d(3)
+        self.pool4 = nn.AdaptiveAvgPool2d(6)
+
+        out_channels = int(in_channels/4)
+        self.conv1 = nn.Sequential(nn.Conv2d(in_channels, out_channels, 1, bias=False),
+                                   norm_layer(out_channels),
+                                   nn.ReLU(True))
+        self.conv2 = nn.Sequential(nn.Conv2d(in_channels, out_channels, 1, bias=False),
+                                   norm_layer(out_channels),
+                                   nn.ReLU(True))
+        self.conv3 = nn.Sequential(nn.Conv2d(in_channels, out_channels, 1, bias=False),
+                                   norm_layer(out_channels),
+                                   nn.ReLU(True))
+        self.conv4 = nn.Sequential(nn.Conv2d(in_channels, out_channels, 1, bias=False),
+                                   norm_layer(out_channels),
+                                   nn.ReLU(True))
+
+        self._up_kwargs = up_kwargs
+    
+    def forward(self, x):
+        _, _, h, w = x.size()
+        pool1 = self.pool1(x)
+        conv1 = self.conv1(pool1)
+        feat1 = F.interpolate(conv1, (h, w), **self._up_kwargs)
+        pool2 = self.pool2(x)
+        conv2 = self.conv2(pool2)
+        feat2 = F.interpolate(conv2, (h, w), **self._up_kwargs)
+        pool3 = self.pool3(x)
+        conv3 = self.conv3(pool3)
+        feat3 = F.interpolate(conv3, (h, w), **self._up_kwargs)
+        pool4 = self.pool4(x)
+        conv4 = self.conv4(pool4)
+        feat4 = F.interpolate(conv4, (h, w), **self._up_kwargs)
+        return torch.cat((x, feat1, feat2, feat3, feat4), 1)
+
+
+class PSPHead(nn.Module):
+    def __init__(self, in_channels, out_channels, norm_layer, up_kwargs):
+        super(PSPHead, self).__init__()
+        inter_channels = in_channels // 4
+        self.conv = nn.Sequential(
+            PyramidPooling(in_channels, norm_layer, up_kwargs),
+            nn.Conv2d(in_channels * 2, inter_channels, 3, padding=1, bias=False),
+            norm_layer(inter_channels),
+            nn.ReLU(True),
+            nn.Conv2d(inter_channels, out_channels, 1))
+
+    def forward(self, x):
+        return self.conv(x)

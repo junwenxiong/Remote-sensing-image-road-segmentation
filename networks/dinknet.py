@@ -11,7 +11,7 @@ from .pyconvhgresnet import pyconvhgresnet50, pyconvhgresnet101
 from functools import partial
 from .dyrelu import DyReLUB
 from .resnest import resnest50, resnest101
-from .customize import FCNHead
+from .customize import FCNHead, PSPHead
 from torch.nn.functional import interpolate
 nonlinearity = partial(F.relu, inplace=True)
 
@@ -515,6 +515,81 @@ class DinkNet50V3_FCN(nn.Module):
         self.encoder4 = resnet.layer4
 
         self.dblock = Dblock(2048, dyrelu)
+
+        self.decoder4 = DecoderBlock(filters[3], filters[2], dyrelu)
+        self.decoder3 = DecoderBlock(filters[2], filters[1], dyrelu)
+        self.decoder2 = DecoderBlock(filters[1], filters[0], dyrelu)
+        self.decoder1 = DecoderBlock(filters[0], filters[0], dyrelu)
+
+        self.auxlayer = FCNHead(filters[2], num_classes)
+
+        self.finaldeconv1 = nn.ConvTranspose2d(filters[0], 32, 4, 2, 1)
+        if dyrelu:
+            self.finalrelu1 = DyReLUB(32)
+        else:
+            self.finalrelu1 = nonlinearity
+        self.finalconv2 = nn.Conv2d(32, 32, 3, padding=1)
+        if dyrelu:
+            self.finalrelu2 = DyReLUB(32)
+        else:
+            self.finalrelu2 = nonlinearity
+        self.finalconv3 = nn.Conv2d(32, num_classes, 3, padding=1)
+
+    def forward(self, x):
+        _, _, h, w = x.size()
+        # Encoder
+        x = self.firstconv(x)
+        x = self.firstbn(x)
+        x = self.firstrelu(x)
+        x = self.firstmaxpool(x)
+        e1 = self.encoder1(x)
+        e2 = self.encoder2(e1)
+        e3 = self.encoder3(e2)
+        e4 = self.encoder4(e3)
+
+        # Center
+        e4 = self.dblock(e4)
+        outs = []
+        # Decoder
+        d4 = self.decoder4(e4) + e3
+        d3 = self.decoder3(d4) + e2
+        d2 = self.decoder2(d3) + e1
+        d1 = self.decoder1(d2)
+        out = self.finaldeconv1(d1)
+        out = self.finalrelu1(out)
+        out = self.finalconv2(out)
+        out = self.finalrelu2(out)
+        out = self.finalconv3(out)
+        out = F.sigmoid(out)
+
+        outs.append(out)
+
+        auxout = self.auxlayer(e3)
+        auxout = interpolate(auxout, (h, w), **up_kwargs)
+        auxout = F.sigmoid(auxout)
+        outs.append(auxout)
+
+        return tuple(outs)
+
+
+class DinkNet50PSP_FCN(nn.Module):
+    def __init__(self, num_classes=1, pretrained=True, dyrelu=False):
+        super(DinkNet50PSP_FCN, self).__init__()
+
+        filters = [256, 512, 1024, 2048]
+        resnet = resnest50(pretrained=pretrained)
+        self.firstconv = resnet.conv1
+        self.firstbn = resnet.bn1
+        self.firstrelu = resnet.relu
+        self.firstmaxpool = resnet.maxpool
+        self.encoder1 = resnet.layer1
+        self.encoder2 = resnet.layer2
+        self.encoder3 = resnet.layer3
+        self.encoder4 = resnet.layer4
+
+        self._up_kwargs = up_kwargs
+        self.norm_layer = nn.BatchNorm2d
+        self.dblock = PSPHead(filters[3], filters[3], self.norm_layer, self._up_kwargs)
 
         self.decoder4 = DecoderBlock(filters[3], filters[2], dyrelu)
         self.decoder3 = DecoderBlock(filters[2], filters[1], dyrelu)
